@@ -87,7 +87,7 @@ export default function AuthOnly() {
             AUTHORIZED <br></br> SUCCESSFULLY
           </Heading> 
 
-          <Paragraph textAlign="center">
+          <Paragraph textAlign="center" size="large">
               Now you can participate in the Alpha Drop.
             </Paragraph>
 

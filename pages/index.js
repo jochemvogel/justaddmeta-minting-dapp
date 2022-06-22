@@ -11,15 +11,7 @@ import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
-import {
-  Image,
-  Card,
-  Box,
-  Button,
-  Text,
-  Heading,
-  Paragraph,
-} from "grommet";
+import { Image, Card, Box, Button, Text, Heading, Paragraph } from "grommet";
 // import { Airdrop } from "../components/Airdrop";
 
 export default function Home() {
@@ -27,15 +19,14 @@ export default function Home() {
   const address = useAddress();
   const isOnWrongNetwork = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
-
+  const connectWallet = useMetamask();
+  const disconnectWallet = useDisconnect();
   const [authStarted, setAuthStarted] = useState(false);
 
   // Get the NFT Collection we deployed using thirdweb+
   const nftCollectionContract = useNFTCollection(
     "0xD93bEC957B531Ce2Ea6b86F0132ed8a8ae4ad533"
   );
-
-  const disconnectWallet = useDisconnect();
 
   // This is simply a client-side check to see if the user is a member of the discord in /api/check-is-in-server
   // We ALSO check on the server-side before providing the signature to mint the NFT in /api/generate-signature
@@ -55,12 +46,10 @@ export default function Home() {
   //   }
   // }, [session]);
 
-  
-
   const Landing = () => {
     if (!authStarted) {
       return (
-     <>
+        <>
           <Box
             width={"50%"}
             background="black"
@@ -68,8 +57,11 @@ export default function Home() {
             align="end"
             pad={"large"}
           >
-
-            <Image src="https://i.imgur.com/48dRmwN.png" width={"460px"} height={"500px"}></Image>
+            <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"460px"}
+              height={"500px"}
+            ></Image>
           </Box>
           <Box width={"50%"} background="black" pad={"32px"} justify="center">
             <Box direction="column" pad={"xsmall"}>
@@ -108,37 +100,43 @@ export default function Home() {
               </Box>
             </Box>
           </Box>
-     </>
+        </>
       );
     }
     // because we've set authStarted to true,
     // we can now render the AuthOnly component
     else {
-
       return (
         <>
-        
-        <Box
-          width={"50%"}
-          background="black"
-          justify="center"
-          align="end"
-          pad={"32px"}
-        >
-          <Image src="https://i.imgur.com/mSBSyOz.png" width={"460px"} height={"500px"}></Image>
-        </Box>
-        <Box align="start" width={"50%"} background="black" pad={"32px"} justify="center">
-          <AuthOnly/>
-        </Box>
-      </>
-        );
+          <Box
+            width={"50%"}
+            background="black"
+            justify="center"
+            align="end"
+            pad={"32px"}
+          >
+            <Image
+              src="https://i.imgur.com/mSBSyOz.png"
+              width={"460px"}
+              height={"500px"}
+            ></Image>
+          </Box>
+          <Box
+            align="start"
+            width={"50%"}
+            background="black"
+            pad={"32px"}
+            justify="center"
+          >
+            <AuthOnly />
+          </Box>
+        </>
+      );
     }
   };
 
- 
   return (
     <div>
-  
       <Box fill="horizontal" overflow="auto" align="stretch" flex="grow">
         <Box
           // height={"0%"}
@@ -148,7 +146,6 @@ export default function Home() {
           pad="small"
           background={{ dark: false, color: "black" }}
         >
-   
           <Box
             pad={"2%"}
             height={"xxsmall"}
@@ -161,34 +158,34 @@ export default function Home() {
               color="light-1"
               alignSelf="center"
               size="xlarge"
+              
             >
               JUSTADDMETA
             </Text>
           </Box>
 
-          <Box align="stretch">
-            <Box direction="row" gap="small" pad={"xsmall"}>
-              
-              {address ? (
-              <Button color={"white"}  active label="mint" size="large" />
-              ) : (
-                <Button color={"white"}  label="mint" size="large" />
-                )}
-
-              <Button  color={"white"} label="claim physical" size="large" />
-              <Button color={"white"} label="burn" size="large" />
-              {address ? (
-                <Button color={"green"} label="connected" onClick={() => disconnectWallet()} size="large" />
-              ) : (
-                <Button color={"red"} label="not connected" size="large" />
-              )}
-            </Box>
-
-            {/* <Button color={"white"} >connect discord</Button> */}
+          <Box align="stretch" >
+            {address ? (
+              <Button
+                color={"green"}
+                label="connected"
+                onClick={() => disconnectWallet()}
+                size="large"
+              />
+            ) : (
+              <Button
+                color={"red"}
+                label="not connected"
+                size="large"
+                onClick={() => connectWallet()}
+              />
+            )}
           </Box>
+
+          {/* <Button color={"white"} >connect discord</Button> */}
         </Box>
       </Box>
-     
+
       <Box background={"light-2"} height="large" direction="row">
         <Landing />
       </Box>

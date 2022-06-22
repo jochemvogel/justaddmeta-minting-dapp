@@ -149,6 +149,7 @@ export default function Airdrop() {
           "0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302",
           "0xfac0475b677b54f72682E0EA633Ffa1088110dcf",
           "0xeA718966A209c5244D8Ad686560a97F29381a84F",
+          "0x240d0a6aEFbFb5e188BdC2Ab4Bf685a9a5aA5EDD"
         ], // limit minting to only certain addresses
       },
     ];
