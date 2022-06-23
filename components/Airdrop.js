@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  addMintStat,
-  getAllMintStats,
-  getTotalMintedCount,
-} from "../utils/SupabaseClient";
-import {
   Box,
   Card,
   Heading,
