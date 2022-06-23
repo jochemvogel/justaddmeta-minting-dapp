@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import {
+  addMintStat,
+  getAllMintStats,
+  getTotalMintedCount,
+} from "../utils/SupabaseClient";
 import {
   Box,
   Card,
@@ -11,6 +15,7 @@ import {
   TextInput,
   Paragraph,
   CardHeader,
+  Image,
   CardBody,
   CardFooter,
 } from "grommet";
@@ -27,6 +32,7 @@ import {
 import { StatusGood, Validate } from "grommet-icons";
 
 export default function Airdrop() {
+  const maxSupply = 100;
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
   const address = useAddress();
@@ -34,9 +40,6 @@ export default function Airdrop() {
   const isOnWrongNetwork = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
 
-  const nftCollectionContract = useNFTCollection(
-    "0xD93bEC957B531Ce2Ea6b86F0132ed8a8ae4ad533"
-  );
   const editionDrop = useEditionDrop(
     "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
   );
@@ -44,81 +47,8 @@ export default function Airdrop() {
   const [justClaimed, setJustClaimed] = useState(false); // so we can show -mint another- instead -mint- text on button.
   // const [amount, setAmount] = useState(1); // max mint amount at a time, default 1
   const [totalMinted, setTotalMinted] = useState(0);
-
+  const [claimFailed, setClaimFailed] = useState(false);
   const [displayInfoToast, setDisplayInfoToast] = useState(false);
-  // const MintingApprove = () => {
-  //   const { push } = React.useContext(RouterContext);
-
-  //   return (
-  //     <Box align="stretch" justify="center">
-  //       <Box align="center" justify="center" pad="large">
-  //         <Box align="center" justify="center">
-  //           <Card
-  //             align="stretch"
-  //             justify="center"
-  //             direction="column"
-  //             pad="large"
-  //           >
-  //             <Box
-  //               align="stretch"
-  //               justify="center"
-  //               pad="xsmall"
-  //               direction="column"
-  //               gap="none"
-  //             >
-  //               <Text textAlign="center">Follow steps</Text>
-  //             </Box>
-  //             <Box
-  //               align="stretch"
-  //               justify="center"
-  //               pad="xsmall"
-  //               direction="column"
-  //               gap="none"
-  //             >
-  //               <Box
-  //                 align="center"
-  //                 justify="start"
-  //                 direction="row"
-  //                 pad="small"
-  //                 gap="medium"
-  //               >
-  //                 <Spinner />
-  //                 <Text>Approve Asset</Text>
-  //               </Box>
-  //             </Box>
-  //             <Box
-  //               align="stretch"
-  //               justify="center"
-  //               pad="xsmall"
-  //               direction="column"
-  //               gap="none"
-  //             >
-  //               <Box
-  //                 align="start"
-  //                 justify="start"
-  //                 direction="row"
-  //                 gap="medium"
-  //                 pad="small"
-  //               >
-  //                 <Spinner />
-  //                 <Text>Purchase</Text>
-  //               </Box>
-  //             </Box>
-  //             <Box
-  //               align="stretch"
-  //               justify="center"
-  //               pad="xsmall"
-  //               direction="column"
-  //               gap="none"
-  //             >
-  //               <Button label="Cancel" disabled />
-  //             </Box>
-  //           </Card>
-  //         </Box>
-  //       </Box>
-  //     </Box>
-  //   );
-  // };
 
   const configClaimPhases = async () => {
     const saleStartTime = new Date();
@@ -149,7 +79,7 @@ export default function Airdrop() {
           "0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302",
           "0xfac0475b677b54f72682E0EA633Ffa1088110dcf",
           "0xeA718966A209c5244D8Ad686560a97F29381a84F",
-          "0x240d0a6aEFbFb5e188BdC2Ab4Bf685a9a5aA5EDD"
+          "0x240d0a6aEFbFb5e188BdC2Ab4Bf685a9a5aA5EDD",
         ], // limit minting to only certain addresses
       },
     ];
@@ -158,35 +88,36 @@ export default function Airdrop() {
     await editionDrop.claimConditions.set(tokenId, claimConditionsJAM1);
   };
 
-  const claimProcessWindow = () => {
-    return (
-      <Card height="small" width="small" background="light-1">
-        <CardHeader pad="medium">follow steps</CardHeader>
-        <CardBody pad="medium">
-          <Box direction="column">
-            <Box direction="row">
-              <Text>Approved Asset</Text>
-              <StatusGood size="medium" />
-            </Box>
-            <Box direction="row">
-              <Spinner size="medium" margin={"xsmall"} />
-              <Text>Purchase</Text>
-            </Box>
-          </Box>
-        </CardBody>
-        <CardFooter pad={{ horizontal: "small" }} background="light-2">
-          {/* <Button
-    icon={<Icons.Favorite color="red" />}
-    hoverIndicator
-    /> */}
-          cardFooter
-          {/* <Button icon={<Icons.ShareOption color="plain" />} hoverIndicator /> */}
-        </CardFooter>
-      </Card>
-    );
+  // async function newMintStat(wallet_address, token_id, order_in_minting) {
+  //   console.log("getting the total minted count ..")
+
+  //   let x = await getTotalMintedCount();
+  //   console.log(`adding MintStat, order_in_minting: ${order_in_minting}
+  //   \n total_minted_count: ${JSON.stringify(x)} >> `)
+  //   addMintStat(wallet_address, token_id, order_in_minting);
+  // }
+
+  // const getTotalMinted = async() => {
+  //   const total  = await editionDrop.getTotalCount(); //ContractEvents
+  //   console.log(`number of tokens : ${total}`)
+  //   return total;
+  // }
+
+  const getTokenStats = async (tokenId) => {
+    const x = await editionDrop.get(tokenId);
+    const total = x.supply;
+
+    // setTotalMinted(total);
+    console.log(`total : ${total}`);
+    // console.log(`total minted state: ${totalMinted}`)
+    return total;
   };
 
-  async function claimNFT() {
+  // const tokenStat=  await getTokenStats(tokenId);
+  // const total = tokenStat.toNumber();
+  // setTotalMinted(total);
+
+  async function claimNFT(tokenId) {
     // Ensure wallet connected
     if (!address) {
       alert("Please reconnect your wallet to continue.");
@@ -208,10 +139,27 @@ export default function Airdrop() {
     setIsClaiming(true);
     // restrict claiming only one ERC1155 token at a time. The amount is configured by us.
     // for now, keeping textInput below and amount @ useState commented. we'll extract them to components later.
-    await editionDrop.claimTo(address, 1, 1);
-    setIsClaiming(false);
-    setJustClaimed(true);
-    setDisplayInfoToast(true);
+    console.log(`claiming for address: ${address}`);
+    // await history().then((x) => x.getAllClaimerAddresses(1).then((ca)=> console.log(`all claimer addresses:  ${ca}`))); // returns an EditionMetadata
+
+    const tokenStat = await getTokenStats(tokenId);
+    const total = tokenStat.toNumber();
+    //  setTotalMinted(total);
+    console.log(`current supply as state. one: ${total}`);
+    //await getTotalMinted();//.then(totalMint => console.log(totalMint))
+    // console.log("total minted: ", x);
+    if (total < maxSupply) {
+      console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
+      await editionDrop.claimTo(address, 1, 1);
+      setIsClaiming(false);
+      setJustClaimed(true);
+      setTotalMinted(total + 1);
+      setDisplayInfoToast(true);
+    }
+    // console.log(`total minted so far: ${x}`);
+
+    // console.log(`totalMinted now: ${totalMinted}`);
+    //await newMintStat(address, 1, totalMinted);
   }
 
   return (
@@ -230,48 +178,73 @@ export default function Airdrop() {
         gap="xxsmall"
       >
         <CardBody pad="medium" gap="medium">
-          <Box direction="row" gap="medium">
-            <Text alignSelf="start" size="large">
-              SUMMERJAM
-            </Text>
-            <Validate size="medium" />
-          </Box>
-
           {address && !isClaiming && !justClaimed ? (
-            <>
-              <Heading textAlign="start" size="small">
-                Metaverse has never been this delightful
-              </Heading>
-              <Paragraph textAlign="start" size="large">
-                Remarkable virtual craftsmanship meets ostentatious yet familiar
-                design. Ingredients from a different dimension and extravagant
-                hints of fruits suiting everyone&apos;s palate.
-                
-              </Paragraph>
+            <Box direction="row">
+              <Box
+                width={"50%"}
+                background="black"
+                justify="center"
+                align="start"
+                pad={"32px"}
+              >
+                <Image
+                  src="https://i.imgur.com/mSBSyOz.png"
+                  width={"460px"}
+                  height={"500px"}
+                />
+              </Box>
 
-              <Paragraph textAlign="start" size="large">
-               Exclusive limited edition of 50 summer jams
-                in three delightful varieties.
-              </Paragraph>
+              <Box
+                width={"50%"}
+                background="black"
+                justify="center"
+                align="end"
+                pad={"32px"}
+              >
+                <Box
+                  direction="row"
+                  gap="medium"
+                  alignSelf="start"
+                  pad={"small"}
+                >
+                  <Text alignSelf="start" size="large">
+                    SUMMERJAM
+                  </Text>
+                  <Validate size="medium" />
+                </Box>
+                <Heading textAlign="start" size="small">
+                  Metaverse has never been this delightful
+                </Heading>
+                <Paragraph textAlign="start" size="large">
+                  Remarkable virtual craftsmanship meets ostentatious yet
+                  familiar design. Ingredients from a different dimension and
+                  extravagant hints of fruits suiting everyone&apos;s palate.
+                </Paragraph>
 
-              <Paragraph textAlign="center" size="large">
-                             X/50 minted
+                <Paragraph textAlign="start" size="large">
+                  Exclusive limited edition of 50 summer jams in three
+                  delightful varieties.
+                </Paragraph>
 
-              </Paragraph>
-              {/* <Paragraph textAlign="center" size="large">
-              X/50 minted
-              </Paragraph> */}
-              {/* <Text size="large" margin={"xsmall"}>
-                {" "}
-                
-              </Text> */}
-              <Button
-                label="mint"
-                size="large"
-                disabled={false}
-                onClick={() => claimNFT()}
-              />
-            </>
+                {/* <Paragraph textAlign="center" size="large" margin={"small"}>
+                  {totalMinted + 1}/Y minted
+                </Paragraph> */}
+           
+             <Box size="small" margin={"small"} alignSelf="center">
+             <Button
+                  // // label="mint"
+                  // sec
+                  label="mint"
+                  primary
+                  size="large"
+                  disabled={false}
+                  onClick={() => claimNFT(1)}
+                >
+                  
+                </Button>
+             </Box>
+              </Box>
+            </Box>
           ) : null}
           {isClaiming ? (
             <Box direction="column" gap="large" margin={"medium"}>
@@ -290,8 +263,24 @@ export default function Airdrop() {
 
           {!isClaiming && justClaimed ? (
             <>
+              <Box
+                direction="row"
+                gap="medium"
+                alignSelf="center"
+                pad={"small"}
+              >
+                <Text alignSelf="start" size="large" weight={"bold"}>
+                  SUMMERJAM
+                </Text>
+                <Validate size="medium" />
+              </Box>
+              <Box background="#DCDCDC" margin={"medium"} pad="small">
+                <Text textAlign="center" size="xlarge" weight={"bold"}>
+                  {totalMinted}/100 minted
+                </Text>
+              </Box>
               <Box direction="column" gap="medium">
-                <Box direction="row" gap="small" size="large">
+                <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
                   <Text size="xxlarge"> Asset Approval</Text>{" "}
                 </Box>
@@ -299,10 +288,13 @@ export default function Airdrop() {
                   <StatusGood size="large" alignSelf="center" />
                   <Text size="xxlarge"> Asset Purchase </Text>
                 </Box>
-                {/* <Box direction="row" gap="small" size="large">
-              <StatusGood size="medium" alignSelf="center" />
-              <Text size="xxlarge"> Minted</Text>
-            </Box> */}
+                {/* <Box margin={"small"} width="small" alignSelf="center">
+                  <Button
+                    size="large"
+                    label="Continue"
+                    onClick={() => checkThisOut()}
+                  ></Button>
+                </Box> */}
               </Box>
             </>
           ) : null}
