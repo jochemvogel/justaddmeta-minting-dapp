@@ -34,6 +34,7 @@ export default function AuthOnly() {
     return;
   }
 
+  
   return (
     <Box align="center" justify="center" background={"black"}>
       {/* <Card

@@ -108,7 +108,7 @@ export default function Home() {
     else {
       return (
         <>
-          <Box
+          {/* <Box
             width={"50%"}
             background="black"
             justify="center"
@@ -120,13 +120,14 @@ export default function Home() {
               width={"460px"}
               height={"500px"}
             ></Image>
-          </Box>
+          </Box> */}
           <Box
-            align="start"
-            width={"50%"}
+            align="center"
+            width={"100%"}
             background="black"
             pad={"32px"}
             justify="center"
+
           >
             <AuthOnly />
           </Box>
