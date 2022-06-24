@@ -1,18 +1,13 @@
 import {
   useAddress,
-  useDisconnect,
-  useNFTCollection,
   useNetwork,
   useMetamask,
   useNetworkMismatch,
-  switchNetwork
 } from "@thirdweb-dev/react";
 
 import React, { useState, useEffect } from "react";
 
 import Airdrop from "./Airdrop";
-
-import { ChainId } from "@thirdweb-dev/react";
 
 import {
   Box,
@@ -25,14 +20,8 @@ export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
   // Grab the currently connected wallet's address
   const address = useAddress();
-  const isOnWrongNetwork = useNetworkMismatch();
-  const [switchNetwork] = useNetwork();
-
   const [mintingStarted, setMintingStarted] = useState(false);
- 
-  
 
-  
   return (
     <Box align="center" justify="center" background={"black"}>
       {/* <Card

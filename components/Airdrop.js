@@ -7,17 +7,13 @@ import {
   Button,
   Notification,
   Spinner,
-  TextInput,
   Paragraph,
-  CardHeader,
   Image,
   CardBody,
   CardFooter,
 } from "grommet";
 import {
   useAddress,
-  // useNFTBalance,
-  useNFTCollection,
   useNetwork,
   useMetamask,
   useNetworkMismatch,

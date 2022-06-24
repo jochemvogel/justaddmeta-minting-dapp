@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text, Footer, Anchor, Button } from "grommet";
+import { Box, Text, Footer, Anchor, Button } from "grommet";
 import { Instagram } from "grommet-icons";
 
 export const AlphaFooter = () => {
