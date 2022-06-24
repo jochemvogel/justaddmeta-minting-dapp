@@ -5,8 +5,9 @@ import {
   useNetwork,
   useMetamask,
   useNetworkMismatch,
+
 } from "@thirdweb-dev/react";
-import { ChainId } from "@thirdweb-dev/react";
+import { ChainId, switchNetwork } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
@@ -18,15 +19,11 @@ export default function Home() {
   // Grab the currently connected wallet's address
   const address = useAddress();
   const isOnWrongNetwork = useNetworkMismatch();
-  const [, switchNetwork] = useNetwork();
+  const [,switchNetwork] = useNetwork();
   const connectWallet = useMetamask();
   const disconnectWallet = useDisconnect();
   const [authStarted, setAuthStarted] = useState(false);
 
-  // Get the NFT Collection we deployed using thirdweb+
-  const nftCollectionContract = useNFTCollection(
-    "0xD93bEC957B531Ce2Ea6b86F0132ed8a8ae4ad533"
-  );
 
   // This is simply a client-side check to see if the user is a member of the discord in /api/check-is-in-server
   // We ALSO check on the server-side before providing the signature to mint the NFT in /api/generate-signature
@@ -47,7 +44,12 @@ export default function Home() {
   // }, [session]);
 
   const Landing = () => {
+
+   
+  
+
     if (!authStarted) {
+
       return (
         <>
           <Box
@@ -106,6 +108,7 @@ export default function Home() {
     // because we've set authStarted to true,
     // we can now render the AuthOnly component
     else {
+      
       return (
         <>
           {/* <Box
@@ -148,7 +151,6 @@ export default function Home() {
           background={{ dark: false, color: "black" }}
         >
           <Box
-            pad={"2%"}
             height={"xxsmall"}
             align="stretch"
             justify="start"
@@ -159,6 +161,7 @@ export default function Home() {
               color="light-1"
               alignSelf="center"
               size="xlarge"
+              margin={"120px"}
               
             >
               JUSTADDMETA

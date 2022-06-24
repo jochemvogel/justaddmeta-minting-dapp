@@ -22,12 +22,13 @@ import {
   useMetamask,
   useNetworkMismatch,
   useEditionDrop,
+  ChainId,
 } from "@thirdweb-dev/react";
 
 import { StatusGood, Validate } from "grommet-icons";
 
 export default function Airdrop() {
-  const maxSupply = 100;
+  const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
   const address = useAddress();
@@ -131,25 +132,25 @@ export default function Airdrop() {
     // we'll only run it via code (here, for now @ minting phase for convenience.)
     // keeping here until we develop our dashboard to make those configurations without touching the source code.
 
-    setIsClaiming(true);
     // restrict claiming only one ERC1155 token at a time. The amount is configured by us.
     // for now, keeping textInput below and amount @ useState commented. we'll extract them to components later.
-    console.log(`claiming for address: ${address}`);
-    // await history().then((x) => x.getAllClaimerAddresses(1).then((ca)=> console.log(`all claimer addresses:  ${ca}`))); // returns an EditionMetadata
-
+    
     const tokenStat = await getTokenStats(tokenId);
     const total = tokenStat.toNumber();
-    //  setTotalMinted(total);
-    console.log(`current supply as state. one: ${total}`);
-    //await getTotalMinted();//.then(totalMint => console.log(totalMint))
-    // console.log("total minted: ", x);
+    console.log(`current supply as state: ${total}`);
     if (total < maxSupply) {
-      console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
-      await editionDrop.claimTo(address, 1, 1);
+      setIsClaiming(true);
+      // console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
+      try {
+        
+        await editionDrop.claimTo(address, 1, 1);
+        setJustClaimed(true);
+        setTotalMinted(total + 1);
+        setDisplayInfoToast(true);
+      } catch (error) {
+        console.log(`error on claiming., \n ${error}`);
+      }
       setIsClaiming(false);
-      setJustClaimed(true);
-      setTotalMinted(total + 1);
-      setDisplayInfoToast(true);
     }
     // console.log(`total minted so far: ${x}`);
 

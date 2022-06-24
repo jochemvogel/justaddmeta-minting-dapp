@@ -5,6 +5,7 @@ import {
   useNetwork,
   useMetamask,
   useNetworkMismatch,
+  switchNetwork
 } from "@thirdweb-dev/react";
 
 import React, { useState, useEffect } from "react";
@@ -25,14 +26,11 @@ export default function AuthOnly() {
   // Grab the currently connected wallet's address
   const address = useAddress();
   const isOnWrongNetwork = useNetworkMismatch();
-  const [, switchNetwork] = useNetwork();
+  const [switchNetwork] = useNetwork();
 
   const [mintingStarted, setMintingStarted] = useState(false);
  
-  if (isOnWrongNetwork) {
-    switchNetwork(ChainId.Rinkeby);
-    return;
-  }
+  
 
   
   return (

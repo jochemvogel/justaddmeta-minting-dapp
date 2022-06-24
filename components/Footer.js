@@ -24,7 +24,7 @@ export const AlphaFooter = () => {
             width={"50%"}
             justify="center"
             gap="medium"
-            margin={"medium"}
+            margin={"124px"}
           >
             <Text size="large" textAlign="start" weight="bold">
               JUSTADDMETA
