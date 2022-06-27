@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
-import { Image, Box, Button, Text, Heading, Paragraph } from "grommet";
+import { Image, Box, Button, Card, Text, Heading, Paragraph } from "grommet";
 // import { Airdrop } from "../components/Airdrop";
 
 export default function Home() {
@@ -19,27 +19,124 @@ export default function Home() {
   const disconnectWallet = useDisconnect();
   const [authStarted, setAuthStarted] = useState(false);
 
-  // This is simply a client-side check to see if the user is a member of the discord in /api/check-is-in-server
-  // We ALSO check on the server-side before providing the signature to mint the NFT in /api/generate-signature
-  // This check is to show the user that they are eligible to mint the NFT on the UI.
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  // const { push, size } = React.useContext(RouterContext)
-  // useEffect(() => {
-  //   if (session) {
-  //     setLoading(true);
-  //     fetch("api/check-has-role-in-server")
-  //       .then((res) => res.json())
-  //       .then((d) => {
-  //         setData(d || undefined);
-  //         setLoading(false);
-  //       });
-  //   }
-  // }, [session]);
+
+  const ImageStripe = () => {
+    return (
+      <Box direction="column" gap="large" background={"black"} >
+<Box
+        gap="40px"
+        background={"black"}
+        direction="row"
+        width={"100%"}
+        style={{ paddingLeft: "20%", paddingRight: "20%" }}
+      >
+        <Card width={"20%"} background="white">
+          <Box background={"white"} direction="column">
+            <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"230px"}
+              height={"250px"}
+            ></Image>
+            <Box pad={"24px"}>
+              <Heading textAlign="start" size="24px">
+                PHASE 1
+              </Heading>
+              <Text size="12px" textAlign="start" weight={"700"}>
+                MINTING EVENT
+              </Text>
+              <Paragraph textAlign="start" size="12px">
+                Lorem ipsum dolor sit amet, consectetur adispicit elit.
+              </Paragraph>
+            </Box>
+          </Box>
+        </Card>
+        <Card width={"20%"} background="white">
+          <Box background={"white"} direction="column">
+            <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"230px"}
+              height={"250px"}
+            ></Image>
+            <Box pad={"24px"}>
+              <Heading textAlign="start" size="24px">
+                PHASE 2
+              </Heading>
+              <Text size="12px" textAlign="start" weight={"700"}>
+                CLAIM PRODUCT
+              </Text>
+              <Paragraph textAlign="start" size="12px">
+                Lorem ipsum dolor sit amet, consectetur adispicit elit.
+              </Paragraph>
+            </Box>
+          </Box>
+        </Card>
+        <Card width={"20%"} background="white">
+          <Box background={"white"} direction="column">
+            <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"230px"}
+              height={"250px"}
+            ></Image>
+            <Box pad={"24px"}>
+              <Heading textAlign="start" size="24px">
+                PHASE 3
+              </Heading>
+              <Text size="12px" textAlign="start" weight={"700"}>
+                AIRDROP
+              </Text>
+              <Paragraph textAlign="start" size="12px">
+                Lorem ipsum dolor sit amet, consectetur adispicit elit.
+              </Paragraph>
+            </Box>
+          </Box>
+        </Card>
+        <Card width={"20%"} background="white">
+          <Box background={"white"} direction="column">
+            <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"230px"}
+              height={"250px"}
+            ></Image>
+            <Box pad={"24px"}>
+              <Heading textAlign="start" size="24px">
+                PHASE 4
+              </Heading>
+              <Text size="12px" textAlign="start" weight={"700"}>
+                BURN
+              </Text>
+              <Paragraph textAlign="start" size="12px">
+                Lorem ipsum dolor sit amet, consectetur adispicit elit.
+              </Paragraph>
+            </Box>
+          </Box>
+        </Card>
+
+      
+      </Box>
+                <Button
+                  alignSelf="center"
+                  label="Enter Phase 1"
+                  primary
+                  color="white"
+                  size="large"
+                  width="100px"
+                  onClick={() => setAuthStarted(true)}
+                />
+      </Box>
+      
+    );
+  };
 
   const NavBar = () => {
     return (
-      <Box style={{position: "fixed"}} fill="horizontal" overflow="auto" align="stretch" flex="grow" responsive="true">
+      <Box
+        style={{ position: "fixed" }}
+        fill="horizontal"
+        overflow="auto"
+        align="stretch"
+        flex="grow"
+        responsive="true"
+      >
         <Box
           // height={"0%"}
           align="center"
@@ -67,7 +164,7 @@ export default function Home() {
             <Image src="" />
           </Box>
 
-          <Box align="center" style={{marginRight: "120px"}}>
+          <Box align="center" style={{ marginRight: "120px" }}>
             {address ? (
               <Button
                 color={"green"}
@@ -96,7 +193,7 @@ export default function Home() {
   const TopSection = () => {
     return (
       <Box
-      direction="column"
+        direction="column"
         pad={"30%"}
         background={"#DCDCDC"}
         // width="100%"
@@ -108,7 +205,13 @@ export default function Home() {
           LOREM IPSUM
         </Text>
 
-        <Text align="start" size="36px" weight="700" alignSelf="start" textAlign="start">
+        <Text
+          align="start"
+          size="36px"
+          weight="700"
+          alignSelf="start"
+          textAlign="start"
+        >
           LOREM IPSUM AMET CONSECTETUR ADIPISCING ELIT.
         </Text>
         <Paragraph size="24px" alignSelf="start" textAlign="start">
@@ -124,7 +227,7 @@ export default function Home() {
     if (!authStarted) {
       return (
         <>
-          <Box 
+          <Box
             width={"50%"}
             background="black"
             // justify="center"
@@ -157,7 +260,9 @@ export default function Home() {
           >
             <Box direction="column">
               <Paragraph textAlign="start" size="large">
-                You were part of the mission from day one. During the hunt your team picked up different clues and also weird coded digital signals
+                You were part of the mission from day one. During the hunt your
+                team picked up different clues and also weird coded digital
+                signals
               </Paragraph>
 
               <Paragraph textAlign="start" size="large">
@@ -174,19 +279,9 @@ export default function Home() {
                 some kind of map. You keep an extra careful eye on the jam as
                 you see something swimming inside the jar.
               </Paragraph>
-              <Box>
-                <Button
-                  alignSelf="start"
-                  label="Enter Phase 1"
-                  primary
-                  color="white"
-                  size="large"
-                  onClick={() => setAuthStarted(true)}
-                />
-              </Box>
+             
             </Box>
           </Box>
-          
         </>
       );
     }
@@ -194,16 +289,15 @@ export default function Home() {
     // we can now render the AuthOnly component
     else {
       return (
-        
-          <Box
-            align="center"
-            width={"100%"}
-            background="black"
-            pad={"32px"}
-            justify="center"
-          >
-            <AuthOnly />
-          </Box>
+        <Box
+          align="center"
+          width={"100%"}
+          background="black"
+          pad={"32px"}
+          justify="center"
+        >
+          <AuthOnly />
+        </Box>
       );
     }
   };
@@ -213,11 +307,11 @@ export default function Home() {
       <NavBar />
       <TopSection />
 
-
-      <Box background={"black"} height="xlarge" direction="row">
+      <Box background={"black"} height="large" direction="row">
         <Landing />
-        
       </Box>
+      <ImageStripe />
+
       <AlphaFooter />
     </div>
   );
