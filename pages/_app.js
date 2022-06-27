@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       {/* Next Auth Session Provider */}
       {/* <SessionProvider session={pageProps.session}> */}
         <Head>
-          <title>Alpha Minting</title>
+          <title>SUMMERJAM</title>
         </Head>
         <Component {...pageProps} />
       {/* </SessionProvider> */}

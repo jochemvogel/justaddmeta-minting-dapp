@@ -11,6 +11,8 @@ import {
   Image,
   CardBody,
   CardFooter,
+  CardHeader,
+  Anchor,
 } from "grommet";
 import {
   useAddress,
@@ -21,7 +23,7 @@ import {
   ChainId,
 } from "@thirdweb-dev/react";
 
-import { StatusGood, Validate } from "grommet-icons";
+import { Car, StatusGood, Validate } from "grommet-icons";
 
 export default function Airdrop() {
   const maxSupply = 1000; // for testing
@@ -94,6 +96,28 @@ export default function Airdrop() {
   //   console.log(`number of tokens : ${total}`)
   //   return total;
   // }
+
+  const checkThisOut = () => {
+    return(
+      <Card>
+        <CardHeader>Checkout</CardHeader>
+        <CardBody>
+        <Box direction="row">
+        <Box width={"50%"}>
+          <Image width={"400px"} height="600px" ></Image>
+        </Box>
+        <Box width={"50%"} direction="column">
+      <Text size="large">You sucessfully minted "...".</Text>
+        <Button size="large" primary color={"white"}>fetch Etherscan link</Button>
+        <Button size="large"  color={"white"}>fetch Opensea link</Button>
+
+        </Box>
+
+        </Box>
+        </CardBody>
+      </Card>
+    );
+  }
 
   const getTokenStats = async (tokenId) => {
     const x = await editionDrop.get(tokenId);
@@ -222,12 +246,13 @@ export default function Airdrop() {
                   {totalMinted + 1}/Y minted
                 </Paragraph> */}
            
-             <Box size="small" margin={"small"} alignSelf="center">
+             <Box size="small" margin={"small"} alignSelf="start">
              <Button
                   // // label="mint"
                   // sec
                   label="mint"
                   primary
+                  color="white"
                   size="large"
                   disabled={false}
                   onClick={() => claimNFT(1)}
@@ -241,12 +266,12 @@ export default function Airdrop() {
           {isClaiming ? (
             <Box direction="column" gap="large" margin={"medium"}>
               <Box direction="row" gap="small" size="large">
-                <StatusGood size="large" alignSelf="center" />
-                <Text size="xxlarge"> Approve asset</Text>{" "}
+                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
+                <Text size="xxlarge"> Approve Asset</Text>{" "}
               </Box>
               <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" alignSelf="center" />
-                <Text size="xxlarge"> Confirm purchase</Text>
+                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
+                <Text size="xxlarge"> Mint NFT</Text>
               </Box>
             </Box>
           ) : (
@@ -266,19 +291,19 @@ export default function Airdrop() {
                 </Text>
                 <Validate size="medium" />
               </Box>
-              <Box background="#DCDCDC" margin={"medium"} pad="small">
+              {/* <Box background="#DCDCDC" margin={"medium"} pad="small">
                 <Text textAlign="center" size="xlarge" weight={"bold"}>
                   {totalMinted}/100 minted
                 </Text>
-              </Box>
+              </Box> */}
               <Box direction="column" gap="medium">
                 <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Asset Approval</Text>{" "}
+                  <Text size="xxlarge"> Approve Asset</Text>{" "}
                 </Box>
-                <Box direction="row" gap="small" size="large">
+                <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Asset Purchase </Text>
+                  <Text size="xxlarge"> Mint NFT </Text>
                 </Box>
                 {/* <Box margin={"small"} width="small" alignSelf="center">
                   <Button
@@ -305,7 +330,7 @@ export default function Airdrop() {
             </>
           ) : null}
 
-          {displayInfoToast ? (
+          {/* {displayInfoToast ? (
             <Notification
               toast
               background="#1a161c"
@@ -313,7 +338,7 @@ export default function Airdrop() {
               message="Please check your wallet, it should be there by now."
               onClose={() => setDisplayInfoToast(false)}
             />
-          ) : null}
+          ) : null} */}
         </CardBody>
         <CardFooter pad={"medium"}></CardFooter>
       </Card>

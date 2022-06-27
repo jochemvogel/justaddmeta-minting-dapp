@@ -3,13 +3,12 @@ import {
   useDisconnect,
   useMetamask,
   useNetworkMismatch,
-
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
-import { Image, Card, Box, Button, Text, Heading, Paragraph } from "grommet";
+import { Image, Box, Button, Text, Heading, Paragraph } from "grommet";
 // import { Airdrop } from "../components/Airdrop";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
   const connectWallet = useMetamask();
   const disconnectWallet = useDisconnect();
   const [authStarted, setAuthStarted] = useState(false);
-
 
   // This is simply a client-side check to see if the user is a member of the discord in /api/check-is-in-server
   // We ALSO check on the server-side before providing the signature to mint the NFT in /api/generate-signature
@@ -39,116 +37,21 @@ export default function Home() {
   //   }
   // }, [session]);
 
-  const Landing = () => {
-
-   
-  
-
-    if (!authStarted) {
-
-      return (
-        <>
-          <Box
-            width={"50%"}
-            background="black"
-            justify="center"
-            align="end"
-            pad={"large"}
-          >
-            <Image
-              src="https://i.imgur.com/48dRmwN.png"
-              width={"460px"}
-              height={"500px"}
-            ></Image>
-          </Box>
-          <Box width={"50%"} background="black" pad={"32px"} justify="center">
-            <Box direction="column" pad={"xsmall"}>
-              <Text size="large" textAlign="start">
-                SUMMERJAM NFT
-              </Text>
-              <Heading size="medium" textAlign="start" color={"#e326cc"}>
-                SOME LONGER AND BIGGER HEADING
-              </Heading>
-            </Box>
-
-            <Box direction="column" margin={"small"} gap={"medium"}>
-              <Text textAlign="start">
-                We are happy to announce the first holistic drop to our
-                JUSTADDMETA collection. It is our most ambitious project to date
-                and took a lot of planning, designing and technological
-                development. It is the beginning of our own ecosystem, with much
-                more to come.
-              </Text>
-
-              <Text textAlign="start">
-                In order to celebrate the name & everyone behind the vision, we
-                decided to drop a collection of limited edition NFTs. Those who
-                are lucky enough to get their hands on one of the just 50 jam
-                NFTs are in for an interesting ride through the metaverse and
-                our vision of it. The journey has only begun. Look out for new
-                drops & hidden features.
-              </Text>
-              <Box>
-                <Button
-                  alignSelf="start"
-                  label="Start Minting"
-                  size="large"
-                  onClick={() => setAuthStarted(true)}
-                />
-              </Box>
-            </Box>
-          </Box>
-        </>
-      );
-    }
-    // because we've set authStarted to true,
-    // we can now render the AuthOnly component
-    else {
-      
-      return (
-        <>
-          {/* <Box
-            width={"50%"}
-            background="black"
-            justify="center"
-            align="end"
-            pad={"32px"}
-          >
-            <Image
-              src="https://i.imgur.com/mSBSyOz.png"
-              width={"460px"}
-              height={"500px"}
-            ></Image>
-          </Box> */}
-          <Box
-            align="center"
-            width={"100%"}
-            background="black"
-            pad={"32px"}
-            justify="center"
-
-          >
-            <AuthOnly />
-          </Box>
-        </>
-      );
-    }
-  };
-
-  return (
-    <div>
-      <Box fill="horizontal" overflow="auto" align="stretch" flex="grow">
+  const NavBar = () => {
+    return (
+      <Box style={{position: "fixed"}} fill="horizontal" overflow="auto" align="stretch" flex="grow" responsive="true">
         <Box
           // height={"0%"}
           align="center"
           justify="between"
           direction="row"
           pad="small"
-          background={{ dark: false, color: "black" }}
+          // basis="xsmall"
+          background={"black"}
         >
           <Box
             height={"xxsmall"}
-            align="stretch"
+            // align="stretch"
             justify="start"
             direction="row"
           >
@@ -158,13 +61,13 @@ export default function Home() {
               alignSelf="center"
               size="xlarge"
               margin={"120px"}
-              
             >
               JUSTADDMETA
             </Text>
+            <Image src="" />
           </Box>
 
-          <Box align="stretch" >
+          <Box align="center">
             {address ? (
               <Button
                 color={"green"}
@@ -185,9 +88,131 @@ export default function Home() {
           {/* <Button color={"white"} >connect discord</Button> */}
         </Box>
       </Box>
+    );
+  };
 
-      <Box background={"light-2"} height="large" direction="row">
+  const TopSection = () => {
+    return (
+      <Box
+      direction="column"
+        pad={"30%"}
+        background={"#DCDCDC"}
+        // width="100%"
+        height={"medium"}
+        justify="center"
+        alignSelf="center"
+      >
+        <Text alignSelf="start" size="20px" weight="800" textAlign="start">
+          LOREM IPSUM
+        </Text>
+
+        <Text align="start" size="36px" weight="700" alignSelf="start" textAlign="start">
+          LOREM IPSUM AMET CONSECTETUR ADIPISCING ELIT.
+        </Text>
+        <Paragraph size="24px" alignSelf="start" textAlign="start">
+          Opperation Morraba was a secretly launched mission with one specific
+          goal in mind: finding the safe house four fugitives are using to hide
+          from the authorities.
+        </Paragraph>
+      </Box>
+    );
+  };
+
+  const Landing = () => {
+    if (!authStarted) {
+      return (
+        <>
+          <Box 
+            width={"50%"}
+            background="black"
+            // justify="center"
+            align="center"
+            margin={"120px"}
+            pad={"small"}
+          >
+            <Box direction="column" pad={"medium"}>
+              <Text size="large" textAlign="start">
+                SUMMERJAM NFT
+              </Text>
+              <Heading
+                size="medium"
+                textAlign="start"
+                color={"#e326cc"}
+                pad="medium"
+              >
+                THIS SUMMER GONNA BE A SWEET ONE!
+              </Heading>
+            </Box>
+          </Box>
+          <Box
+            width={"50%"}
+            background="black"
+            pad={"32px"}
+            // justify="center"
+            align="start"
+            margin="120px"
+            gap="8px"
+          >
+            <Box direction="column">
+              <Paragraph textAlign="start" size="large">
+                You were part of the mission from day one. During the hunt your team picked up different clues and also weird coded digital signals
+              </Paragraph>
+
+              <Paragraph textAlign="start" size="large">
+                After months of unsuccessful hunting the mission was called off.
+                But you and a group of friends continued the hunt in secrecy.
+                Last week the fugitives left a couple clues behind while
+                strolling through the streets.
+              </Paragraph>
+
+              <Paragraph textAlign="start" size="large">
+                In a crate you find 50 jars of jam in three different kinds as
+                well as two pieces of paper. Upon inspection you can’t
+                understand the writing but identify the other document to be
+                some kind of map. You keep an extra careful eye on the jam as
+                you see something swimming inside the jar.
+              </Paragraph>
+              <Box>
+                <Button
+                  alignSelf="start"
+                  label="Enter Phase 1"
+                  size="large"
+                  onClick={() => setAuthStarted(true)}
+                />
+              </Box>
+            </Box>
+          </Box>
+          
+        </>
+      );
+    }
+    // because we've set authStarted to true,
+    // we can now render the AuthOnly component
+    else {
+      return (
+        
+          <Box
+            align="center"
+            width={"100%"}
+            background="black"
+            pad={"32px"}
+            justify="center"
+          >
+            <AuthOnly />
+          </Box>
+      );
+    }
+  };
+
+  return (
+    <div>
+      <NavBar />
+      <TopSection />
+
+
+      <Box background={"black"} height="xlarge" direction="row">
         <Landing />
+        
       </Box>
       <AlphaFooter />
     </div>

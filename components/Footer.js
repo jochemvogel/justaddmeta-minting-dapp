@@ -6,10 +6,12 @@ export const AlphaFooter = () => {
   return (
     // <Box fill="vertical" overflow="auto" align="center" flex="grow">
     <Footer
+    
       // align="stretch"
       direction="column"
       flex={false}
-      height={""}
+      background="black"
+      height={"412px"}
     >
       <Box
         width={"full"}
@@ -17,6 +19,7 @@ export const AlphaFooter = () => {
         justify="center"
         direction="row"
         height={"small"}
+background="black"
       >
         <Box width={"50%"} background="black">
           <Box
@@ -29,22 +32,23 @@ export const AlphaFooter = () => {
             <Text size="large" textAlign="start" weight="bold">
               JUSTADDMETA
             </Text>
-            <Text size="small" textAlign="start" weight={"bolder"}>
+            <Text size="18px" textAlign="start" weight={"bolder"}>
               We enable your brand to <br></br> make a sustainable contribution{" "}
               <br></br> to the metaverse.
             </Text>
-            <Button label="enter safe house" href="https://justaddmeta.com" target="_blank" color={"white"}/>
+            <Button label="ENTER SAFE HOUSE" size="large" primary href="https://justaddmeta.com" target="_blank" color={"white"}/>
               
             
             <Box  direction="row" background={"black"}>
-              <Anchor icon={<Instagram color="black" />} />
-              <Anchor icon={<Instagram color="black" />} />
-              <Anchor icon={<Instagram color="black" />} />
+              <Anchor icon={<Instagram color="white" />} />
+              <Anchor icon={<Instagram color="white" />} />
+              <Anchor icon={<Instagram color="white" />} />
             </Box>
+            <hr color="white"/>
           </Box>
         </Box>
         <Box width={"50%"} background="black">
-          <Box align="end" justify="center" margin={"large"} gap="xsmall">
+          <Box align="end" justify="center" margin={"120px"} gap="xsmall">
           <Text margin={"small"} textAlign="end" size="large" weight={"bolder"}>
               Office Hamburg 
             </Text>

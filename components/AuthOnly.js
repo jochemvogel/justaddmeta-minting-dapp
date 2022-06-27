@@ -11,10 +11,13 @@ import Airdrop from "./Airdrop";
 
 import {
   Box,
+  Image,
   Button,
   Text,
   Heading,
   Paragraph,
+  Card,
+  CardHeader,
 } from "grommet";
 export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
@@ -23,7 +26,8 @@ export default function AuthOnly() {
   const [mintingStarted, setMintingStarted] = useState(false);
 
   return (
-    <Box align="center" justify="center" background={"black"}>
+    <Box align="center" background={"black"} direction="row" justify="around">
+      {/* <Card pad={"large"}> */}
       {/* <Card
         align="stretch"
         justify="center"
@@ -31,19 +35,24 @@ export default function AuthOnly() {
         pad="large"
         gap="small"
       > */}
+      {!mintingStarted ? (
+        
+       <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"460px"}
+              height={"500px"}
+            ></Image>
+      ):null}
 
-      <Box
-        align="center"
-        justify="center"
-        pad="xsmall"
-        direction="column"
-        gap="small"
-      >
+      <Box align="center" justify="center" direction="column" gap="small">
         {!address ? (
-          <Heading size="small" textAlign="center">
-            AUTHORIZED <br></br> ACCESS ONLY
-          </Heading>
-        ) : (null)}
+          <>
+           
+            <Heading size="small" textAlign="center">
+              AUTHORIZED <br></br> ACCESS ONLY
+            </Heading>
+          </>
+        ) : null}
         {!address && !mintingStarted ? (
           <>
             <Paragraph textAlign="center">
@@ -68,39 +77,45 @@ export default function AuthOnly() {
         pad="small"
         gap="small"
       >
-        <Box gap="medium">
+        <Box gap="medium" direction="row">
           {address && !mintingStarted ? (
             <>
-             <Heading size="small" textAlign="center">
-            AUTHORIZED <br></br> SUCCESSFULLY
-          </Heading> 
+              
+              <Box>
+                <Heading size="small" textAlign="center">
+                  AUTHORIZED <br></br> SUCCESSFULLY
+                </Heading>
 
-          <Paragraph textAlign="center" size="large">
-              Now you can participate in the Alpha Drop.
-            </Paragraph>
+                <Paragraph textAlign="center" size="large">
+                  Now you can participate in the Alpha Drop.
+                </Paragraph>
 
-              <Button
-                color="white"
-                margin="medium"
-                size="large"
-                active={false}
-                // onClick={() => disconnectWallet()}
-              >
-                <Text
+                <Button
+                  color="white"
+                  margin="medium"
                   size="large"
-                  background
-                  pad="small"
-                  color={"white"}
-                  margin="small"
+                  active={false}
+                  // onClick={() => disconnectWallet()}
                 >
-                  {address.slice(0, 4).concat("...").concat(address.slice(-3))}
-                </Text>
-              </Button>
-              <Button
-                label="Launch"
-                size="large"
-                onClick={() => setMintingStarted(true)}
-              />
+                  <Text
+                    size="large"
+                    background
+                    pad="small"
+                    color={"white"}
+                    margin="small"
+                  >
+                    {address
+                      .slice(0, 4)
+                      .concat("...")
+                      .concat(address.slice(-3))}
+                  </Text>
+                </Button>
+                <Button
+                  label="Launch"
+                  size="large"
+                  onClick={() => setMintingStarted(true)}
+                />
+              </Box>
             </>
           ) : null}
 
