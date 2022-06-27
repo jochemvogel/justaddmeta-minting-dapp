@@ -10,7 +10,7 @@ export const AlphaFooter = () => {
       direction="column"
       flex={false}
       background="black"
-      height={"312px"}
+      height={"340px"}
     >
       <Box
         width={"full"}
@@ -37,7 +37,7 @@ export const AlphaFooter = () => {
             </Text>
             <Button
               label="ENTER SAFE HOUSE"
-              size="large"
+              size="medium"
               primary
               href="https://justaddmeta.com"
               target="_blank"
@@ -78,9 +78,9 @@ export const AlphaFooter = () => {
       
       </Box>
      
-     <Box width={"100%"}>
-     <hr width="100%" color="white"/>
-     <Text>2022 Justaddsugar - All rights reserved.</Text>
+     <Box width={"100%"} style={{paddingTop: "20px"}} direction="column" height={"xsmall"} >
+     <hr width="90%" color="white"/>
+     <Text height="small" style={{paddingBottom: "small"}}>2022 Justaddsugar - All rights reserved.</Text>
      </Box>
     </Footer>
     // </Box>

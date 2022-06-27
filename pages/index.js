@@ -22,14 +22,19 @@ export default function Home() {
 
   const ImageStripe = () => {
     return (
-      <Box direction="column" gap="large" background={"black"} alignSelf="center" 
-      style={{paddingLeft: "10%", paddingRight: "10%"}}>
+      <Box
+        direction="column"
+        gap="large"
+        background={"black"}
+        alignSelf="center"
+        style={{ paddingLeft: "10%", paddingRight: "10%" }}
+      >
         <Box
           gap="4%"
           background={"black"}
           direction="row"
           width={"100%"}
-          
+
           // style={{ paddingLeft: "20%", paddingRight: "20%" }}
         >
           <Card width={"20%"} background="white" border="all">
@@ -113,9 +118,9 @@ export default function Home() {
             </Box>
           </Card>
         </Box>
-    
-    {/* BUTTON WAS HERE */}
-    <Button
+
+        {/* BUTTON WAS HERE */}
+        <Button
           alignSelf="center"
           label="Enter Phase 1"
           primary
@@ -227,11 +232,8 @@ export default function Home() {
   const Landing = () => {
     if (!authStarted) {
       return (
-        
         <Box height={"medium"} direction="row">
-
           <Box
-          
             width={"50%"}
             background="black"
             // justify="center"
@@ -285,30 +287,33 @@ export default function Home() {
               </Paragraph>
             </Box>
           </Box>
-        
         </Box>
       );
     }
     // because we've set authStarted to true,
     // we can now render the AuthOnly component
 
-//     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
-// filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    //     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
+    // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     else {
       return (
         <Box
           align="center"
           width={"100%"}
           background="black"
-          pad={"32px"}
-          justify="center"
-          
+          // pad={"32px"}
+          justify="evenly"
+          // style={{paddingTop: "250px"}}
         >
-
-          <Card style={{background: "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)", filter:"drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"}}>
-
+          {/* <Card
+            style={{
+              background:
+                "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
+              filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+            }}
+          > */}
           <AuthOnly />
-          </Card>
+          {/* </Card> */}
         </Box>
       );
     }
@@ -322,18 +327,18 @@ export default function Home() {
       <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>
-      <Box
-        width={"100%"}
-        background={"black"}
-        alignSelf="center"
-        height="large"
+      {!authStarted ? (
+        <Box
+          width={"100%"}
+          background={"black"}
+          alignSelf="center"
+          height="large"
+          justify="center"
+        >
+          <ImageStripe />
+        </Box>
+      ) : null}
 
-      >
-        {!authStarted ? (
-
-        <ImageStripe />
-        ): null}
-      </Box>
       <AlphaFooter />
     </div>
   );

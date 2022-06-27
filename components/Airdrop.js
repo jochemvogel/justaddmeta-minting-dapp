@@ -182,6 +182,7 @@ export default function Airdrop() {
   return (
     <Box
       fill="vertical"
+      pad="small"
       // overflow="auto"
       align="center"
       flex="grow"
@@ -251,7 +252,7 @@ export default function Airdrop() {
                   <Button
                     // // label="mint"
                     // sec
-                    label="mint"
+                    label="Mint"
                     primary
                     color="white"
                     size="large"

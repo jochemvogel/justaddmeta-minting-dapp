@@ -1,11 +1,9 @@
 import {
   useAddress,
-  useNetwork,
   useMetamask,
-  useNetworkMismatch,
 } from "@thirdweb-dev/react";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Airdrop from "./Airdrop";
 
@@ -24,15 +22,8 @@ export default function AuthOnly() {
   const [mintingStarted, setMintingStarted] = useState(false);
 
   return (
-    <Box align="center" direction="row" justify="around">
-      {/* <Card pad={"large"}> */}
-      {/* <Card
-        align="stretch"
-        justify="center"
-        direction="column"
-        pad="large"
-        gap="small"
-      > */}
+    <Box align="center" direction="row" justify="center">
+  
       {!mintingStarted ? (
         
        <Image
@@ -76,11 +67,11 @@ export default function AuthOnly() {
         pad="small"
         gap="small"
       >
-        <Box gap="medium" direction="row">
+        <Box gap="medium" direction="row" >
           {address && !mintingStarted ? (
             <>
               
-              <Box>
+              <Box >
                 <Heading size="small" textAlign="center">
                   AUTHORIZED <br></br> SUCCESSFULLY
                 </Heading>
@@ -123,7 +114,6 @@ export default function AuthOnly() {
           {mintingStarted ? <Airdrop /> : null}
         </Box>
       </Box>
-      {/* </Card> */}
     </Box>
   );
 }
