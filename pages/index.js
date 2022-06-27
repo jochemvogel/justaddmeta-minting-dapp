@@ -9,6 +9,7 @@ import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
 import { Image, Box, Button, Card, Text, Heading, Paragraph } from "grommet";
+import { Car } from "grommet-icons";
 // import { Airdrop } from "../components/Airdrop";
 
 export default function Home() {
@@ -19,111 +20,111 @@ export default function Home() {
   const disconnectWallet = useDisconnect();
   const [authStarted, setAuthStarted] = useState(false);
 
-
   const ImageStripe = () => {
     return (
-      <Box direction="column" gap="large" background={"black"} >
-<Box
-        gap="40px"
-        background={"black"}
-        direction="row"
-        width={"100%"}
-        style={{ paddingLeft: "20%", paddingRight: "20%" }}
-      >
-        <Card width={"20%"} background="white">
-          <Box background={"white"} direction="column">
-            <Image
-              src="https://i.imgur.com/48dRmwN.png"
-              width={"230px"}
-              height={"250px"}
-            ></Image>
-            <Box pad={"24px"}>
-              <Heading textAlign="start" size="24px">
-                PHASE 1
-              </Heading>
-              <Text size="12px" textAlign="start" weight={"700"}>
-                MINTING EVENT
-              </Text>
-              <Paragraph textAlign="start" size="12px">
-                Lorem ipsum dolor sit amet, consectetur adispicit elit.
-              </Paragraph>
+      <Box direction="column" gap="large" background={"black"} alignSelf="center" 
+      style={{paddingLeft: "10%", paddingRight: "10%"}}>
+        <Box
+          gap="4%"
+          background={"black"}
+          direction="row"
+          width={"100%"}
+          
+          // style={{ paddingLeft: "20%", paddingRight: "20%" }}
+        >
+          <Card width={"20%"} background="white" border="all">
+            <Box background={"white"} direction="column">
+              <Image
+                src="https://i.imgur.com/48dRmwN.png"
+                width={"100%"}
+                height={"280px"}
+              ></Image>
+              <Box pad={"24px"}>
+                <Heading textAlign="start" size="24px">
+                  PHASE 1
+                </Heading>
+                <Text size="12px" textAlign="start" weight={"700"}>
+                  MINTING EVENT
+                </Text>
+                <Paragraph textAlign="start" size="12px">
+                  Lorem ipsum dolor sit amet, consectetur adispicit elit.
+                </Paragraph>
+              </Box>
             </Box>
-          </Box>
-        </Card>
-        <Card width={"20%"} background="white">
-          <Box background={"white"} direction="column">
-            <Image
-              src="https://i.imgur.com/48dRmwN.png"
-              width={"230px"}
-              height={"250px"}
-            ></Image>
-            <Box pad={"24px"}>
-              <Heading textAlign="start" size="24px">
-                PHASE 2
-              </Heading>
-              <Text size="12px" textAlign="start" weight={"700"}>
-                CLAIM PRODUCT
-              </Text>
-              <Paragraph textAlign="start" size="12px">
-                Lorem ipsum dolor sit amet, consectetur adispicit elit.
-              </Paragraph>
+          </Card>
+          <Card width={"20%"} background="#DCDCDC" border="all">
+            <Box background="#DCDCDC" direction="column">
+              <Image
+                src="https://i.imgur.com/48dRmwN.png"
+                width={"100%"}
+                height={"280px"}
+              ></Image>
+              <Box pad={"24px"}>
+                <Heading textAlign="start" size="24px">
+                  PHASE 2
+                </Heading>
+                <Text size="12px" textAlign="start" weight={"700"}>
+                  CLAIM PRODUCT
+                </Text>
+                <Paragraph textAlign="start" size="12px">
+                  Lorem ipsum dolor sit amet, consectetur adispicit elit.
+                </Paragraph>
+              </Box>
             </Box>
-          </Box>
-        </Card>
-        <Card width={"20%"} background="white">
-          <Box background={"white"} direction="column">
-            <Image
-              src="https://i.imgur.com/48dRmwN.png"
-              width={"230px"}
-              height={"250px"}
-            ></Image>
-            <Box pad={"24px"}>
-              <Heading textAlign="start" size="24px">
-                PHASE 3
-              </Heading>
-              <Text size="12px" textAlign="start" weight={"700"}>
-                AIRDROP
-              </Text>
-              <Paragraph textAlign="start" size="12px">
-                Lorem ipsum dolor sit amet, consectetur adispicit elit.
-              </Paragraph>
+          </Card>
+          <Card width={"20%"} background="#DCDCDC" border="all">
+            <Box background="#DCDCDC" direction="column">
+              <Image
+                src="https://i.imgur.com/48dRmwN.png"
+                width={"100%"}
+                height={"280px"}
+              ></Image>
+              <Box pad={"24px"}>
+                <Heading textAlign="start" size="24px">
+                  PHASE 3
+                </Heading>
+                <Text size="12px" textAlign="start" weight={"700"}>
+                  AIRDROP
+                </Text>
+                <Paragraph textAlign="start" size="12px">
+                  Lorem ipsum dolor sit amet, consectetur adispicit elit.
+                </Paragraph>
+              </Box>
             </Box>
-          </Box>
-        </Card>
-        <Card width={"20%"} background="white">
-          <Box background={"white"} direction="column">
-            <Image
-              src="https://i.imgur.com/48dRmwN.png"
-              width={"230px"}
-              height={"250px"}
-            ></Image>
-            <Box pad={"24px"}>
-              <Heading textAlign="start" size="24px">
-                PHASE 4
-              </Heading>
-              <Text size="12px" textAlign="start" weight={"700"}>
-                BURN
-              </Text>
-              <Paragraph textAlign="start" size="12px">
-                Lorem ipsum dolor sit amet, consectetur adispicit elit.
-              </Paragraph>
+          </Card>
+          <Card width={"20%"} background="white" border="all">
+            <Box background="#DCDCDC" direction="column">
+              <Image
+                src="https://i.imgur.com/48dRmwN.png"
+                width={"100%"}
+                height={"280px"}
+              ></Image>
+              <Box pad={"24px"}>
+                <Heading textAlign="start" size="24px">
+                  PHASE 4
+                </Heading>
+                <Text size="12px" textAlign="start" weight={"700"}>
+                  BURN
+                </Text>
+                <Paragraph textAlign="start" size="12px">
+                  Lorem ipsum dolor sit amet, consectetur adispicit elit.
+                </Paragraph>
+              </Box>
             </Box>
-          </Box>
-        </Card>
-
-      
+          </Card>
+        </Box>
+    
+    {/* BUTTON WAS HERE */}
+    <Button
+          alignSelf="center"
+          label="Enter Phase 1"
+          primary
+          color="white"
+          size="large"
+          width="100px"
+          onClick={() => setAuthStarted(true)}
+        />
       </Box>
-                <Button
-                  alignSelf="center"
-                  label="Enter Phase 1"
-                  primary
-                  color="white"
-                  size="large"
-                  width="100px"
-                  onClick={() => setAuthStarted(true)}
-                />
-      </Box>
-      
     );
   };
 
@@ -226,8 +227,11 @@ export default function Home() {
   const Landing = () => {
     if (!authStarted) {
       return (
-        <>
+        
+        <Box height={"medium"} direction="row">
+
           <Box
+          
             width={"50%"}
             background="black"
             // justify="center"
@@ -279,14 +283,17 @@ export default function Home() {
                 some kind of map. You keep an extra careful eye on the jam as
                 you see something swimming inside the jar.
               </Paragraph>
-             
             </Box>
           </Box>
-        </>
+        
+        </Box>
       );
     }
     // because we've set authStarted to true,
     // we can now render the AuthOnly component
+
+//     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
+// filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     else {
       return (
         <Box
@@ -295,8 +302,13 @@ export default function Home() {
           background="black"
           pad={"32px"}
           justify="center"
+          
         >
+
+          <Card style={{background: "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)", filter:"drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"}}>
+
           <AuthOnly />
+          </Card>
         </Box>
       );
     }
@@ -310,8 +322,18 @@ export default function Home() {
       <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>
-      <ImageStripe />
+      <Box
+        width={"100%"}
+        background={"black"}
+        alignSelf="center"
+        height="large"
 
+      >
+        {!authStarted ? (
+
+        <ImageStripe />
+        ): null}
+      </Box>
       <AlphaFooter />
     </div>
   );

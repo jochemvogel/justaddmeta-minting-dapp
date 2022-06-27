@@ -98,26 +98,28 @@ export default function Airdrop() {
   // }
 
   const checkThisOut = () => {
-    return(
+    return (
       <Card>
         <CardHeader>Checkout</CardHeader>
         <CardBody>
-        <Box direction="row">
-        <Box width={"50%"}>
-          <Image width={"400px"} height="600px" ></Image>
-        </Box>
-        <Box width={"50%"} direction="column">
-      <Text size="large">You sucessfully minted ...</Text>
-        <Button size="large" primary color={"white"}>fetch Etherscan link</Button>
-        <Button size="large"  color={"white"}>fetch Opensea link</Button>
-
-        </Box>
-
-        </Box>
+          <Box direction="row">
+            <Box width={"50%"}>
+              <Image width={"400px"} height="600px"></Image>
+            </Box>
+            <Box width={"50%"} direction="column">
+              <Text size="large">You sucessfully minted ...</Text>
+              <Button size="large" primary color={"white"}>
+                fetch Etherscan link
+              </Button>
+              <Button size="large" color={"white"}>
+                fetch Opensea link
+              </Button>
+            </Box>
+          </Box>
         </CardBody>
       </Card>
     );
-  }
+  };
 
   const getTokenStats = async (tokenId) => {
     const x = await editionDrop.get(tokenId);
@@ -154,7 +156,7 @@ export default function Airdrop() {
 
     // restrict claiming only one ERC1155 token at a time. The amount is configured by us.
     // for now, keeping textInput below and amount @ useState commented. we'll extract them to components later.
-    
+
     const tokenStat = await getTokenStats(tokenId);
     const total = tokenStat.toNumber();
     console.log(`current supply as state: ${total}`);
@@ -162,7 +164,6 @@ export default function Airdrop() {
       setIsClaiming(true);
       // console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
       try {
-        
         await editionDrop.claimTo(address, 1, 1);
         setJustClaimed(true);
         setTotalMinted(total + 1);
@@ -198,7 +199,7 @@ export default function Airdrop() {
             <Box direction="row">
               <Box
                 width={"50%"}
-                background="black"
+                // background="black"
                 justify="center"
                 align="start"
                 pad={"32px"}
@@ -212,7 +213,7 @@ export default function Airdrop() {
 
               <Box
                 width={"50%"}
-                background="black"
+                // background="black"
                 justify="center"
                 align="end"
                 pad={"32px"}
@@ -245,30 +246,28 @@ export default function Airdrop() {
                 {/* <Paragraph textAlign="center" size="large" margin={"small"}>
                   {totalMinted + 1}/Y minted
                 </Paragraph> */}
-           
-             <Box size="small" margin={"small"} alignSelf="start">
-             <Button
-                  // // label="mint"
-                  // sec
-                  label="mint"
-                  primary
-                  color="white"
-                  size="large"
-                  disabled={false}
-                  onClick={() => claimNFT(1)}
-                >
-                  
-                </Button>
-             </Box>
+
+                <Box size="small" margin={"small"} alignSelf="start">
+                  <Button
+                    // // label="mint"
+                    // sec
+                    label="mint"
+                    primary
+                    color="white"
+                    size="large"
+                    disabled={false}
+                    onClick={() => claimNFT(1)}
+                  ></Button>
+                </Box>
               </Box>
             </Box>
           ) : null}
           {isClaiming ? (
             <Box direction="column" gap="large" margin={"medium"}>
-              <Box direction="row" gap="small" size="large">
+              {/* <Box direction="row" gap="small" size="large">
                 <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
                 <Text size="xxlarge"> Approve Asset</Text>{" "}
-              </Box>
+              </Box> */}
               <Box direction="row" gap="small" size="large">
                 <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
                 <Text size="xxlarge"> Mint NFT</Text>
@@ -296,11 +295,11 @@ export default function Airdrop() {
                   {totalMinted}/100 minted
                 </Text>
               </Box> */}
-              <Box direction="column" gap="medium">
-                <Box direction="row" gap="small" size="large" margin={"small"}>
+              <Box direction="column">
+                {/* <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
                   <Text size="xxlarge"> Approve Asset</Text>{" "}
-                </Box>
+                </Box> */}
                 <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
                   <Text size="xxlarge"> Mint NFT </Text>

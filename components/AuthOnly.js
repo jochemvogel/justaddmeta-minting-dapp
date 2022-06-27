@@ -16,8 +16,6 @@ import {
   Text,
   Heading,
   Paragraph,
-  Card,
-  CardHeader,
 } from "grommet";
 export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
@@ -26,7 +24,7 @@ export default function AuthOnly() {
   const [mintingStarted, setMintingStarted] = useState(false);
 
   return (
-    <Box align="center" background={"black"} direction="row" justify="around">
+    <Box align="center" direction="row" justify="around">
       {/* <Card pad={"large"}> */}
       {/* <Card
         align="stretch"
@@ -55,7 +53,7 @@ export default function AuthOnly() {
         ) : null}
         {!address && !mintingStarted ? (
           <>
-            <Paragraph textAlign="center">
+            <Paragraph textAlign="center" size="16px">
               Connect your wallet to participate in the Alpha Drop.
             </Paragraph>
 
