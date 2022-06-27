@@ -67,19 +67,21 @@ export default function Home() {
             <Image src="" />
           </Box>
 
-          <Box align="center">
+          <Box align="center" style={{marginRight: "120px"}}>
             {address ? (
               <Button
                 color={"green"}
                 label="connected"
                 onClick={() => disconnectWallet()}
                 size="large"
+                primary
               />
             ) : (
               <Button
                 color={"red"}
                 label="not connected"
                 size="large"
+                primary
                 onClick={() => connectWallet()}
               />
             )}
@@ -176,6 +178,8 @@ export default function Home() {
                 <Button
                   alignSelf="start"
                   label="Enter Phase 1"
+                  primary
+                  color="white"
                   size="large"
                   onClick={() => setAuthStarted(true)}
                 />

@@ -64,6 +64,7 @@ export default function AuthOnly() {
               label="Connect Wallet"
               size="large"
               color={"white"}
+              primary
               onClick={() => connectWithMetamask()}
             />
             <Button label="Launch" active={false} disabled size="large" />
@@ -112,6 +113,8 @@ export default function AuthOnly() {
                 </Button>
                 <Button
                   label="Launch"
+                  color={"white"}
+                  primary
                   size="large"
                   onClick={() => setMintingStarted(true)}
                 />

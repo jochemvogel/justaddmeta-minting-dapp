@@ -6,12 +6,11 @@ export const AlphaFooter = () => {
   return (
     // <Box fill="vertical" overflow="auto" align="center" flex="grow">
     <Footer
-    
       // align="stretch"
       direction="column"
       flex={false}
       background="black"
-      height={"412px"}
+      height={"312px"}
     >
       <Box
         width={"full"}
@@ -19,7 +18,7 @@ export const AlphaFooter = () => {
         justify="center"
         direction="row"
         height={"small"}
-background="black"
+        background="black"
       >
         <Box width={"50%"} background="black">
           <Box
@@ -36,79 +35,53 @@ background="black"
               We enable your brand to <br></br> make a sustainable contribution{" "}
               <br></br> to the metaverse.
             </Text>
-            <Button label="ENTER SAFE HOUSE" size="large" primary href="https://justaddmeta.com" target="_blank" color={"white"}/>
-              
-            
-            <Box  direction="row" background={"black"}>
+            <Button
+              label="ENTER SAFE HOUSE"
+              size="large"
+              primary
+              href="https://justaddmeta.com"
+              target="_blank"
+              color={"white"}
+            />
+
+            <Box direction="row" background={"black"}>
               <Anchor icon={<Instagram color="white" />} />
               <Anchor icon={<Instagram color="white" />} />
               <Anchor icon={<Instagram color="white" />} />
             </Box>
-            <hr color="white"/>
           </Box>
         </Box>
         <Box width={"50%"} background="black">
           <Box align="end" justify="center" margin={"120px"} gap="xsmall">
-          <Text margin={"small"} textAlign="end" size="large" weight={"bolder"}>
-              Office Hamburg 
+            <Text margin={"small"} textAlign="end" size="24px" weight={"600"}>
+              Office Hamburg
             </Text>
             <Text textAlign="end" size="medium" weight={"bolder"}>
               Justaddsugar GmbH
             </Text>
-            <Text textAlign="end" size="small">
+            <Text textAlign="end" size="medium">
               Rothenbaumchaussee 91
             </Text>
-            <Text textAlign="end" size="small">
+            <Text textAlign="end" size="medium">
               20148 Hamburg, Germany
             </Text>
-           
-            <Text textAlign="end" size="small">
+
+            <Text textAlign="end" size="medium">
               +49 176 34990063
             </Text>
-            <Text textAlign="end" size="small">
+            <Text textAlign="end" size="medium">
               hello@justaddmeta.com
             </Text>
           </Box>
         </Box>
-        {/* <Box align="start" width={"50%"}  justify="center" gap="small">
-          <Text textAlign="start" weight="bold">
-            JUSTADDMETA
-          </Text>
-          <Text size="small" textAlign="start">
-            WE ENABLE YOUR BRAND TO MAKE A SUSTAINABLE CONTRIBUTION TO THE
-            METAVERSE.
-          </Text>
-        </Box>
-        <Box align="end" justify="center" gap="small">
-          <Box align="end" justify="center">
-          <Text textAlign="end" size="small">
-              Justaddsugar GmbH
-            </Text>
-            <Text textAlign="end" size="small">
-              Rothenbaumchaussee 91 20148 Hamburg Germany
-            </Text>
-          </Box>
-          <Box align="center" justify="center">
-            <Text textAlign="end" size="small">
-              +49 176 34990063 hello@justaddmeta.com
-            </Text>
-          </Box>
-        </Box> */}
+       
+      
       </Box>
-      {/* <Box
-        align="stretch"
-        justify="center"
-        direction="row"
-        background={{ color: "black" }}
-        pad="small"
-        // gap="small"
-        width={"full"}
-        height="xxsmall"
-      >
-        <Text weight="bold" size="small">
-          2022 © JUSTADDSUGAR – ALL RIGHTS RESERVED.
-        </Text>
-      </Box> */}
+     
+     <Box width={"100%"}>
+     <hr width="100%" color="white"/>
+     <Text>2022 Justaddsugar - All rights reserved.</Text>
+     </Box>
     </Footer>
     // </Box>
   );

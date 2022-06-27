@@ -323,6 +323,7 @@ export default function Airdrop() {
                 disabled={false}
                 active={false}
                 color={"black"}
+                primary
                 label="Connect Wallet"
                 size="large"
               />
