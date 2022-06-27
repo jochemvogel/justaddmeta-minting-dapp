@@ -107,7 +107,7 @@ export default function Airdrop() {
           <Image width={"400px"} height="600px" ></Image>
         </Box>
         <Box width={"50%"} direction="column">
-      <Text size="large">You sucessfully minted "...".</Text>
+      <Text size="large">You sucessfully minted ...</Text>
         <Button size="large" primary color={"white"}>fetch Etherscan link</Button>
         <Button size="large"  color={"white"}>fetch Opensea link</Button>
 
