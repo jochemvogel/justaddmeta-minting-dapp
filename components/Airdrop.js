@@ -167,7 +167,7 @@ export default function Airdrop() {
         await editionDrop.claimTo(address, 1, 1);
         setJustClaimed(true);
         setTotalMinted(total + 1);
-        setDisplayInfoToast(true);
+        // setDisplayInfoToast(true);
       } catch (error) {
         console.log(`error on claiming., \n ${error}`);
       }
@@ -182,7 +182,6 @@ export default function Airdrop() {
   return (
     <Box
       fill="vertical"
-      pad="small"
       // overflow="auto"
       align="center"
       flex="grow"
@@ -250,8 +249,7 @@ export default function Airdrop() {
 
                 <Box size="small" margin={"small"} alignSelf="start">
                   <Button
-                    // // label="mint"
-                    // sec
+        
                     label="Mint"
                     primary
                     color="white"
