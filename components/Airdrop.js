@@ -7,27 +7,26 @@ import {
   Button,
   Notification,
   Spinner,
-  TextInput,
   Paragraph,
-  CardHeader,
   Image,
   CardBody,
   CardFooter,
+  CardHeader,
+  Anchor,
 } from "grommet";
 import {
   useAddress,
-  // useNFTBalance,
-  useNFTCollection,
   useNetwork,
   useMetamask,
   useNetworkMismatch,
   useEditionDrop,
+  ChainId,
 } from "@thirdweb-dev/react";
 
-import { StatusGood, Validate } from "grommet-icons";
+import { Car, StatusGood, Validate } from "grommet-icons";
 
 export default function Airdrop() {
-  const maxSupply = 100;
+  const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
   const address = useAddress();
@@ -98,6 +97,30 @@ export default function Airdrop() {
   //   return total;
   // }
 
+  const checkThisOut = () => {
+    return (
+      <Card>
+        <CardHeader>Checkout</CardHeader>
+        <CardBody>
+          <Box direction="row">
+            <Box width={"50%"}>
+              <Image width={"400px"} height="600px"></Image>
+            </Box>
+            <Box width={"50%"} direction="column">
+              <Text size="large">You sucessfully minted ...</Text>
+              <Button size="large" primary color={"white"}>
+                fetch Etherscan link
+              </Button>
+              <Button size="large" color={"white"}>
+                fetch Opensea link
+              </Button>
+            </Box>
+          </Box>
+        </CardBody>
+      </Card>
+    );
+  };
+
   const getTokenStats = async (tokenId) => {
     const x = await editionDrop.get(tokenId);
     const total = x.supply;
@@ -131,25 +154,24 @@ export default function Airdrop() {
     // we'll only run it via code (here, for now @ minting phase for convenience.)
     // keeping here until we develop our dashboard to make those configurations without touching the source code.
 
-    setIsClaiming(true);
     // restrict claiming only one ERC1155 token at a time. The amount is configured by us.
     // for now, keeping textInput below and amount @ useState commented. we'll extract them to components later.
-    console.log(`claiming for address: ${address}`);
-    // await history().then((x) => x.getAllClaimerAddresses(1).then((ca)=> console.log(`all claimer addresses:  ${ca}`))); // returns an EditionMetadata
 
     const tokenStat = await getTokenStats(tokenId);
     const total = tokenStat.toNumber();
-    //  setTotalMinted(total);
-    console.log(`current supply as state. one: ${total}`);
-    //await getTotalMinted();//.then(totalMint => console.log(totalMint))
-    // console.log("total minted: ", x);
+    console.log(`current supply as state: ${total}`);
     if (total < maxSupply) {
-      console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
-      await editionDrop.claimTo(address, 1, 1);
+      setIsClaiming(true);
+      // console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
+      try {
+        await editionDrop.claimTo(address, 1, 1);
+        setJustClaimed(true);
+        setTotalMinted(total + 1);
+        // setDisplayInfoToast(true);
+      } catch (error) {
+        console.log(`error on claiming., \n ${error}`);
+      }
       setIsClaiming(false);
-      setJustClaimed(true);
-      setTotalMinted(total + 1);
-      setDisplayInfoToast(true);
     }
     // console.log(`total minted so far: ${x}`);
 
@@ -177,7 +199,7 @@ export default function Airdrop() {
             <Box direction="row">
               <Box
                 width={"50%"}
-                background="black"
+                // background="black"
                 justify="center"
                 align="start"
                 pad={"32px"}
@@ -191,7 +213,7 @@ export default function Airdrop() {
 
               <Box
                 width={"50%"}
-                background="black"
+                // background="black"
                 justify="center"
                 align="end"
                 pad={"32px"}
@@ -224,32 +246,30 @@ export default function Airdrop() {
                 {/* <Paragraph textAlign="center" size="large" margin={"small"}>
                   {totalMinted + 1}/Y minted
                 </Paragraph> */}
-           
-             <Box size="small" margin={"small"} alignSelf="center">
-             <Button
-                  // // label="mint"
-                  // sec
-                  label="mint"
-                  primary
-                  size="large"
-                  disabled={false}
-                  onClick={() => claimNFT(1)}
-                >
-                  
-                </Button>
-             </Box>
+
+                <Box size="small" margin={"small"} alignSelf="start">
+                  <Button
+        
+                    label="Mint"
+                    primary
+                    color="white"
+                    size="large"
+                    disabled={false}
+                    onClick={() => claimNFT(1)}
+                  ></Button>
+                </Box>
               </Box>
             </Box>
           ) : null}
           {isClaiming ? (
             <Box direction="column" gap="large" margin={"medium"}>
+              {/* <Box direction="row" gap="small" size="large">
+                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
+                <Text size="xxlarge"> Approve Asset</Text>{" "}
+              </Box> */}
               <Box direction="row" gap="small" size="large">
-                <StatusGood size="large" alignSelf="center" />
-                <Text size="xxlarge"> Approve asset</Text>{" "}
-              </Box>
-              <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" alignSelf="center" />
-                <Text size="xxlarge"> Confirm purchase</Text>
+                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
+                <Text size="xxlarge"> Mint NFT</Text>
               </Box>
             </Box>
           ) : (
@@ -269,19 +289,19 @@ export default function Airdrop() {
                 </Text>
                 <Validate size="medium" />
               </Box>
-              <Box background="#DCDCDC" margin={"medium"} pad="small">
+              {/* <Box background="#DCDCDC" margin={"medium"} pad="small">
                 <Text textAlign="center" size="xlarge" weight={"bold"}>
                   {totalMinted}/100 minted
                 </Text>
-              </Box>
-              <Box direction="column" gap="medium">
+              </Box> */}
+              <Box direction="column">
+                {/* <Box direction="row" gap="small" size="large" margin={"small"}>
+                  <StatusGood size="large" alignSelf="center" />
+                  <Text size="xxlarge"> Approve Asset</Text>{" "}
+                </Box> */}
                 <Box direction="row" gap="small" size="large" margin={"small"}>
                   <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Asset Approval</Text>{" "}
-                </Box>
-                <Box direction="row" gap="small" size="large">
-                  <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Asset Purchase </Text>
+                  <Text size="xxlarge"> Mint NFT </Text>
                 </Box>
                 {/* <Box margin={"small"} width="small" alignSelf="center">
                   <Button
@@ -301,6 +321,7 @@ export default function Airdrop() {
                 disabled={false}
                 active={false}
                 color={"black"}
+                primary
                 label="Connect Wallet"
                 size="large"
               />
@@ -308,7 +329,7 @@ export default function Airdrop() {
             </>
           ) : null}
 
-          {displayInfoToast ? (
+          {/* {displayInfoToast ? (
             <Notification
               toast
               background="#1a161c"
@@ -316,7 +337,7 @@ export default function Airdrop() {
               message="Please check your wallet, it should be there by now."
               onClose={() => setDisplayInfoToast(false)}
             />
-          ) : null}
+          ) : null} */}
         </CardBody>
         <CardFooter pad={"medium"}></CardFooter>
       </Card>

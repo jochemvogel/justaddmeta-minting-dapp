@@ -1,20 +1,15 @@
 import {
   useAddress,
-  useDisconnect,
-  useNFTCollection,
-  useNetwork,
   useMetamask,
-  useNetworkMismatch,
 } from "@thirdweb-dev/react";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Airdrop from "./Airdrop";
 
-import { ChainId } from "@thirdweb-dev/react";
-
 import {
   Box,
+  Image,
   Button,
   Text,
   Heading,
@@ -24,42 +19,32 @@ export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
   // Grab the currently connected wallet's address
   const address = useAddress();
-  const isOnWrongNetwork = useNetworkMismatch();
-  const [, switchNetwork] = useNetwork();
-
   const [mintingStarted, setMintingStarted] = useState(false);
- 
-  if (isOnWrongNetwork) {
-    switchNetwork(ChainId.Rinkeby);
-    return;
-  }
 
-  
   return (
-    <Box align="center" justify="center" background={"black"}>
-      {/* <Card
-        align="stretch"
-        justify="center"
-        direction="column"
-        pad="large"
-        gap="small"
-      > */}
+    <Box align="center" direction="row" justify="center">
+  
+      {!mintingStarted ? (
+        
+       <Image
+              src="https://i.imgur.com/48dRmwN.png"
+              width={"460px"}
+              height={"500px"}
+            ></Image>
+      ):null}
 
-      <Box
-        align="center"
-        justify="center"
-        pad="xsmall"
-        direction="column"
-        gap="small"
-      >
+      <Box align="center" justify="center" direction="column" gap="small">
         {!address ? (
-          <Heading size="small" textAlign="center">
-            AUTHORIZED <br></br> ACCESS ONLY
-          </Heading>
-        ) : (null)}
+          <>
+           
+            <Heading size="small" textAlign="center">
+              AUTHORIZED <br></br> ACCESS ONLY
+            </Heading>
+          </>
+        ) : null}
         {!address && !mintingStarted ? (
           <>
-            <Paragraph textAlign="center">
+            <Paragraph textAlign="center" size="16px">
               Connect your wallet to participate in the Alpha Drop.
             </Paragraph>
 
@@ -68,6 +53,7 @@ export default function AuthOnly() {
               label="Connect Wallet"
               size="large"
               color={"white"}
+              primary
               onClick={() => connectWithMetamask()}
             />
             <Button label="Launch" active={false} disabled size="large" />
@@ -81,46 +67,53 @@ export default function AuthOnly() {
         pad="small"
         gap="small"
       >
-        <Box gap="medium">
+        <Box gap="medium" direction="row" >
           {address && !mintingStarted ? (
             <>
-             <Heading size="small" textAlign="center">
-            AUTHORIZED <br></br> SUCCESSFULLY
-          </Heading> 
+              
+              <Box >
+                <Heading size="small" textAlign="center">
+                  AUTHORIZED <br></br> SUCCESSFULLY
+                </Heading>
 
-          <Paragraph textAlign="center" size="large">
-              Now you can participate in the Alpha Drop.
-            </Paragraph>
+                <Paragraph textAlign="center" size="large">
+                  Now you can participate in the Alpha Drop.
+                </Paragraph>
 
-              <Button
-                color="white"
-                margin="medium"
-                size="large"
-                active={false}
-                // onClick={() => disconnectWallet()}
-              >
-                <Text
+                <Button
+                  color="white"
+                  margin="medium"
                   size="large"
-                  background
-                  pad="small"
-                  color={"white"}
-                  margin="small"
+                  active={false}
+                  // onClick={() => disconnectWallet()}
                 >
-                  {address.slice(0, 4).concat("...").concat(address.slice(-3))}
-                </Text>
-              </Button>
-              <Button
-                label="Launch"
-                size="large"
-                onClick={() => setMintingStarted(true)}
-              />
+                  <Text
+                    size="large"
+                    background
+                    pad="small"
+                    color={"white"}
+                    margin="small"
+                  >
+                    {address
+                      .slice(0, 4)
+                      .concat("...")
+                      .concat(address.slice(-3))}
+                  </Text>
+                </Button>
+                <Button
+                  label="Launch"
+                  color={"white"}
+                  primary
+                  size="large"
+                  onClick={() => setMintingStarted(true)}
+                />
+              </Box>
             </>
           ) : null}
 
           {mintingStarted ? <Airdrop /> : null}
         </Box>
       </Box>
-      {/* </Card> */}
     </Box>
   );
 }
