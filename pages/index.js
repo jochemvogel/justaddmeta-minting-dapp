@@ -141,7 +141,7 @@ export default function Home() {
         overflow="auto"
         align="stretch"
         flex="grow"
-        responsive="true"
+        responsive
       >
         <Box
           // height={"0%"}
@@ -241,7 +241,7 @@ export default function Home() {
             margin={"120px"}
             pad={"small"}
           >
-            <Box direction="column" pad={"medium"}>
+            <Box direction="column" pad={"medium"} >
               <Text size="large" textAlign="start">
                 SUMMERJAM NFT
               </Text>
@@ -323,7 +323,6 @@ export default function Home() {
     <div>
       <NavBar />
       <TopSection />
-
       <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>

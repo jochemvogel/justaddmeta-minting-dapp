@@ -25,7 +25,7 @@ import {
 
 import { Car, StatusGood, Validate } from "grommet-icons";
 
-export default function Airdrop() {
+export default function Airdrop({total}) {
   const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
@@ -40,7 +40,7 @@ export default function Airdrop() {
   const [isClaiming, setIsClaiming] = useState(false);
   const [justClaimed, setJustClaimed] = useState(false); // so we can show -mint another- instead -mint- text on button.
   // const [amount, setAmount] = useState(1); // max mint amount at a time, default 1
-  const [totalMinted, setTotalMinted] = useState(0);
+  const [totalMinted, setTotalMinted] = useState(total);
   const [claimFailed, setClaimFailed] = useState(false);
   const [displayInfoToast, setDisplayInfoToast] = useState(false);
 
@@ -243,9 +243,9 @@ export default function Airdrop() {
                   delightful varieties.
                 </Paragraph>
 
-                {/* <Paragraph textAlign="center" size="large" margin={"small"}>
-                  {totalMinted + 1}/Y minted
-                </Paragraph> */}
+                <Paragraph alignSelf="center" textAlign="center" size="large" margin={"small"}>
+                  {totalMinted }/50 minted
+                </Paragraph>
 
                 <Box size="small" margin={"small"} alignSelf="start">
                   <Button

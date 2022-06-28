@@ -1,9 +1,10 @@
 import {
   useAddress,
   useMetamask,
+  useEditionDrop
 } from "@thirdweb-dev/react";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Airdrop from "./Airdrop";
 
@@ -15,11 +16,34 @@ import {
   Heading,
   Paragraph,
 } from "grommet";
+
+
 export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
   // Grab the currently connected wallet's address
   const address = useAddress();
   const [mintingStarted, setMintingStarted] = useState(false);
+  const editionDrop = useEditionDrop(
+    "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
+  );
+
+
+  const [to, setTo] = useState(0);
+
+useEffect(() => {
+  const fetchData = async () => {    
+    const x = await editionDrop.get(1);
+    const total = x.supply;
+    return total.toNumber();
+  }
+  fetchData().then(data => setTo(data))
+    .catch(console.error);;
+
+}, [])
+
+
+  // const tokenStat = await getTokenStats(1);
+  // const totalSofar = tokenStat.toNumber();
 
   return (
     <Box align="center" direction="row" justify="center">
@@ -111,7 +135,7 @@ export default function AuthOnly() {
             </>
           ) : null}
 
-          {mintingStarted ? <Airdrop /> : null}
+          {mintingStarted ? <Airdrop total={to} /> : null}
         </Box>
       </Box>
     </Box>

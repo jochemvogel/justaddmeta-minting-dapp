@@ -80,7 +80,7 @@ export const AlphaFooter = () => {
      
      <Box width={"100%"} style={{paddingTop: "20px"}} direction="column" height={"xsmall"} >
      <hr width="90%" color="white"/>
-     <Text height="small" style={{paddingBottom: "small"}}>2022 Justaddsugar - All rights reserved.</Text>
+     <Text height="small" style={{paddingBottom: "small"}}>2022 ©️ Justaddsugar - All rights reserved.</Text>
      </Box>
     </Footer>
     // </Box>
