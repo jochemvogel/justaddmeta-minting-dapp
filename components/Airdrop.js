@@ -25,7 +25,7 @@ import {
 
 import { Car, StatusGood, Validate } from "grommet-icons";
 
-export default function Airdrop({total}) {
+export default function Airdrop({ total }) {
   const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
@@ -42,6 +42,7 @@ export default function Airdrop({total}) {
   // const [amount, setAmount] = useState(1); // max mint amount at a time, default 1
   const [totalMinted, setTotalMinted] = useState(total);
   const [claimFailed, setClaimFailed] = useState(false);
+  const [mintingComplete, setMintingComplete] = useState(false);
   const [displayInfoToast, setDisplayInfoToast] = useState(false);
 
   const configClaimPhases = async () => {
@@ -185,16 +186,17 @@ export default function Airdrop({total}) {
       // overflow="auto"
       align="center"
       flex="grow"
-      pad="medium"
-    >
-      <Card
         pad="medium"
         justify="center"
         direction="column"
         // align="stretch"
         gap="xxsmall"
+     style={{
+          background:
+            "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
+          filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+        }}
       >
-        <CardBody pad="medium" gap="medium">
           {address && !isClaiming && !justClaimed ? (
             <Box direction="row">
               <Box
@@ -243,33 +245,67 @@ export default function Airdrop({total}) {
                   delightful varieties.
                 </Paragraph>
 
-                <Paragraph alignSelf="center" textAlign="center" size="large" margin={"small"}>
-                  {totalMinted }/50 minted
+                <Paragraph
+                  alignSelf="center"
+                  textAlign="center"
+                  size="large"
+                  margin={"small"}
+                >
+                  {totalMinted}/50 minted
                 </Paragraph>
 
-                <Box size="small" margin={"small"} alignSelf="start">
+                <Box size="small" margin={"small"} alignSelf="center">
                   <Button
-        
-                    label="Mint"
+                    alignSelf="center"
+                    style={{
+                      fontStyle: "italic",
+                      width: "342px",
+                      height: "40px",
+                    }}
                     primary
                     color="white"
                     size="large"
                     disabled={false}
                     onClick={() => claimNFT(1)}
-                  ></Button>
+                  >
+                    Mint
+                  </Button>
                 </Box>
               </Box>
             </Box>
           ) : null}
           {isClaiming ? (
-            <Box direction="column" gap="large" margin={"medium"}>
-              {/* <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
-                <Text size="xxlarge"> Approve Asset</Text>{" "}
-              </Box> */}
-              <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
-                <Text size="xxlarge"> Mint NFT</Text>
+            <Box direction="column" gap="large" margin={"medium"} style={{height: "218px", width: "352px"}} >
+           <Box height={"70px"} width="320px">
+           <Text weight={"bold"} style={{ size: "32px", color: "#FFFFFF" }}>
+                Follow steps
+              </Text>
+           </Box>
+
+              <Box direction="row" gap="small" size="large" alignSelf="center">
+                <Spinner
+                  style={{ width: "16px", height: "16px" }}
+                  color="#DCDCDC"
+                  alignSelf="center"
+                />
+                <Text alignSelf="center" weight={"bold"} style={{ size: "12px" }}>
+                  {" "}
+                  sign transaction
+                </Text>
+              </Box>
+              <Box margin={"small"} width="small" alignSelf="center">
+                <Button
+                alignSelf="center"
+                style={{width: "320px", height: "40px", color:"black", fontStyle:"italic", background: "rgba(255, 255, 255, 0.64)", fontWeight:"700"}}
+                  size="small"
+                  color={"white"}
+                  primary
+                  // active="false"
+                  disabled
+                  onClick={() => checkThisOut()}
+                >
+                  Continue
+                </Button>
               </Box>
             </Box>
           ) : (
@@ -289,58 +325,31 @@ export default function Airdrop({total}) {
                 </Text>
                 <Validate size="medium" />
               </Box>
-              {/* <Box background="#DCDCDC" margin={"medium"} pad="small">
-                <Text textAlign="center" size="xlarge" weight={"bold"}>
-                  {totalMinted}/100 minted
-                </Text>
-              </Box> */}
+        
               <Box direction="column">
-                {/* <Box direction="row" gap="small" size="large" margin={"small"}>
-                  <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Approve Asset</Text>{" "}
-                </Box> */}
+                
+                {/* <Text style={{ size: "32px" }}>Follow steps</Text> */}
                 <Box direction="row" gap="small" size="large" margin={"small"}>
-                  <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Mint NFT </Text>
+                  <StatusGood
+                    style={{ width: "24px", height: "24px"}}
+                    alignSelf="center"
+                  />
+                  <Text style={{ size: "12px",  fontWeight:"700"  }}> sign transaction </Text>
                 </Box>
-                {/* <Box margin={"small"} width="small" alignSelf="center">
+                <Box margin={"small"} width="small" alignSelf="center">
                   <Button
+                  style={{fontStyle: "italic", width: "320px", height: "40px"}}
                     size="large"
-                    label="Continue"
+                    primary
+                    color={"white"}
                     onClick={() => checkThisOut()}
-                  ></Button>
-                </Box> */}
+                  >Continue</Button>
+                </Box>
               </Box>
             </>
           ) : null}
-          {/* <Button label="Connect Wallet" disabled={false} active={false} primary /> */}
-          {!isClaiming && !address ? (
-            <>
-              <Button
-                onClick={connectWithMetamask}
-                disabled={false}
-                active={false}
-                color={"black"}
-                primary
-                label="Connect Wallet"
-                size="large"
-              />
-              <Button size="large" label="Claim NFT" disabled={true} />
-            </>
-          ) : null}
-
-          {/* {displayInfoToast ? (
-            <Notification
-              toast
-              background="#1a161c"
-              title="You've got a SUMMERJAM NFT!"
-              message="Please check your wallet, it should be there by now."
-              onClose={() => setDisplayInfoToast(false)}
-            />
-          ) : null} */}
-        </CardBody>
-        <CardFooter pad={"medium"}></CardFooter>
-      </Card>
+       
+    
     </Box>
   );
 }

@@ -8,7 +8,16 @@ import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
-import { Image, Box, Button, Card, Text, Heading, Paragraph } from "grommet";
+import {
+  Image,
+  Box,
+  Button,
+  Card,
+  Text,
+  Heading,
+  Paragraph,
+  Anchor,
+} from "grommet";
 import { Car } from "grommet-icons";
 // import { Airdrop } from "../components/Airdrop";
 
@@ -158,22 +167,23 @@ export default function Home() {
             justify="start"
             direction="row"
           >
-            <Text
-              weight="bolder"
-              color="light-1"
-              alignSelf="center"
-              size="xlarge"
-              margin={"120px"}
-            >
-              JUSTADDMETA
-            </Text>
-            <Image src="" />
+            <Anchor href="/" style={{ textDecoration: "unset" }}>
+              <Text
+                weight="bolder"
+                color="light-1"
+                alignSelf="center"
+                size="xlarge"
+                margin={"120px"}
+              >
+                JUSTADDMETA
+              </Text>
+            </Anchor>
           </Box>
 
           <Box align="center" style={{ marginRight: "120px" }}>
             {address ? (
               <Button
-                color={"green"}
+                color={"white"}
                 label="connected"
                 onClick={() => disconnectWallet()}
                 size="large"
@@ -181,7 +191,7 @@ export default function Home() {
               />
             ) : (
               <Button
-                color={"red"}
+                color={"white"}
                 label="not connected"
                 size="large"
                 primary
@@ -241,7 +251,7 @@ export default function Home() {
             margin={"120px"}
             pad={"small"}
           >
-            <Box direction="column" pad={"medium"} >
+            <Box direction="column" pad={"medium"}>
               <Text size="large" textAlign="start">
                 SUMMERJAM NFT
               </Text>
