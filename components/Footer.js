@@ -54,6 +54,8 @@ export const AlphaFooter = () => {
             >ENTER SAFE HOUSE</Button> */}
 
             <Button
+               href="https://justaddmeta.com"
+               target="_blank"
               alignSelf="start"
               style={{
                 width: "200px",
