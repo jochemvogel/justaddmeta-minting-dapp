@@ -23,9 +23,10 @@ import {
   ChainId,
 } from "@thirdweb-dev/react";
 
-import { Car, StatusGood, Validate } from "grommet-icons";
+import { StatusGood, Validate } from "grommet-icons";
+import Checkout from "./Checkout";
 
-export default function Airdrop() {
+export default function Airdrop({ total }) {
   const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
@@ -40,10 +41,10 @@ export default function Airdrop() {
   const [isClaiming, setIsClaiming] = useState(false);
   const [justClaimed, setJustClaimed] = useState(false); // so we can show -mint another- instead -mint- text on button.
   // const [amount, setAmount] = useState(1); // max mint amount at a time, default 1
-  const [totalMinted, setTotalMinted] = useState(0);
+  const [totalMinted, setTotalMinted] = useState(total);
   const [claimFailed, setClaimFailed] = useState(false);
-  const [displayInfoToast, setDisplayInfoToast] = useState(false);
-
+  const [mintingComplete, setMintingComplete] = useState(false);
+  const [txHash, setTxHash] = useState("");
   const configClaimPhases = async () => {
     const saleStartTime = new Date();
 
@@ -97,7 +98,7 @@ export default function Airdrop() {
   //   return total;
   // }
 
-  const checkThisOut = () => {
+  const checkThisOut = (etherscanURL) => {
     return (
       <Card>
         <CardHeader>Checkout</CardHeader>
@@ -108,7 +109,13 @@ export default function Airdrop() {
             </Box>
             <Box width={"50%"} direction="column">
               <Text size="large">You sucessfully minted ...</Text>
-              <Button size="large" primary color={"white"}>
+              <Button
+                size="large"
+                primary
+                color={"white"}
+                href={{ etherscanURL }}
+                target="_blank"
+              >
                 fetch Etherscan link
               </Button>
               <Button size="large" color={"white"}>
@@ -120,20 +127,6 @@ export default function Airdrop() {
       </Card>
     );
   };
-
-  const getTokenStats = async (tokenId) => {
-    const x = await editionDrop.get(tokenId);
-    const total = x.supply;
-
-    // setTotalMinted(total);
-    console.log(`total : ${total}`);
-    // console.log(`total minted state: ${totalMinted}`)
-    return total;
-  };
-
-  // const tokenStat=  await getTokenStats(tokenId);
-  // const total = tokenStat.toNumber();
-  // setTotalMinted(total);
 
   async function claimNFT(tokenId) {
     // Ensure wallet connected
@@ -157,26 +150,33 @@ export default function Airdrop() {
     // restrict claiming only one ERC1155 token at a time. The amount is configured by us.
     // for now, keeping textInput below and amount @ useState commented. we'll extract them to components later.
 
-    const tokenStat = await getTokenStats(tokenId);
-    const total = tokenStat.toNumber();
-    console.log(`current supply as state: ${total}`);
-    if (total < maxSupply) {
+    if (totalMinted < maxSupply) {
       setIsClaiming(true);
-      // console.log(`100 - ${total}: there's ${maxSupply - total} more to mint.`);
+      // actually 3, we'll make this 3 after updating metadata for all NFTs.
+      // const numberOfDesigns = 2;
+      // const randomTokenId = Math.floor(Math.random() * numberOfDesigns);
+      const randomTokenId = Math.floor(Math.random()); // and int btw 0 to 1.
+      console.log(`got randomg tokenId btw 0 and 1: ${randomTokenId}`);
       try {
-        await editionDrop.claimTo(address, 1, 1);
+        // const tokenClaimingResult = await editionDrop.claimTo(address, randomTokenId, 1);
+
+
+        await editionDrop.claimTo(address, randomTokenId, 1).then((result) => setTxHash(result.receipt.transactionHash));
+          // .then((result) => setTxHash(result["receipt"]["transactionHash"]));
+
+        //tokenClaimingResult["receipt"]["transactionHash"];
+        //console.log(`txHash >> ${tx}`);
+        
+        // console.log(`txHash >> ${JSON.stringify(tokenClaimingResult["receipt"]["transactionHash"])}`);
+        // setTxHash(tx);
         setJustClaimed(true);
-        setTotalMinted(total + 1);
+        // setTotalMinted(total + 1);
         // setDisplayInfoToast(true);
       } catch (error) {
         console.log(`error on claiming., \n ${error}`);
       }
       setIsClaiming(false);
     }
-    // console.log(`total minted so far: ${x}`);
-
-    // console.log(`totalMinted now: ${totalMinted}`);
-    //await newMintStat(address, 1, totalMinted);
   }
 
   return (
@@ -186,161 +186,180 @@ export default function Airdrop() {
       align="center"
       flex="grow"
       pad="medium"
+      justify="center"
+      direction="column"
+      // align="stretch"
+      gap="xxsmall"
+      style={{
+        background:
+          "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
+        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+      }}
     >
-      <Card
-        pad="medium"
-        justify="center"
-        direction="column"
-        // align="stretch"
-        gap="xxsmall"
-      >
-        <CardBody pad="medium" gap="medium">
-          {address && !isClaiming && !justClaimed ? (
-            <Box direction="row">
-              <Box
-                width={"50%"}
-                // background="black"
-                justify="center"
-                align="start"
-                pad={"32px"}
-              >
-                <Image
-                  src="https://i.imgur.com/mSBSyOz.png"
-                  width={"460px"}
-                  height={"500px"}
-                />
-              </Box>
-
-              <Box
-                width={"50%"}
-                // background="black"
-                justify="center"
-                align="end"
-                pad={"32px"}
-              >
-                <Box
-                  direction="row"
-                  gap="medium"
-                  alignSelf="start"
-                  pad={"small"}
-                >
-                  <Text alignSelf="start" size="large">
-                    SUMMERJAM
-                  </Text>
-                  <Validate size="medium" />
-                </Box>
-                <Heading textAlign="start" size="small">
-                  Metaverse has never been this delightful
-                </Heading>
-                <Paragraph textAlign="start" size="large">
-                  Remarkable virtual craftsmanship meets ostentatious yet
-                  familiar design. Ingredients from a different dimension and
-                  extravagant hints of fruits suiting everyone&apos;s palate.
-                </Paragraph>
-
-                <Paragraph textAlign="start" size="large">
-                  Exclusive limited edition of 50 summer jams in three
-                  delightful varieties.
-                </Paragraph>
-
-                {/* <Paragraph textAlign="center" size="large" margin={"small"}>
-                  {totalMinted + 1}/Y minted
-                </Paragraph> */}
-
-                <Box size="small" margin={"small"} alignSelf="start">
-                  <Button
-        
-                    label="Mint"
-                    primary
-                    color="white"
-                    size="large"
-                    disabled={false}
-                    onClick={() => claimNFT(1)}
-                  ></Button>
-                </Box>
-              </Box>
-            </Box>
-          ) : null}
-          {isClaiming ? (
-            <Box direction="column" gap="large" margin={"medium"}>
-              {/* <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
-                <Text size="xxlarge"> Approve Asset</Text>{" "}
-              </Box> */}
-              <Box direction="row" gap="small" size="large">
-                <Spinner size="medium" color="#DCDCDC" alignSelf="center" />
-                <Text size="xxlarge"> Mint NFT</Text>
-              </Box>
-            </Box>
-          ) : (
-            <></>
-          )}
-
-          {!isClaiming && justClaimed ? (
-            <>
-              <Box
-                direction="row"
-                gap="medium"
-                alignSelf="center"
-                pad={"small"}
-              >
-                <Text alignSelf="start" size="large" weight={"bold"}>
-                  SUMMERJAM
-                </Text>
-                <Validate size="medium" />
-              </Box>
-              {/* <Box background="#DCDCDC" margin={"medium"} pad="small">
-                <Text textAlign="center" size="xlarge" weight={"bold"}>
-                  {totalMinted}/100 minted
-                </Text>
-              </Box> */}
-              <Box direction="column">
-                {/* <Box direction="row" gap="small" size="large" margin={"small"}>
-                  <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Approve Asset</Text>{" "}
-                </Box> */}
-                <Box direction="row" gap="small" size="large" margin={"small"}>
-                  <StatusGood size="large" alignSelf="center" />
-                  <Text size="xxlarge"> Mint NFT </Text>
-                </Box>
-                {/* <Box margin={"small"} width="small" alignSelf="center">
-                  <Button
-                    size="large"
-                    label="Continue"
-                    onClick={() => checkThisOut()}
-                  ></Button>
-                </Box> */}
-              </Box>
-            </>
-          ) : null}
-          {/* <Button label="Connect Wallet" disabled={false} active={false} primary /> */}
-          {!isClaiming && !address ? (
-            <>
-              <Button
-                onClick={connectWithMetamask}
-                disabled={false}
-                active={false}
-                color={"black"}
-                primary
-                label="Connect Wallet"
-                size="large"
-              />
-              <Button size="large" label="Claim NFT" disabled={true} />
-            </>
-          ) : null}
-
-          {/* {displayInfoToast ? (
-            <Notification
-              toast
-              background="#1a161c"
-              title="You've got a SUMMERJAM NFT!"
-              message="Please check your wallet, it should be there by now."
-              onClose={() => setDisplayInfoToast(false)}
+      {address && !isClaiming && !justClaimed ? (
+        <Box direction="row">
+          <Box
+            width={"50%"}
+            // background="black"
+            justify="center"
+            align="start"
+            pad={"32px"}
+          >
+            <Image
+              src="https://i.imgur.com/mSBSyOz.png"
+              width={"460px"}
+              height={"500px"}
             />
-          ) : null} */}
-        </CardBody>
-        <CardFooter pad={"medium"}></CardFooter>
-      </Card>
+          </Box>
+
+          <Box
+            width={"50%"}
+            // background="black"
+            justify="center"
+            align="end"
+            pad={"32px"}
+          >
+            <Box direction="row" gap="medium" alignSelf="start" pad={"small"}>
+              <Text alignSelf="start" size="large">
+                SUMMERJAM
+              </Text>
+              <Validate size="medium" />
+            </Box>
+            <Heading textAlign="start" size="small">
+              Metaverse has never been this delightful
+            </Heading>
+            <Paragraph textAlign="start" size="large">
+              Remarkable virtual craftsmanship meets ostentatious yet familiar
+              design. Ingredients from a different dimension and extravagant
+              hints of fruits suiting everyone&apos;s palate.
+            </Paragraph>
+
+            <Paragraph textAlign="start" size="large">
+              Exclusive limited edition of 50 summer jams in three delightful
+              varieties.
+            </Paragraph>
+
+            <Paragraph
+              alignSelf="center"
+              textAlign="center"
+              size="large"
+              margin={"small"}
+            >
+              {totalMinted}/X minted
+            </Paragraph>
+
+            <Box size="small" margin={"small"} alignSelf="center">
+              <Button
+                alignSelf="center"
+                style={{
+                  fontStyle: "italic",
+                  width: "342px",
+                  height: "40px",
+                }}
+                primary
+                color="white"
+                size="large"
+                disabled={false}
+                onClick={() => claimNFT(1)}
+              >
+                Mint
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      ) : null}
+      {isClaiming ? (
+        <Box
+          direction="column"
+          gap="large"
+          margin={"medium"}
+          style={{ height: "218px", width: "352px" }}
+        >
+          <Box height={"70px"} width="320px">
+            <Text weight={"bold"} style={{ size: "32px", color: "#FFFFFF" }}>
+              Follow steps
+            </Text>
+          </Box>
+
+          <Box direction="row" gap="small" size="large" alignSelf="center">
+            <Spinner
+              style={{ width: "16px", height: "16px" }}
+              color="#DCDCDC"
+              alignSelf="center"
+            />
+            <Text alignSelf="center" weight={"bold"} style={{ size: "12px" }}>
+              {" "}
+              sign transaction
+            </Text>
+          </Box>
+          <Box margin={"small"} width="small" alignSelf="center">
+            <Button
+              alignSelf="center"
+              style={{
+                width: "320px",
+                height: "40px",
+                color: "black",
+                fontStyle: "italic",
+                background: "rgba(255, 255, 255, 0.64)",
+                fontWeight: "700",
+              }}
+              size="small"
+              color={"white"}
+              primary
+              // active="false"
+              disabled
+            >
+              Continue
+            </Button>
+          </Box>
+        </Box>
+      ) : (
+        <></>
+      )}
+
+
+      {!isClaiming && justClaimed && !mintingComplete ? (
+        <>
+          <Box direction="row" gap="medium" alignSelf="center" pad={"small"}>
+            <Text alignSelf="start" size="large" weight={"bold"}>
+              SUMMERJAM
+            </Text>
+            <Validate size="medium" />
+          </Box>
+
+          <Box direction="column">
+            {/* <Text style={{ size: "32px" }}>Follow steps</Text> */}
+            <Box direction="row" gap="small" size="large" margin={"small"}>
+              <StatusGood
+                style={{ width: "24px", height: "24px" }}
+                alignSelf="center"
+              />
+              <Text style={{ size: "12px", fontWeight: "700" }}>
+                {" "}
+                sign transaction{" "}
+              </Text>
+            </Box>
+            <Box margin={"small"} width="small" alignSelf="center">
+              <Button
+                style={{ fontStyle: "italic", width: "320px", height: "40px" }}
+                size="large"
+                primary
+                color={"white"}
+                onClick={() => setMintingComplete(true)}
+                // onClick={() => console.log(`Continue button getting from txHash state >> ${txHash}`)}
+
+              >
+                Continue
+              </Button>
+            </Box>
+          </Box>
+        </>
+      ) : 
+      null
+      }
+          {mintingComplete ? <Checkout txHash={txHash.toString()} /> : null}
+
+      
     </Box>
   );
 }

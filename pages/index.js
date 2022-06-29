@@ -8,7 +8,16 @@ import React, { useState, useEffect } from "react";
 import { AlphaFooter } from "../components/Footer";
 import AuthOnly from "../components/AuthOnly";
 
-import { Image, Box, Button, Card, Text, Heading, Paragraph } from "grommet";
+import {
+  Image,
+  Box,
+  Button,
+  Card,
+  Text,
+  Heading,
+  Paragraph,
+  Anchor,
+} from "grommet";
 import { Car } from "grommet-icons";
 // import { Airdrop } from "../components/Airdrop";
 
@@ -40,7 +49,7 @@ export default function Home() {
           <Card width={"20%"} background="white" border="all">
             <Box background={"white"} direction="column">
               <Image
-                src="https://i.imgur.com/48dRmwN.png"
+                src="https://i.imgur.com/rSAdvq6.jpg"
                 width={"100%"}
                 height={"280px"}
               ></Image>
@@ -122,13 +131,13 @@ export default function Home() {
         {/* BUTTON WAS HERE */}
         <Button
           alignSelf="center"
-          label="Enter Phase 1"
+          style={{fontStyle: "italic", width: "200px", height:"40px" }}
           primary
           color="white"
           size="large"
           width="100px"
           onClick={() => setAuthStarted(true)}
-        />
+        >Enter Phase 1</Button>
       </Box>
     );
   };
@@ -141,7 +150,7 @@ export default function Home() {
         overflow="auto"
         align="stretch"
         flex="grow"
-        responsive="true"
+        responsive
       >
         <Box
           // height={"0%"}
@@ -158,22 +167,23 @@ export default function Home() {
             justify="start"
             direction="row"
           >
-            <Text
-              weight="bolder"
-              color="light-1"
-              alignSelf="center"
-              size="xlarge"
-              margin={"120px"}
-            >
-              JUSTADDMETA
-            </Text>
-            <Image src="" />
+            <Anchor href="/" style={{ textDecoration: "unset" }}>
+              <Text
+                weight="bolder"
+                color="light-1"
+                alignSelf="center"
+                size="xlarge"
+                margin={"120px"}
+              >
+                JUSTADDMETA
+              </Text>
+            </Anchor>
           </Box>
 
           <Box align="center" style={{ marginRight: "120px" }}>
             {address ? (
               <Button
-                color={"green"}
+                color={"white"}
                 label="connected"
                 onClick={() => disconnectWallet()}
                 size="large"
@@ -181,7 +191,7 @@ export default function Home() {
               />
             ) : (
               <Button
-                color={"red"}
+                color={"white"}
                 label="not connected"
                 size="large"
                 primary
@@ -261,10 +271,9 @@ export default function Home() {
             pad={"32px"}
             // justify="center"
             align="start"
-            margin="120px"
-            gap="8px"
+            style={{paddingLeft:"0px", paddingRight:"120px"}}
           >
-            <Box direction="column">
+            <Box direction="column" style={{paddingTop:"100px", paddingBottom:"100px"}}>
               <Paragraph textAlign="start" size="large">
                 You were part of the mission from day one. During the hunt your
                 team picked up different clues and also weird coded digital
@@ -323,13 +332,13 @@ export default function Home() {
     <div>
       <NavBar />
       <TopSection />
-
       <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>
       {!authStarted ? (
         <Box
           width={"100%"}
+          style={{paddingLeft: "64px"}}
           background={"black"}
           alignSelf="center"
           height="large"

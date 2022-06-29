@@ -28,21 +28,47 @@ export const AlphaFooter = () => {
             gap="medium"
             margin={"124px"}
           >
-            <Text size="large" textAlign="start" weight="bold">
-              JUSTADDMETA
-            </Text>
+
+<Anchor href="/" style={{ textDecoration: "unset" }}>
+              <Text
+                weight="bolder"
+                color="light-1"
+                alignSelf="center"
+                size="xlarge"
+              >
+                JUSTADDMETA
+              </Text>
+            </Anchor>
+            
             <Text size="18px" textAlign="start" weight={"bolder"}>
               We enable your brand to <br></br> make a sustainable contribution{" "}
               <br></br> to the metaverse.
             </Text>
-            <Button
-              label="ENTER SAFE HOUSE"
+            {/* <Button
+              style={{ fontWeight: "400", fontSize: "12px", width: "14px", height:"107px"}}
               size="medium"
               primary
               href="https://justaddmeta.com"
               target="_blank"
               color={"white"}
-            />
+            >ENTER SAFE HOUSE</Button> */}
+
+            <Button
+               href="https://justaddmeta.com"
+               target="_blank"
+              alignSelf="start"
+              style={{
+                width: "200px",
+                height: "64px",
+                color: "black",
+                fontStyle: "italic",
+                background: "white",
+                fontWeight: "400",
+              }}
+              primary
+            >
+              ENTER SAFE HOUSE
+            </Button>
 
             <Box direction="row" background={"black"}>
               <Anchor icon={<Instagram color="white" />} />
@@ -74,14 +100,23 @@ export const AlphaFooter = () => {
             </Text>
           </Box>
         </Box>
-       
-      
       </Box>
-     
-     <Box width={"100%"} style={{paddingTop: "20px"}} direction="column" height={"xsmall"} >
-     <hr width="90%" color="white"/>
-     <Text height="small" style={{paddingBottom: "small"}}>2022 Justaddsugar - All rights reserved.</Text>
-     </Box>
+
+      <Box
+        width={"100%"}
+        style={{ paddingTop: "20px" }}
+        direction="column"
+        height={"xsmall"}
+      >
+        <hr width="90%" color="white" />
+        <Text
+        alignSelf="start"
+          height="small"
+          style={{ paddingBottom: "small", fontStyle: "italic", paddingLeft:"80px" }}
+        >
+          2022 ©️ Justaddsugar - All rights reserved.
+        </Text>
+      </Box>
     </Footer>
     // </Box>
   );
