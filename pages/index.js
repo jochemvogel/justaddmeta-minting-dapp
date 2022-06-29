@@ -49,7 +49,7 @@ export default function Home() {
           <Card width={"20%"} background="white" border="all">
             <Box background={"white"} direction="column">
               <Image
-                src="https://i.imgur.com/48dRmwN.png"
+                src="https://i.imgur.com/rSAdvq6.jpg"
                 width={"100%"}
                 height={"280px"}
               ></Image>
@@ -131,13 +131,13 @@ export default function Home() {
         {/* BUTTON WAS HERE */}
         <Button
           alignSelf="center"
-          label="Enter Phase 1"
+          style={{fontStyle: "italic", width: "200px", height:"40px" }}
           primary
           color="white"
           size="large"
           width="100px"
           onClick={() => setAuthStarted(true)}
-        />
+        >Enter Phase 1</Button>
       </Box>
     );
   };
@@ -271,10 +271,9 @@ export default function Home() {
             pad={"32px"}
             // justify="center"
             align="start"
-            margin="120px"
-            gap="8px"
+            style={{paddingLeft:"0px", paddingRight:"120px"}}
           >
-            <Box direction="column">
+            <Box direction="column" style={{paddingTop:"100px", paddingBottom:"100px"}}>
               <Paragraph textAlign="start" size="large">
                 You were part of the mission from day one. During the hunt your
                 team picked up different clues and also weird coded digital
@@ -339,6 +338,7 @@ export default function Home() {
       {!authStarted ? (
         <Box
           width={"100%"}
+          style={{paddingLeft: "64px"}}
           background={"black"}
           alignSelf="center"
           height="large"

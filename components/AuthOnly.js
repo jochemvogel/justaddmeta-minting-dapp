@@ -16,17 +16,46 @@ export default function AuthOnly() {
   );
 
   const [to, setTo] = useState(0);
+  const [tokenImgUrl, setTokenImgUrl] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const x = await editionDrop.get(1);
-      const total = x.supply;
+
+      const total = x.supply; // number of minted tokens so far.
       return total.toNumber();
     };
     fetchData()
       .then((data) => setTo(data))
       .catch(console.error);
   }, []);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+
+  //     const x = await editionDrop.get(1);
+  //     const metadata = await x.metadata;
+
+  //     console.log(`details of NFT: >> ${JSON.stringify(x)}`);
+  //     console.log(`image url >> ${JSON.stringify(metadata["image"])}`); // access 
+  //     // metadata like this: >>
+  //     //   {
+  //     //     name: "JAM Turquoise Series",
+  //     //     description: "JAM Turquoise Series",
+  //     //     image: "https://i.imgur.com/mSBSyOz.png",
+  //     //     id: { type: "BigNumber", hex: "0x01" },
+  //     //     uri: "ipfs://Qmdayg6Mzp6ujWadvcjEmv6yMNhoLjs53ucHKR45puB6nn/1",
+  //     //     attributes: [{ trait_type: "Background", value: "Turquoise" }],
+  //     //   };
+
+  //     console.log(`metadata >> ${JSON.stringify(metadata["image"])}`); // access 
+  //     const total = x.supply; // number of minted tokens so far.
+  //     return total.toNumber();
+  //   };
+  //   fetchData()
+  //     .then((data) => setTo(data))
+  //     .catch(console.error);
+  // }, []);
 
   // const tokenStat = await getTokenStats(1);
   // const totalSofar = tokenStat.toNumber();
@@ -122,9 +151,9 @@ export default function AuthOnly() {
               <Box
                 style={{
                   paddingBottom: "24px",
-                  paddingLeft:"64px",
-                  paddingRight:"64px",
-                  paddingTop:"64px",
+                  paddingLeft: "64px",
+                  paddingRight: "64px",
+                  paddingTop: "64px",
 
                   background:
                     "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
