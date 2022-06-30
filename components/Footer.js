@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Text, Footer, Anchor, Button } from "grommet";
 import { Instagram } from "grommet-icons";
+import JustaddmetaLogo from "./JustaddmetaLogo";
 
 export const AlphaFooter = () => {
   return (
@@ -28,8 +29,7 @@ export const AlphaFooter = () => {
             gap="medium"
             margin={"124px"}
           >
-
-<Anchor href="/" style={{ textDecoration: "unset" }}>
+            {/* <Anchor href="/" style={{ textDecoration: "unset" }}>
               <Text
                 weight="bolder"
                 color="light-1"
@@ -38,8 +38,12 @@ export const AlphaFooter = () => {
               >
                 JUSTADDMETA
               </Text>
-            </Anchor>
-            
+            </Anchor> */}
+
+            <Button href="/" alignSelf="start">
+              <JustaddmetaLogo width="242px" height="40px" />
+            </Button>
+
             <Text size="18px" textAlign="start" weight={"bolder"}>
               We enable your brand to <br></br> make a sustainable contribution{" "}
               <br></br> to the metaverse.
@@ -54,8 +58,8 @@ export const AlphaFooter = () => {
             >ENTER SAFE HOUSE</Button> */}
 
             <Button
-               href="https://justaddmeta.com"
-               target="_blank"
+              href="https://justaddmeta.com"
+              target="_blank"
               alignSelf="start"
               style={{
                 width: "200px",
@@ -110,9 +114,13 @@ export const AlphaFooter = () => {
       >
         <hr width="90%" color="white" />
         <Text
-        alignSelf="start"
+          alignSelf="start"
           height="small"
-          style={{ paddingBottom: "small", fontStyle: "italic", paddingLeft:"80px" }}
+          style={{
+            paddingBottom: "small",
+            fontStyle: "italic",
+            paddingLeft: "120px",
+          }}
         >
           2022 ©️ Justaddsugar - All rights reserved.
         </Text>

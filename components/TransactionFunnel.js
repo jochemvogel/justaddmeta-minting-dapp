@@ -5,14 +5,10 @@ import {
   Heading,
   Text,
   Button,
-  Notification,
   Spinner,
-  Paragraph,
   Image,
   CardBody,
-  CardFooter,
   CardHeader,
-  Anchor,
 } from "grommet";
 import {
   useAddress,
@@ -23,10 +19,11 @@ import {
   ChainId,
 } from "@thirdweb-dev/react";
 
-import { StatusGood, Validate } from "grommet-icons";
-import Checkout from "./Checkout";
+import { Checkmark, Validate } from "grommet-icons";
+import CheckItOut from "./Checkout";
 
-export default function Airdrop({ total }) {
+// TODO:// rename TransactionFunnel
+export default function TransactionFunnel({ total }) {
   const maxSupply = 1000; // for testing
   const connectWithMetamask = useMetamask();
   // const { data: session } = useSession();
@@ -43,6 +40,7 @@ export default function Airdrop({ total }) {
   // const [amount, setAmount] = useState(1); // max mint amount at a time, default 1
   const [totalMinted, setTotalMinted] = useState(total);
   const [claimFailed, setClaimFailed] = useState(false);
+  const [tokenToMint, setTokenToMint] = useState(null);
   const [mintingComplete, setMintingComplete] = useState(false);
   const [txHash, setTxHash] = useState("");
   const configClaimPhases = async () => {
@@ -98,37 +96,37 @@ export default function Airdrop({ total }) {
   //   return total;
   // }
 
-  const checkThisOut = (etherscanURL) => {
-    return (
-      <Card>
-        <CardHeader>Checkout</CardHeader>
-        <CardBody>
-          <Box direction="row">
-            <Box width={"50%"}>
-              <Image width={"400px"} height="600px"></Image>
-            </Box>
-            <Box width={"50%"} direction="column">
-              <Text size="large">You sucessfully minted ...</Text>
-              <Button
-                size="large"
-                primary
-                color={"white"}
-                href={{ etherscanURL }}
-                target="_blank"
-              >
-                fetch Etherscan link
-              </Button>
-              <Button size="large" color={"white"}>
-                fetch Opensea link
-              </Button>
-            </Box>
-          </Box>
-        </CardBody>
-      </Card>
-    );
-  };
+  // const checkThisOut = (etherscanURL) => {
+  //   return (
+  //     <Card>
+  //       <CardHeader>Checkout</CardHeader>
+  //       <CardBody>
+  //         <Box direction="row">
+  //           <Box width={"50%"}>
+  //             <Image width={"400px"} height="600px"></Image>
+  //           </Box>
+  //           <Box width={"50%"} direction="column">
+  //             <Text size="large">You sucessfully minted ...</Text>
+  //             <Button
+  //               size="large"
+  //               primary
+  //               color={"white"}
+  //               href={{ etherscanURL }}
+  //               target="_blank"
+  //             >
+  //               fetch Etherscan link
+  //             </Button>
+  //             <Button size="large" color={"white"}>
+  //               fetch Opensea link
+  //             </Button>
+  //           </Box>
+  //         </Box>
+  //       </CardBody>
+  //     </Card>
+  //   );
+  // };
 
-  async function claimNFT(tokenId) {
+  async function claimNFT() {
     // Ensure wallet connected
     if (!address) {
       alert("Please reconnect your wallet to continue.");
@@ -154,28 +152,34 @@ export default function Airdrop({ total }) {
       setIsClaiming(true);
       // actually 3, we'll make this 3 after updating metadata for all NFTs.
       // const numberOfDesigns = 2;
-      // const randomTokenId = Math.floor(Math.random() * numberOfDesigns);
-      const randomTokenId = Math.floor(Math.random()); // and int btw 0 to 1.
-      console.log(`got randomg tokenId btw 0 and 1: ${randomTokenId}`);
+      // const randomTokenId = Math.floor(Math.random()); // and int btw 0 to 1.
+      // console.log(`got randomg tokenId btw 0 and 1: ${randomTokenId}`);
+      const randomTokenId = Math.floor(Math.random() * 2);
+      console.log(`a random tokenId >> ${randomTokenId}`);
+      setTokenToMint(randomTokenId);
+      //  console.log(`we've set tokenToMunt state as >> ${tokenToMint}`);
+
       try {
         // const tokenClaimingResult = await editionDrop.claimTo(address, randomTokenId, 1);
 
-
-        await editionDrop.claimTo(address, randomTokenId, 1).then((result) => setTxHash(result.receipt.transactionHash));
-          // .then((result) => setTxHash(result["receipt"]["transactionHash"]));
+        await editionDrop
+          .claim(randomTokenId, 1)
+          .then((result) => setTxHash(result.receipt.transactionHash));
+        // .then((result) => setTxHash(result["receipt"]["transactionHash"]));
 
         //tokenClaimingResult["receipt"]["transactionHash"];
         //console.log(`txHash >> ${tx}`);
-        
+
         // console.log(`txHash >> ${JSON.stringify(tokenClaimingResult["receipt"]["transactionHash"])}`);
         // setTxHash(tx);
         setJustClaimed(true);
         // setTotalMinted(total + 1);
         // setDisplayInfoToast(true);
+        setIsClaiming(false);
+        return;
       } catch (error) {
         console.log(`error on claiming., \n ${error}`);
       }
-      setIsClaiming(false);
     }
   }
 
@@ -183,17 +187,21 @@ export default function Airdrop({ total }) {
     <Box
       fill="vertical"
       // overflow="auto"
+      width={"980px"}
+      height={"60px"}
       align="center"
       flex="grow"
-      pad="medium"
+      // pad="medium"
       justify="center"
       direction="column"
       // align="stretch"
-      gap="xxsmall"
+      gap="xsmall"
       style={{
-        background:
-          "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
-        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+        marginTop: "166px",
+        marginBottom: "111px",
+        // background:
+        //   "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
+        // filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
       }}
     >
       {address && !isClaiming && !justClaimed ? (
@@ -207,46 +215,60 @@ export default function Airdrop({ total }) {
           >
             <Image
               src="https://i.imgur.com/mSBSyOz.png"
-              width={"460px"}
-              height={"500px"}
+              width={"342px"}
+              height={"479px"}
             />
           </Box>
 
           <Box
             width={"50%"}
             // background="black"
-            justify="center"
+            justify="stretch"
             align="end"
-            pad={"32px"}
+            // pad={"32px"}
+            // gap="small"
           >
-            <Box direction="row" gap="medium" alignSelf="start" pad={"small"}>
+            <Box direction="row" gap="small" alignSelf="start" pad={"small"}>
               <Text alignSelf="start" size="large">
                 SUMMERJAM
               </Text>
               <Validate size="medium" />
             </Box>
-            <Heading textAlign="start" size="small">
+            <Heading textAlign="start" fontSize="32px" fontWeight="400">
               Metaverse has never been this delightful
             </Heading>
-            <Paragraph textAlign="start" size="large">
+            <Text textAlign="start" fontSize="12px" fontWeight="700">
               Remarkable virtual craftsmanship meets ostentatious yet familiar
               design. Ingredients from a different dimension and extravagant
               hints of fruits suiting everyone&apos;s palate.
-            </Paragraph>
+            </Text>
 
-            <Paragraph textAlign="start" size="large">
+            <Text textAlign="start" fontSize="12px" fontWeight="700">
               Exclusive limited edition of 50 summer jams in three delightful
               varieties.
-            </Paragraph>
+            </Text>
 
-            <Paragraph
-              alignSelf="center"
-              textAlign="center"
-              size="large"
-              margin={"small"}
+            <Text
+              style={{
+                border: "1px solid #FFFFFF",
+                paddingBottom: "2px",
+                paddingTop: "2px",
+                width: "100%",
+                height: "62px",
+                alignItems: "center",
+                flexDirection: "row",
+                boxSizing: "border-box",
+                justifyContent: "center",
+              }}
+              // alignSelf="center"
+              // textAlign="center"
+              // size="large"
+              // width="342px"
+              // height="62px"
+              // margin={"small"}
             >
-              {totalMinted}/X minted
-            </Paragraph>
+              {totalMinted}/100 minted
+            </Text>
 
             <Box size="small" margin={"small"} alignSelf="center">
               <Button
@@ -260,7 +282,7 @@ export default function Airdrop({ total }) {
                 color="white"
                 size="large"
                 disabled={false}
-                onClick={() => claimNFT(1)}
+                onClick={() => claimNFT()}
               >
                 Mint
               </Button>
@@ -272,41 +294,57 @@ export default function Airdrop({ total }) {
         <Box
           direction="column"
           gap="large"
-          margin={"medium"}
+          pad={"medium"}
           style={{ height: "218px", width: "352px" }}
         >
-          <Box height={"70px"} width="320px">
-            <Text weight={"bold"} style={{ size: "32px", color: "#FFFFFF" }}>
+          <Box height={"186px"} width="320px" color="black">
+            <Text
+              style={{
+                fontSize: "32px",
+                color: "#FFFFFF",
+                weight: "700",
+                lineHeight: "38px",
+                textAlign: "start",
+              }}
+            >
               Follow steps
             </Text>
           </Box>
 
-          <Box direction="row" gap="small" size="large" alignSelf="center">
+          <Box direction="row" gap="small" alignSelf="start">
             <Spinner
               style={{ width: "16px", height: "16px" }}
               color="#DCDCDC"
               alignSelf="center"
             />
-            <Text alignSelf="center" weight={"bold"} style={{ size: "12px" }}>
+            <Text
+              alignSelf="center"
+              weight={"bold"}
+              style={{
+                size: "12px",
+                letterSpacing: "0.2em",
+                fontFamily: "Inter",
+                lineHeight: "15px",
+                fontWeight: "700",
+              }}
+            >
               {" "}
               sign transaction
             </Text>
           </Box>
-          <Box margin={"small"} width="small" alignSelf="center">
+          <Box alignSelf="start">
             <Button
-              alignSelf="center"
               style={{
-                width: "320px",
-                height: "40px",
-                color: "black",
+                paddingTop: "8px",
+                paddingBottom: "8px",
+                paddingLeft: "64px",
+                paddingRight: "64px",
                 fontStyle: "italic",
-                background: "rgba(255, 255, 255, 0.64)",
-                fontWeight: "700",
               }}
-              size="small"
+              width="80%"
               color={"white"}
+              size="xlarge"
               primary
-              // active="false"
               disabled
             >
               Continue
@@ -317,20 +355,18 @@ export default function Airdrop({ total }) {
         <></>
       )}
 
-
       {!isClaiming && justClaimed && !mintingComplete ? (
         <>
-          <Box direction="row" gap="medium" alignSelf="center" pad={"small"}>
+          {/* <Box direction="row" gap="medium" alignSelf="center" pad={"small"}>
             <Text alignSelf="start" size="large" weight={"bold"}>
               SUMMERJAM
             </Text>
             <Validate size="medium" />
-          </Box>
+          </Box> */}
 
           <Box direction="column">
-            {/* <Text style={{ size: "32px" }}>Follow steps</Text> */}
             <Box direction="row" gap="small" size="large" margin={"small"}>
-              <StatusGood
+              <Checkmark
                 style={{ width: "24px", height: "24px" }}
                 alignSelf="center"
               />
@@ -346,20 +382,16 @@ export default function Airdrop({ total }) {
                 primary
                 color={"white"}
                 onClick={() => setMintingComplete(true)}
-                // onClick={() => console.log(`Continue button getting from txHash state >> ${txHash}`)}
-
               >
                 Continue
               </Button>
             </Box>
           </Box>
         </>
-      ) : 
-      null
-      }
-          {mintingComplete ? <Checkout txHash={txHash.toString()} /> : null}
-
-      
+      ) : null}
+      {mintingComplete ? (
+        <CheckItOut txHash={txHash.toString()} tokenId={tokenToMint} />
+      ) : null}
     </Box>
   );
 }

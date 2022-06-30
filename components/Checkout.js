@@ -1,54 +1,84 @@
-import { useAddress, useMetamask, useEditionDrop } from "@thirdweb-dev/react";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import {
   Box,
-  Card,
-  CardHeader,
-  CardBody,
   Image,
   Button,
   Text,
   Heading,
-  Paragraph,
 } from "grommet";
 
-export default function Checkout({ txHash }) {
-    console.log(`txhash@Checkout >> ${txHash}`);
-  //  const [etherscanLink, setEtherscanLink] = useState("https://rinkeby.etherscan.io/tx/" + txHash);
-
-  // useEffect(() => {
-  //     const fetchData = async () => {
-  //       const x = await editionDrop.get(1);
-  //       const total = x.supply;
-  //       return total.toNumber();
-  //     };
-  //     fetchData()
-  //       .then((data) => setTo(data))
-  //       .catch(console.error);
-  //   }, []);
+export default function CheckItOut({ txHash, tokenId }) {
+  console.log(`txhash@Checkout >> ${txHash}`);
+  console.log(`tokenId@Checkout >> ${txHash}`);
 
   return (
-    <Box
-    fill="vertical"
-    // overflow="auto"
-    align="center"
-    flex="grow"
-    pad="medium"
-    justify="center"
-    direction="column"
-    // align="stretch"
-    gap="small"
-    style={{
-      background:
-        "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
-      filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-    }}
-  >
 
-    <Text>Checkout </Text>
-    <Button primary color={"white"} size="large" href={"https://rinkeby.etherscan.io/tx/" + txHash} target="_blank">Fetch Etherscan link</Button>
+    <Box direction="row" gap="medium">
+    <Box
+      width={"50%"}
+      // background="black"
+      justify="center"
+      align="start"
+      pad={"32px"}
+      
+    >
+      <Image
+        src="https://i.imgur.com/mSBSyOz.png"
+        width={"342px"}
+        height={"479px"}
+      />
+    </Box>
+
+    <Box
+      width={"50%"}
+      justify="center"   
+    >
+  
+      <Heading textAlign="center" fontSize="32px" fontWeight="400">
+        Checkout
+      </Heading>
+      <Text textAlign="center" fontSize="12px" fontWeight="700">
+      You successfully minted “Title”.
+      </Text>
+
+      <Box size="small" margin={"medium"} alignSelf="center" direction="column" gap="small">
+        <Button
+          alignSelf="center"
+          style={{
+            fontStyle: "italic",
+            width: "342px",
+            height: "40px",
+          }}
+          primary
+          color="white"
+          size="large"
+          disabled={false}
+          href={"https://rinkeby.etherscan.io/tx/" + txHash}
+        target="_blank"
+         
+        >
+          fetch Etherscan link
+        </Button>
+
+        <Button
+          alignSelf="center"
+          style={{
+            fontStyle: "italic",
+            width: "342px",
+            height: "40px",
+          }}
+          primary
+          color="white"
+          size="large"
+          disabled={false}
+              href={"https://testnets.opensea.io/assets/rinkeby/0xb4b8f15c9ff18b01d6894713c2e7712fbe2871ca/" + tokenId}
+        target="_blank"
+        >
+          fetch Opensea link
+        </Button>
+      </Box>
+    </Box>
   </Box>
   );
 }
