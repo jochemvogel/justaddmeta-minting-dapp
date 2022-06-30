@@ -19,7 +19,8 @@ import {
   Anchor,
 } from "grommet";
 import { Car } from "grommet-icons";
-// import { Airdrop } from "../components/Airdrop";
+import JustaddmetaLogo from "../components/JustaddmetaLogo";
+// import { TransactionFunnel } from "../components/TransactionFunnel";
 
 export default function Home() {
   // Grab the currently connected wallet's address
@@ -98,7 +99,7 @@ export default function Home() {
                   PHASE 3
                 </Heading>
                 <Text size="12px" textAlign="start" weight={"700"}>
-                  AIRDROP
+                  TransactionFunnel
                 </Text>
                 <Paragraph textAlign="start" size="12px">
                   Lorem ipsum dolor sit amet, consectetur adispicit elit.
@@ -131,13 +132,15 @@ export default function Home() {
         {/* BUTTON WAS HERE */}
         <Button
           alignSelf="center"
-          style={{fontStyle: "italic", width: "200px", height:"40px" }}
+          style={{ fontStyle: "italic", width: "200px", height: "40px" }}
           primary
           color="white"
           size="large"
           width="100px"
           onClick={() => setAuthStarted(true)}
-        >Enter Phase 1</Button>
+        >
+          Enter Phase 1
+        </Button>
       </Box>
     );
   };
@@ -167,36 +170,29 @@ export default function Home() {
             justify="start"
             direction="row"
           >
-            <Anchor href="/" style={{ textDecoration: "unset" }}>
-              <Text
-                weight="bolder"
-                color="light-1"
-                alignSelf="center"
-                size="xlarge"
-                margin={"120px"}
-              >
-                JUSTADDMETA
-              </Text>
-            </Anchor>
+            <Button href="/" alignSelf="start">
+              <JustaddmetaLogo style={{marginLeft:"120px", marginTop:"11px"}} width="150px" height="18px" />
+            </Button>
           </Box>
 
           <Box align="center" style={{ marginRight: "120px" }}>
             {address ? (
               <Button
+              style={{fontStyle:"italic", width: "200px", height:"40px"}}
+
                 color={"white"}
-                label="connected"
                 onClick={() => disconnectWallet()}
                 size="large"
                 primary
-              />
+              >connected</Button>
             ) : (
               <Button
+              style={{fontStyle:"italic", width: "200px", height:"40px"}}
                 color={"white"}
-                label="not connected"
-                size="large"
+                // size="large"
                 primary
                 onClick={() => connectWallet()}
-              />
+              >not connected</Button>
             )}
           </Box>
 
@@ -271,9 +267,12 @@ export default function Home() {
             pad={"32px"}
             // justify="center"
             align="start"
-            style={{paddingLeft:"0px", paddingRight:"120px"}}
+            style={{ paddingLeft: "0px", paddingRight: "120px" }}
           >
-            <Box direction="column" style={{paddingTop:"100px", paddingBottom:"100px"}}>
+            <Box
+              direction="column"
+              style={{ paddingTop: "100px", paddingBottom: "100px" }}
+            >
               <Paragraph textAlign="start" size="large">
                 You were part of the mission from day one. During the hunt your
                 team picked up different clues and also weird coded digital
@@ -331,14 +330,15 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      <TopSection />
-      <Box background={"black"} height="large" direction="row">
+      {!authStarted ? <TopSection /> : null}
+      <Box background={"black"} height="large" direction="row" 
+      >
         <Landing />
       </Box>
       {!authStarted ? (
         <Box
           width={"100%"}
-          style={{paddingLeft: "64px"}}
+          style={{ paddingLeft: "64px" }}
           background={"black"}
           alignSelf="center"
           height="large"

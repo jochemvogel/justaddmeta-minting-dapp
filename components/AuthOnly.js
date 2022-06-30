@@ -1,10 +1,7 @@
 import { useAddress, useMetamask, useEditionDrop } from "@thirdweb-dev/react";
-
 import React, { useState, useEffect } from "react";
-
-import Airdrop from "./Airdrop";
-
-import { Box, Image, Button, Text, Heading, Paragraph } from "grommet";
+import TransactionFunnel from "./TransactionFunnel";
+import { Box, Button, Text, Heading, Paragraph } from "grommet";
 
 export default function AuthOnly() {
   const connectWithMetamask = useMetamask();
@@ -15,82 +12,22 @@ export default function AuthOnly() {
     "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
   );
 
-  const [to, setTo] = useState(0);
+  const [totalMinted, setTotalMinted] = useState(0);
   const [tokenImgUrl, setTokenImgUrl] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const x = await editionDrop.get(1);
-
       const total = x.supply; // number of minted tokens so far.
       return total.toNumber();
     };
     fetchData()
-      .then((data) => setTo(data))
+      .then((data) => setTotalMinted(data))
       .catch(console.error);
   }, []);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-
-  //     const x = await editionDrop.get(1);
-  //     const metadata = await x.metadata;
-
-  //     console.log(`details of NFT: >> ${JSON.stringify(x)}`);
-  //     console.log(`image url >> ${JSON.stringify(metadata["image"])}`); // access 
-  //     // metadata like this: >>
-  //     //   {
-  //     //     name: "JAM Turquoise Series",
-  //     //     description: "JAM Turquoise Series",
-  //     //     image: "https://i.imgur.com/mSBSyOz.png",
-  //     //     id: { type: "BigNumber", hex: "0x01" },
-  //     //     uri: "ipfs://Qmdayg6Mzp6ujWadvcjEmv6yMNhoLjs53ucHKR45puB6nn/1",
-  //     //     attributes: [{ trait_type: "Background", value: "Turquoise" }],
-  //     //   };
-
-  //     console.log(`metadata >> ${JSON.stringify(metadata["image"])}`); // access 
-  //     const total = x.supply; // number of minted tokens so far.
-  //     return total.toNumber();
-  //   };
-  //   fetchData()
-  //     .then((data) => setTo(data))
-  //     .catch(console.error);
-  // }, []);
-
-  // const tokenStat = await getTokenStats(1);
-  // const totalSofar = tokenStat.toNumber();
-
   return (
-    <Box
-      align="center"
-      direction="row"
-      justify="center"
-
-      // style={{
-      //   background:
-      //     "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
-      //   filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-      // }}
-    >
-      {/* {!mintingStarted ? (
-        <Image
-          src="https://i.imgur.com/48dRmwN.png"
-          width={"460px"}
-          height={"500px"}
-        ></Image>
-      ) : null} */}
-
-      <Box
-        align="center"
-        justify="center"
-        direction="column"
-        gap="small"
-        style={{
-          background:
-            "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
-          filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-        }}
-      >
+    <Box align="center" direction="row" justify="center">
+      <Box align="center" justify="center" direction="column" gap="small">
         {!address ? (
           <>
             <Heading size="small" textAlign="center">
@@ -154,10 +91,6 @@ export default function AuthOnly() {
                   paddingLeft: "64px",
                   paddingRight: "64px",
                   paddingTop: "64px",
-
-                  background:
-                    "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
-                  filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
                 }}
               >
                 <Heading size="small" textAlign="center">
@@ -173,7 +106,6 @@ export default function AuthOnly() {
                   margin="medium"
                   size="large"
                   active={false}
-                  // onClick={() => disconnectWallet()}
                 >
                   <Text
                     size="large"
@@ -203,21 +135,11 @@ export default function AuthOnly() {
                 >
                   Launch
                 </Button>
-
-                {/* <Button
-                  label="Launch"
-                  color={"white"}
-                  primary
-                  size="large"
-                  onClick={() => setMintingStarted(true)}
-                >
-                  Launch
-                </Button> */}
               </Box>
             </>
           ) : null}
 
-          {mintingStarted ? <Airdrop total={to} /> : null}
+          {mintingStarted ? <TransactionFunnel total={totalMinted} /> : null}
         </Box>
       </Box>
     </Box>
