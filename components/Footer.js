@@ -30,7 +30,7 @@ export const AlphaFooter = () => {
             Rothenbaumchaussee 91 <br></br>
             20148 Hamburg, Germany
           </p>
-          <a href=""> +49 17634990063</a> <br></br>
+          <a href="tel:+4917634990063">+49 (0) 17634990063</a><br></br>
           <a href="mailto:hello@justaddmeta.com">hello@justaddmeta.com</a>
         </div>
       </div>
@@ -38,6 +38,8 @@ export const AlphaFooter = () => {
         <a href="">2022 © Justaddsugar - All rights reserved.</a>
       </div>
     </footer>
+
+
 
   );
 };
