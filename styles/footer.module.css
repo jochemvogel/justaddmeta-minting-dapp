@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap");
+
+.footer {
+    background: #000000;
+    width: 100%;
+    height: 500px;
+}
+
+.footer_items {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 75px 0;
+}
+
+.footer_info {
+    width: 60%;
+}
+
+.footer_info h2 {
+    font-size: 27px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+
+}
+
+.footer_info p {
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+
+}
+
+.footer_btn {
+    width: 200px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 60px;
+    align-items: center;
+    padding: 8px 24px;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+}
+
+.address {
+    text-align: end;
+    width: 55%;
+}
+
+.address h2,
+.address p,
+.address a {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 26px;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.address p,
+.address a {
+    font-size: 18px;
+}
+
+.social_media {
+    color: #FFFFFF;
+    margin-top: 88px;
+}
+
+.fa-tiktok {
+    padding: 0 13px;
+}
+.discord
+{
+    width: 4s0px;
+    height: 30px;
+    margin-right: 5px;
+}
+.tiktok
+{
+    width: 40px;
+    height: 30px;
+    margin-right: 0px;
+}
+.insta
+{
+    width: 60px;
+    height: 40px;
+    margin-right: -10px;
+}
+.term_condition a {
+    padding-left: 6vw;
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.footer_brd {
+    border-bottom: 2px solid #ffffff;
+    width: 92%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.term_condition {
+    margin: 1vw 0 0;
+    text-align: left;
+}
+
+.fa-brands {
+    font-size: 28px;
+}
+
+/* a:hover {
+    color: #ffffff !important;
+} */
+
+@media screen and (max-width:772px) {
+    .phase_content p {
+        font: normal normal 700 17px/31px Roboto;
+    }
+
+    .phase {
+        padding: 32px;
+    }
+
+    .content {
+        width: 84%;
+    }
+
+    .summerjam_card {
+        flex-direction: column;
+        height: auto;
+        width: 362px;
+    }
+
+    .metaverse_content {
+        width: 100%;
+    }
+
+    /* footer section */
+    .footer_items {
+        flex-direction: column;
+    }
+
+    .address {
+        text-align: left;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .footer_info {
+        text-align: left;
+        width: 100%;
+    }
+
+    .social_media {
+        margin-top: 38px;
+        margin-left: 10px;
+    }
+
+    .footer_items {
+        padding: 38px 46px 0;
+    }
+
+    .footer_btn {
+        width: 275px;
+        height: 43px;
+    }
+
+    .footer_brd {
+        padding-top: 30px;
+    }
+}
+
+/* footer media query */
+@media only screen and (max-width: 769px) {
+    .footer {
+        height: 800px;
+    }
+
+    .footer_btn {
+        width: 100%;
+        height: 50px;
+        color: #000000;
+        margin-top: 10px;
+    }
+
+    .address p {
+        margin-top: 0px;
+    }
+}

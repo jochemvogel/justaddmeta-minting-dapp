@@ -146,6 +146,16 @@ export default function Home() {
   };
 
   const NavBar = () => {
+    //     return(
+
+    //     <section>
+    //     <div className="header">
+    //         <h3 className="brand">JUSTADDMETA</h3>
+    //         <button className="nav_btn">Wallet Status</button>
+    //     </div>
+    // </section>
+    //     );
+
     return (
       <Box
         style={{ position: "fixed" }}
@@ -171,28 +181,35 @@ export default function Home() {
             direction="row"
           >
             <Button href="/" alignSelf="start">
-              <JustaddmetaLogo style={{marginLeft:"120px", marginTop:"11px"}} width="150px" height="18px" />
+              <JustaddmetaLogo
+                style={{ marginLeft: "120px", marginTop: "11px" }}
+                width="150px"
+                height="18px"
+              />
             </Button>
           </Box>
 
           <Box align="center" style={{ marginRight: "120px" }}>
             {address ? (
               <Button
-              style={{fontStyle:"italic", width: "200px", height:"40px"}}
-
+                style={{ fontStyle: "italic", width: "200px", height: "40px" }}
                 color={"white"}
                 onClick={() => disconnectWallet()}
                 size="large"
                 primary
-              >connected</Button>
+              >
+                connected
+              </Button>
             ) : (
               <Button
-              style={{fontStyle:"italic", width: "200px", height:"40px"}}
+                style={{ fontStyle: "italic", width: "200px", height: "40px" }}
                 color={"white"}
                 // size="large"
                 primary
                 onClick={() => connectWallet()}
-              >not connected</Button>
+              >
+                not connected
+              </Button>
             )}
           </Box>
 
@@ -331,8 +348,7 @@ export default function Home() {
     <div>
       <NavBar />
       {!authStarted ? <TopSection /> : null}
-      <Box background={"black"} height="large" direction="row" 
-      >
+      <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>
       {!authStarted ? (
