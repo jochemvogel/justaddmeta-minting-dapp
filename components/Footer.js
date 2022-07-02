@@ -9,7 +9,7 @@ export const AlphaFooter = () => {
     <footer className={styles.footer}>
       <div className={styles.footer_items}>
         <div className={styles.footer_info}>
-          <h2>JUSTADDMETA</h2>
+          <JustaddmetaLogo/>
           <br></br>
           <p>
             We enable your brand to <br></br>
@@ -24,7 +24,7 @@ export const AlphaFooter = () => {
           </div>
         </div>
         <div className={styles.address}>
-          <h2>Office Hamburg </h2>3
+          <h2>Office Hamburg </h2>
           <p>
             Justaddsugar GmbH <br></br>
             Rothenbaumchaussee 91 <br></br>

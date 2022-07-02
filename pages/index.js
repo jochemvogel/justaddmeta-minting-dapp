@@ -261,7 +261,7 @@ export default function Home() {
             background="black"
             // justify="center"
             align="center"
-            margin={"120px"}
+            // margin={"120px"}
             pad={"small"}
           >
             <Box direction="column" pad={"medium"}>
