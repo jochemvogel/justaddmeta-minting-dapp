@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Text, Footer, Anchor, Button } from "grommet";
+import { Box, Text, Anchor, Button } from "grommet";
 import { Instagram } from "grommet-icons";
 import JustaddmetaLogo from "./JustaddmetaLogo";
 
 import styles from "../styles/footer.module.css";
-export const AlphaFooter = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_items}>

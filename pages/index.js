@@ -5,7 +5,8 @@ import {
   useNetworkMismatch,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
-import { AlphaFooter } from "../components/Footer";
+import { AlphaFooter, Footer } from "../components/Footer";
+
 import AuthOnly from "../components/AuthOnly";
 
 import {
@@ -16,11 +17,14 @@ import {
   Text,
   Heading,
   Paragraph,
-  Anchor,
+  Anchor
 } from "grommet";
 import { Car } from "grommet-icons";
 import JustaddmetaLogo from "../components/JustaddmetaLogo";
 import { HeroBanner } from "../components/HeroBanner";
+import { SummerJamCard } from "../components/SummerJamCard";
+import { Header } from "../components/Header";
+import Wrapper from "../components/Wrapper";
 // import { TransactionFunnel } from "../components/TransactionFunnel";
 
 export default function Home() {
@@ -316,12 +320,13 @@ export default function Home() {
 
   return (
     <div>
-      <NavBar />
+      <Header />
       {!authStarted ? <HeroBanner /> : null}
-      <Box background={"black"} height="large" direction="row">
+      {/* <Box background={"black"} height="large" direction="row">
         <Landing />
-      </Box>
-      {!authStarted ? (
+      </Box> */}
+      <Wrapper/>
+      {/* {!authStarted ? (
         <Box
           width={"100%"}
           style={{ paddingLeft: "64px" }}
@@ -330,11 +335,11 @@ export default function Home() {
           height="large"
           justify="center"
         >
-          <ImageStripe />
+          <ImageStripe/>
         </Box>
-      ) : null}
+      ) : null} */}
 
-      <AlphaFooter />
+      <Footer />
     </div>
   );
 }
