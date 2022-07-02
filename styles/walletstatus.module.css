@@ -2,6 +2,7 @@
     text-align: center;
 }
 
+  /* This button musst be styled thorugh a global css file */
 .phase_btn button {
     align-items: center;
     padding: 8px 24px;

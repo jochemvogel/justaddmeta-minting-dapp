@@ -58,7 +58,7 @@ export default function CheckItOut({ txHash, tokenId }) {
         target="_blank"
          
         >
-          fetch Etherscan link
+          Check Transaction
         </Button>
 
         <Button
@@ -75,7 +75,7 @@ export default function CheckItOut({ txHash, tokenId }) {
               href={"https://testnets.opensea.io/assets/rinkeby/0xb4b8f15c9ff18b01d6894713c2e7712fbe2871ca/" + tokenId}
         target="_blank"
         >
-          fetch Opensea link
+          Browse OpenSea
         </Button>
       </Box>
     </Box>
