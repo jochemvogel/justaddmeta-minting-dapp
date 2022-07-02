@@ -41,7 +41,7 @@ body {
 }
 
 
-html {font-size: 100%;} /16px/
+html {font-size: 100%;} /*16px*/
 
 body {
   background: white;
@@ -74,4 +74,41 @@ h4 {font-size: 1.563rem;}
 h5 {font-size: 1.25rem;}
 
 small, .text_small {font-size: 0.8rem;}
+
+.button {
+  background: none;
+  color: #F8F8FA;;
+  border-color: #F8F8FA;;
+  margin: 0;
+  display: -moz-inline-box;
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -moz-box-align: center;
+  align-items: center;
+  vertical-align: bottom;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.button:hover {
+  background: #F8F8FA;
+  color: #090C12;
+  border-color: #F8F8FA;
+}
+
+
+/* 
+JUSTADD META CI
+color-primary: #090C12;
+color-secondary: #F8F8FA;
+color-text: #000000;
+color-accent: #FFFFFF;
+color-b1b0588: #2B2F39;
+color-a695d99: #03020200;
+*/
 
