@@ -86,24 +86,7 @@
 .fa-tiktok {
     padding: 0 13px;
 }
-.discord
-{
-    width: 4s0px;
-    height: 30px;
-    margin-right: 5px;
-}
-.tiktok
-{
-    width: 40px;
-    height: 30px;
-    margin-right: 0px;
-}
-.insta
-{
-    width: 60px;
-    height: 40px;
-    margin-right: -10px;
-}
+
 .term_condition a {
     padding-left: 6vw;
     text-decoration: none;
@@ -125,6 +108,7 @@
 .term_condition {
     margin: 1vw 0 0;
     text-align: left;
+    border-top: 1px solid white;
 }
 
 .fa-brands {
@@ -208,5 +192,10 @@
 
     .address p {
         margin-top: 0px;
+    }
+    
+    .footer_info {
+        border-top: 1px solid white;
+
     }
 }
