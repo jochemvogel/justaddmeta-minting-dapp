@@ -18,9 +18,9 @@ export const AlphaFooter = () => {
           </p>
           <button className={styles.footer_btn}>ENTER SAFE HOUSE</button>
           <div className={styles.social_media}>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-tiktok"></i>
-            <i class="fa-brands fa-discord"></i>
+            <i className="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-tiktok"></i>
+            <i className="fa-brands fa-discord"></i>
           </div>
         </div>
         <div className={styles.address}>

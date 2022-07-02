@@ -20,6 +20,7 @@ import {
 } from "grommet";
 import { Car } from "grommet-icons";
 import JustaddmetaLogo from "../components/JustaddmetaLogo";
+import { HeroBanner } from "../components/HeroBanner";
 // import { TransactionFunnel } from "../components/TransactionFunnel";
 
 export default function Home() {
@@ -219,38 +220,7 @@ export default function Home() {
     );
   };
 
-  const TopSection = () => {
-    return (
-      <Box
-        direction="column"
-        pad={"30%"}
-        background={"#DCDCDC"}
-        // width="100%"
-        height={"medium"}
-        justify="center"
-        alignSelf="center"
-      >
-        <Text alignSelf="start" size="20px" weight="800" textAlign="start">
-          LOREM IPSUM
-        </Text>
-
-        <Text
-          align="start"
-          size="36px"
-          weight="700"
-          alignSelf="start"
-          textAlign="start"
-        >
-          LOREM IPSUM AMET CONSECTETUR ADIPISCING ELIT.
-        </Text>
-        <Paragraph size="24px" alignSelf="start" textAlign="start">
-          Opperation Morraba was a secretly launched mission with one specific
-          goal in mind: finding the safe house four fugitives are using to hide
-          from the authorities.
-        </Paragraph>
-      </Box>
-    );
-  };
+  
 
   const Landing = () => {
     if (!authStarted) {
@@ -347,7 +317,7 @@ export default function Home() {
   return (
     <div>
       <NavBar />
-      {!authStarted ? <TopSection /> : null}
+      {!authStarted ? <HeroBanner /> : null}
       <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box>
