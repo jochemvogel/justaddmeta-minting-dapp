@@ -54,13 +54,18 @@
 .cardCol {
     height: auto;
     width: 100%;
+    transition: 0.3s;
     border-width: 1px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgb(0 31 237 / 19%), 0 6px 6px rgb(226 30 30 / 8%);
     border-style: solid;
     border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
     /* height: 308px; */
     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); }
+
+.cardCol:hover {
+    box-shadow: 0 12px 20px rgb(0 26 237 / 39%), 0 8px 7px rgb(226 30 30 / 30%);
+}
 
 .card {
     padding: 16px; }
