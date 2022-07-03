@@ -5,7 +5,7 @@ export const HeroBanner = () => {
     <section className={styles.heroBanner}>
       <div className={styles.heroWrapper}>
       <div className={styles.heroContent}>
-        <label>LOREM IPSUM</label>
+        <label>Lorem Ipsum</label>
         <h1>Lorem ipsum amet consectetur adipiscing elit.</h1>
         <p>
           Opperation Morraba was a secretly launched mission with one specific

@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Text, Anchor, Button } from "grommet";
-import { Instagram } from "grommet-icons";
+
 import JustaddmetaLogo from "./JustaddmetaLogo";
 
 import styles from "../styles/footer.module.css";

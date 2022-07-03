@@ -5,12 +5,10 @@ import {Card} from "./Card";
 import  {HeroBanner} from "./HeroBanner";
 export const Wrapper = () => {
     return (
-      <section className="sectionAbout">
-      <div className="container">
+      <main className="sectionMain">
         <HeroBanner/>
         <About />
         <Card />
-        </div>
-        </section>
+        </main>
     );
 }

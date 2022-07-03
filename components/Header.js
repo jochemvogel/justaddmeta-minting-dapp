@@ -4,7 +4,7 @@ import JustaddmetaLogo from "./JustaddmetaLogo";
 
 export const Header = () => {
     return (
-        <section className={styles.sectionHeader}>
+        <navigation className={styles.sectionHeader}>
         <div className={styles.headerWrapper}>
             <div className={styles.branding}>
             <span className={styles.brand}>
@@ -15,6 +15,6 @@ export const Header = () => {
             <button className={styles.button}>Wallet Status</button>
             </div>
         </div>
-    </section>
+    </navigation>
     );
 }
