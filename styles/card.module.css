@@ -1,5 +1,5 @@
 .cardsPhases {
-    min-height: 100vh;
+    min-height: 1080px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,12 +34,13 @@
 }
 
 .cardContainer {
-    display: flex;
+    display: inline-block;
     gap: 32px;
     flex-direction: column; }
 
 .itemRow {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
@@ -89,10 +90,9 @@
     display: inline;
     background: none;
     color: #F8F8FA;;
-    border-color: #F8F8FA;;
+    border: solid 1px #F8F8FA;
     margin: 0;
     border-radius: 60px;
-    opacity: 0.6;
     transition: 0.3s;
     padding: 8px 16px 8px 16px;
     width: auto;

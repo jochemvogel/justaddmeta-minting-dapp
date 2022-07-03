@@ -1,9 +1,10 @@
 .sectionAbout {
-    min-height: 30vw;
+    
+    min-height: 600px;
+
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 148px;
+
+    padding: 32px 148px;
 
 }
 
