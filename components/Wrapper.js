@@ -5,8 +5,8 @@ import {Card} from "./Card";
 import  {HeroBanner} from "./HeroBanner";
 export const Wrapper = () => {
     return (
-      <section class="sectionAbout">
-      <div class="container">
+      <section className="sectionAbout">
+      <div className="container">
         <HeroBanner/>
         <About />
         <Card />
