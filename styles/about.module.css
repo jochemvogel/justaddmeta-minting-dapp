@@ -5,14 +5,17 @@
 
 .container {
     display: flex;
+    gap: 16px;
 }
 
 .colLeft {
     flex: 1;
+    margin: 0px;
 }
 
 .colRight {
     flex: 1;
+    margin: 0px;
 }
 
 .colLeft label {
@@ -42,4 +45,6 @@
     line-height: 1.75;
     font-size: 1rem;
     color: #F8F8FA; 
+    margin-block-end: 0px;
+    margin-block-start: 0px;
   }

@@ -34,7 +34,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className={styles.term_condition}>
-        <a href="">2022 © Justaddsugar - All rights reserved.</a>
+        <p>2022 © Justaddsugar - All rights reserved.</p>
       </div>
     </footer>
 

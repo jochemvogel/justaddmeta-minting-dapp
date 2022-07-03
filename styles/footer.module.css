@@ -10,21 +10,25 @@
 .footer_items {
     display: flex;
     justify-content: space-between;
-    padding: 32px 148px;
+    padding: 16px 148px;
+    gap: 16px;
 }
 
 .footer_info {
     width: 50%;
+   
 }
 
 
 .footer_info p {
 
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
     line-height: 1.75;
     font-size: 1rem;
     color: #F8F8FA;
+    text-transform: uppercase;
+    margin-bottom: 32px;
 
 }
 
@@ -73,16 +77,30 @@
   }
 
 .address p {
-    font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  line-height: 1.75;
-  color: #F8F8FA;
-  font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    line-height: 1.75;
+    font-size: 1rem;
+    color: #F8F8FA;
+    text-transform: uppercase;
 }
 
 
 .address a {
     font-size: 16px;
+    text-decoration: none;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 0.8rem;
+    color: #F8F8FA;
+    transition: 0.3s;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.address a:hover {
+    color: #e83317;
 }
 
 .social_media {
@@ -94,14 +112,10 @@
     padding: 0 13px;
 }
 
-.term_condition a {
-    padding-left: 6vw;
-    text-decoration: none;
-    font-family: 'Roboto';
-    font-style: italic;
+.term_condition p {
+    
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
     color: #F8F8FA;
 }
 
@@ -114,8 +128,12 @@
 
 .term_condition {
     text-align: center;
-    padding: 16px;
     border-top: 1px solid #F8F8FA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
 }
 
 .fa-brands {
