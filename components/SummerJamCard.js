@@ -27,12 +27,13 @@ export const SummerJamCard = () => {
               <br></br> <strong>Exclusive edition of XX limited edition summer jams in
               three delightful varieties.</strong>
             </p>
-
+            <div className={styles.buttonWrapper}>
             <button className={styles.amountTracker}>0/100</button>
 
 
             
             <button className={styles.button}>Mint</button>
+            </div>
             </div>
             </div>
     </div>

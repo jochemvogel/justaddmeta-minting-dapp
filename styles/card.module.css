@@ -1,3 +1,37 @@
+.cardsPhases {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 148px;
+
+}
+
+.cardsContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.itemRow {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cardCol {
+    height: 416px;
+    width: 242px;
+    border-width: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-style: solid;
+    border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
+    /* height: 308px; */
+    background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
 .card
 {
     width: 250px;
@@ -57,62 +91,27 @@ font-family: Roboto;
 }
 @media only screen and (max-width: 992px)
 {
-   .card
-   {
-    margin-top: 20px;
-    margin-left: 20px;
-   }
-   .cardTrans
-   {
-    margin-top: 20px;
-    margin-left: 20px;
-   }
-
+    .cardsPhases {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 64px; }
 }
-@media only screen and (max-width: 600px) {
-.card
+
+@media only screen and (max-width: 600px) 
 {
-    width: 250px;
-    height: 416px;
-    background-color: #ffff;
-    margin-top: 100px;
-    padding: 30px;
-    margin-left: 70px;
-}
-.cardContent
-{
-    
-text-align: left;
-margin-top: 200px;
-font-family: Roboto;
+    .cardsPhases {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 16px; }
 
-}
-.cardTrans
-{
-    width: 250px;
-    height: 416px;
-    
-    padding: 30px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ffff;
-    opacity: 0.5;
-    margin-left: 70px;
-    margin-top: 5%;
-}
+    .cardContainer {
+        width: 100%;
+    }
 
-
-.cardContentTrans
-{
-text-align: left;
-margin-top: 200px;
-color: #ffff;
-font-family: Roboto;
-}
-
-.cardContentTrans
-{
-    font-size: 10px;
-}
-
+    .cardCol {
+        width: 100%; }
 }

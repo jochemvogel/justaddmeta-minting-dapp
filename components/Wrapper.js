@@ -44,7 +44,7 @@ export default function Wrapper() {
         </p>
       </div>
       <About />
-      <cards />
+      <Card />
       <WalletStatus />
       <SummerJamCard />
       <Authcard />
