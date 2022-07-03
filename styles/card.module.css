@@ -7,99 +7,49 @@
 
 }
 
-.cardsContainer {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-}
+.cardContainer {
+    display: inline-block; }
 
 .itemRow {
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     flex-wrap: wrap;
     gap: 16px;
 }
 
 .cardCol {
-    height: 416px;
-    width: 242px;
+    height: auto;
+    width: 250px;
     border-width: 1px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-style: solid;
     border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
     /* height: 308px; */
     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); }
+
+.card {
+    padding: 8px;
 }
 
-.card
-{
-    width: 250px;
-    height: 416px;
-    background-color: #ffff;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    float: left;
-}
-.cardsLlist
-{
+.cardImage {
     width: 100%;
-    margin-top: 400px;
-}
-.cardContent
-{
-    
-text-align: left;
-margin-top: 200px;
-float: left;
-font-family: Roboto;
+    height: 200px;
+    background-color: green; }
 
-}
-.cardTrans
-{
-    width: 250px;
-    height: 416px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    float: left;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ffff;
-    opacity: 0.5;
-    margin-left: 50px;
-}
-
-
-.cardContentTrans
-{
-text-align: left;
-margin-top: 200px;
-color: #ffff;
-float: left;
-font-family: Roboto;
-}
-
-.cardContentTrans
-{
-    font-size: 10px;
-}
-@media only screen and (max-width: 992px)
+@media only screen and (max-width: 1024px)
 {
     .cardsPhases {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0px 64px; }
+        padding: 0px 32px; }
+
+    .cardCol {}
 }
 
-@media only screen and (max-width: 600px) 
+@media only screen and (max-width: 428px) 
 {
     .cardsPhases {
         min-height: 100vh;
