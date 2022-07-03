@@ -11,26 +11,32 @@ export const SummerJamCard = () => {
           <div class={styles.cardImage}></div>
           </div>
           <div class={styles.cardContent}>
-            <h1>SUMMERJAM</h1>
-            <h2>Metaverse has never been this delightful</h2>
+            <label class={styles.label}>
+            <div class={styles.cardIcon}>
+              
+            </div>
+            <div class={styles.cardContent}>SUMMERJAM</div>
+         
+            </label>
+        
+            <h1>Metaverse has never been this delightful</h1>
             <p>
               Remarkable virtual craftsmanship meets ostentatious yet familiar
               design. Ingredients from a different dimension and extravagant
               hints of fruits suiting everyone's palate. <br></br>
-              <br></br> Exclusive edition of XX limited edition summer jams in
-              three delightful varieties.
+              <br></br> <strong>Exclusive edition of XX limited edition summer jams in
+              three delightful varieties.</strong>
             </p>
-            <div class={styles.buttonWrapper}>
+
             <button className={styles.amountTracker}>0/100</button>
-              
+
+
             
-            <div class={styles.buttonWrapper}>
-              <button className={styles.button}>Mint</button>
-            </div>
+            <button className={styles.button}>Mint</button>
             </div>
             </div>
     </div>
-    </div>
+    
     </section>
   );
 }
