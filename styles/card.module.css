@@ -1,3 +1,7 @@
+.cardsPhases {
+    width: 100%;
+}
+
 .cardText h3 {
     margin: 3rem 0 1.38rem;
     font-family: 'Roboto', sans-serif;
@@ -25,9 +29,8 @@
 }
 
 .cardContainer {
-    display: inline-block;
+    display: block;
     padding: 32px 148px;
-    margin: 32px 0px;
 }
 
 .itemRow {
@@ -60,25 +63,39 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); }
 
 .card {
-    padding: 8px; }
+    padding: 16px; }
 
 
 .cardImage {
     width: 100%;
-    height: 200px;
-    background-color: green; }
+    height: 200px; }
 
-.cardTitle {}
+.cardText {
+    text-align: center;
+}
 
-.cardTitle label{
+.cardText h3 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 1.953rem;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #F8F8FA;
+}
+
+.cardText label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
     line-height: 19px;
     letter-spacing: 0.5em;
     text-transform: uppercase;
+    color: #F8F8FA;
 }
+
+
 
 .itemRowButton {
     margin-top: 32px;
@@ -87,7 +104,7 @@
 .button {
     display: inline;
     background: none;
-    color: #F8F8FA;;
+    color: #F8F8FA;
     border: solid 1px #F8F8FA;
     margin: 0;
     border-radius: 60px;

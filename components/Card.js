@@ -18,9 +18,7 @@ export const Card =() => {
                                 </div>
                                 <div className={styles.cardText}>
                                     <h3>Phase 1</h3>
-                                    <label>Minting Event</label>
-                                    <p>Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
+                                    <label>Minting</label>
                                 </div>
 
                             </div>
@@ -35,10 +33,8 @@ export const Card =() => {
 
                                 </div>
                                 <div className={styles.cardText}>
-                                    <h3>Phase 1</h3>
-                                    <label>Minting Event</label>
-                                    <p>Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
+                                    <h3>Phase 2</h3>
+                                    <label>Physical Good</label>
                                 </div>
 
                             </div>
@@ -53,10 +49,8 @@ export const Card =() => {
 
                                 </div>
                                 <div className={styles.cardText}>
-                                    <h3>Phase 1</h3>
-                                    <label>Minting Event</label>
-                                    <p>Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
+                                    <h3>Phase 3</h3>
+                                    <label>Airdrop</label>
                                 </div>
 
                             </div>
@@ -71,10 +65,8 @@ export const Card =() => {
 
                                 </div>
                                 <div className={styles.cardText}>
-                                    <h3>Phase 1</h3>
-                                    <label>Minting Event</label>
-                                    <p>Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
+                                    <h3>Phase 4</h3>
+                                    <label>Burn</label>
                                 </div>
 
                             </div>
