@@ -9,13 +9,14 @@
 */
 
 /* Set core body defaults */
-.body {
+#body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.6;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  margin: 0px, imp !important;;
   /* padding-bottom: 250px; */
 }
 

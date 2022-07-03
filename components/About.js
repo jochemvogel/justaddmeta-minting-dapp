@@ -2,12 +2,13 @@ import styles from "../styles/about.module.css";
 
 export const About = () => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.wrpperContentLeft}>
-        <h4>LOREm IPSUM</h4>
+    <section className={styles.sectionAbout}>
+    <div className={styles.container}>
+      <div className={styles.colLeft}>
+        <label>Lorem Ipsum</label>
         <h1>Lorem ipsum amet consectetur adipiscing elit.</h1>
       </div>
-      <div className={styles.wrpperContentRight}>
+      <div className={styles.colRight}>
         <p>
           You were part of the mission from day one. During the hunt your team
           picked up different clues and also weird coded digital signals.
@@ -25,5 +26,6 @@ export const About = () => {
         </p>
       </div>
       </div>
+      </section>
   );
 };

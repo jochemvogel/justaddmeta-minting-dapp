@@ -1,5 +1,5 @@
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import { Grommet} from "grommet";
+
 import Head from "next/head";
 import "../styles/globals.css";
 // import "../styles/footer.css"
@@ -29,7 +29,7 @@ const activeChainId = ChainId.Rinkeby;
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Grommet full >
+
 
     <ThirdwebProvider desiredChainId={activeChainId}>
       {/* Next Auth Session Provider */}
@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       {/* </SessionProvider> */}
     </ThirdwebProvider>
-    </Grommet>
+
   );
 }
 

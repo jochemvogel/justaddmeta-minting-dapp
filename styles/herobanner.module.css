@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 .heroContent label {
@@ -22,7 +23,7 @@
 }
 
 .heroWrapper {
-    padding: 0px 148px;
+    padding: 0px 500px;
 }
 
 .heroContent {
