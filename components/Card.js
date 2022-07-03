@@ -5,9 +5,9 @@ export const Card =() => {
     return (
         <section className={styles.cardsPhases}>
             
-            <div class={styles.cardContainer}>
+            <div className={styles.cardContainer}>
 
-                <div class={styles.itemRow}>
+                <div className={styles.itemRow}>
                     <div className={styles.cardCol}>
                         <div className={styles.card}>
                             <div className={styles.cardImage}>
@@ -83,7 +83,7 @@ export const Card =() => {
 
 
                 </div>
-                <div class={styles.itemRowButton}>
+                <div className={styles.itemRowButton}>
                     <button className={styles.button}>Enter Phase 1</button>
                 </div>
             </div>

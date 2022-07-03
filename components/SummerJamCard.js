@@ -6,16 +6,16 @@ export const SummerJamCard = () => {
     <section className={styles.sectionMintingInterface}>
     <div className={styles.container}>
       
-        <div class={styles.cardContentWrapper}>
-          <div class={styles.cardImageWrapper}>
-          <div class={styles.cardImage}></div>
+        <div className={styles.cardContentWrapper}>
+          <div className={styles.cardImageWrapper}>
+          <div className={styles.cardImage}></div>
           </div>
-          <div class={styles.cardContent}>
-            <label class={styles.label}>
-            <div class={styles.cardIcon}>
+          <div className={styles.cardContent}>
+            <label className={styles.label}>
+            <div className={styles.cardIcon}>
               
             </div>
-            <div class={styles.cardContent}>SUMMERJAM</div>
+            <div className={styles.cardContent}>SUMMERJAM</div>
          
             </label>
         

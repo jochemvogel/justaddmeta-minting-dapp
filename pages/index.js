@@ -321,7 +321,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      {!authStarted ? <HeroBanner /> : null}
+      {/* {!authS tarted ? <HeroBanner /> : null} */}
       {/* <Box background={"black"} height="large" direction="row">
         <Landing />
       </Box> */}
