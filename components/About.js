@@ -1,6 +1,6 @@
 import styles from "../styles/about.module.css";
 
-export const about = () => {
+export const About = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrpperContentLeft}>

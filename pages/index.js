@@ -24,7 +24,7 @@ import JustaddmetaLogo from "../components/JustaddmetaLogo";
 import { HeroBanner } from "../components/HeroBanner";
 import { SummerJamCard } from "../components/SummerJamCard";
 import { Header } from "../components/Header";
-import Wrapper from "../components/Wrapper";
+import {Wrapper} from "../components/Wrapper";
 // import { TransactionFunnel } from "../components/TransactionFunnel";
 
 export default function Home() {
