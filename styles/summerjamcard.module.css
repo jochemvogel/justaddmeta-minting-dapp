@@ -1,17 +1,44 @@
-.summerjam {
-    margin-bottom: 50px;
-}
-
-.summerjam_card {
+.cardContentWrapper{
 
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin-top: 200px;
-    width: 780px;
-    height: 480px;
+    flex-direction: row;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 32px;
+    margin: auto;
+    border-width: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-style: solid;
+    border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
+    /* height: 308px; */
     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.cardImageWrapper {
+    height: 100%;
+    width: 50%;
+    background: green;
+}
+
+.cardImage {
+    height: 100%;
+    width: 100%;
+    background: green;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0px;
+    width: 50%;
+    gap: 16px;
 }
 
 .metaverse_img {
@@ -52,6 +79,67 @@
     line-height: 19px;
     letter-spacing: normal;
 }
+
+.buttonWrapper {
+    width: 100%;
+}
+
+.amountTracker {
+    background: none;
+    color: #F8F8FA;;
+    border-color: #F8F8FA;;
+    margin: 0;
+    opacity: 0.6;
+    width: 100%;
+    padding: 16px 16px 16px 16px;
+    font-size: 16px;
+    display: -moz-inline-box;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-box-align: center;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+.button {
+    background: none;
+    color: #F8F8FA;;
+    border-color: #F8F8FA;;
+    margin: 0;
+    border-radius: 60px;
+    width: 100%;
+    opacity: 0.6;
+    transition: 0.3s;
+    padding: 8px 16px 8px 16px;
+    font-size: 16px;
+    display: -moz-inline-box;
+    display: inline-flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-box-align: center;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .button:hover {
+    background: #F8F8FA;
+    color: #090C12;
+    border-color: #F8F8FA;
+    opacity: 1;
+  }
 
 .metaverse_btn1 button {
     width: 342px;

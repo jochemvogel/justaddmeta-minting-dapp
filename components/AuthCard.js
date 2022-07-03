@@ -3,6 +3,7 @@ import styles from "../styles/authcard.module.css";
 
 export default function Authcard() {
   return (
+    <section className={styles.sectionCard}>
     <div className={styles.container}>
       <div className={styles.authorized}>
         <div className={styles.authorized_content}>
@@ -21,5 +22,6 @@ export default function Authcard() {
         </div>
       </div>
     </div>
+    </section>
   );
 }

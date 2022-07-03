@@ -3,12 +3,14 @@ import styles from "../styles/summerjamcard.module.css";
 
 export const SummerJamCard = () => {
   return (
+    <section className={styles.sectionMintingInterface}>
     <div className={styles.container}>
-      <div class={styles.summerjam}>
-        <div class={styles.summerjam_card}>
-          <div class={styles.metaverse_img}></div>
-
-          <div class={styles.metaverse_content}>
+      
+        <div class={styles.cardContentWrapper}>
+          <div class={styles.cardImageWrapper}>
+          <div class={styles.cardImage}></div>
+          </div>
+          <div class={styles.cardContent}>
             <h1>SUMMERJAM</h1>
             <h2>Metaverse has never been this delightful</h2>
             <p>
@@ -18,15 +20,17 @@ export const SummerJamCard = () => {
               <br></br> Exclusive edition of XX limited edition summer jams in
               three delightful varieties.
             </p>
-            <div class={styles.metaverse_btn1}>
-              <button>10/50</button>
+            <div class={styles.buttonWrapper}>
+            <button className={styles.amountTracker}>0/100</button>
+              
+            
+            <div class={styles.buttonWrapper}>
+              <button className={styles.button}>Mint</button>
             </div>
-            <div class={styles.meta_btn2}>
-              <button>Mint</button>
             </div>
-          </div>
-        </div>
-      </div>
+            </div>
     </div>
+    </div>
+    </section>
   );
-};
+}
