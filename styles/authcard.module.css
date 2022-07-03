@@ -68,12 +68,7 @@ color-a695d99: #03020200;
     flex-direction: column;
 }
 
-.auth_btn1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-content: center;
-}
+
 
 .button {
     display: inline;

@@ -13,12 +13,11 @@ export default function Authcard() {
           <p>Connect your wallet to participate in the Alpha Drop</p>
           </div>
           <div className={styles.buttonWrapper}>
-          <div className={styles.auth_btn1}>
+         
             <button className={styles.button}>Connect Wallet</button>
-          </div>
-          <div className={styles.auth_btn2}>
+
             <button className={styles.button}>Launch</button>
-          </div>
+      
         </div>
       </div>
     </div>
