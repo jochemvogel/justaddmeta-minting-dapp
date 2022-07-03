@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/wrapper.module.css";
 import Authcard from "./AuthCard";
+import About from "./About";
 import Card from "./cards/Card";
 import Data from "./cards/CardData";
 import { SummerJamCard } from "./SummerJamCard";
@@ -42,7 +43,8 @@ export default function Wrapper() {
           jar.
         </p>
       </div>
-      <section>{cards}</section>
+      <About />
+      <cards />
       <WalletStatus />
       <SummerJamCard />
       <Authcard />

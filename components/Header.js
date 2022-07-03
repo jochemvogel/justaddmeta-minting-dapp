@@ -5,7 +5,7 @@ import JustaddmetaLogo from "./JustaddmetaLogo";
 export const Header = () => {
     return (
         <section className={styles.sectionHeader}>
-        <div className={styles.header}>
+        <div className={styles.headerWrapper}>
             <div className={styles.branding}>
             <span className={styles.brand}>
             <JustaddmetaLogo/>

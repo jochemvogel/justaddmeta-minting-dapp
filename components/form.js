@@ -1,6 +1,6 @@
 import styles from "../styles/herobanner.module.css";
 
-export const HeroBanner = () => {
+export const Form = () => {
     return (
 <div class="card">
     <h5>Vertical</h5>
