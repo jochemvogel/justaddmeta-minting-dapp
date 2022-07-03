@@ -8,14 +8,14 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footer_items}>
         <div className={styles.footer_info}>
-          <JustaddmetaLogo/>
+          <JustaddmetaLogo />
 
           <p>
             We enable your brand to <br></br>
             make a sustainable contribution <br></br>
             to the metaverse.
           </p>
-          <button className={styles.button}>ENTER SAFE HOUSE</button>
+          <button className={styles.button}>Enter Safe House</button>
           <div className={styles.social_media}>
             <i className="fa-brands fa-instagram"></i>
             <i className="fa-brands fa-tiktok"></i>
