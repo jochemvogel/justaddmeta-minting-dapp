@@ -9,77 +9,86 @@
 .footer_items {
     display: flex;
     justify-content: space-between;
-    padding: 15px 75px 0;
+    padding: 16px 32px;
 }
 
 .footer_info {
-    width: 60%;
+    width: 50%;
+    margin: 16px;
 }
 
-.footer_info h2 {
-    font-size: 27px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    line-height: 26px;
-    letter-spacing: 0.06em;
-    color: #FFFFFF;
-
-}
 
 .footer_info p {
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: 0.06em;
-    color: #FFFFFF;
-
-}
-
-.footer_btn {
-    width: 200px;
-    height: 40px;
-    background: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    border-radius: 60px;
-    align-items: center;
-    padding: 8px 24px;
-    font-family: 'Roboto';
-    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+    line-height: 1.75;
+    font-size: 1rem;
+    color: #F8F8FA;
 
 }
+
+.button {
+    display: inline;
+    background: none;
+    color: #F8F8FA;;
+    border-color: #F8F8FA;;
+    margin: 0;
+    border-radius: 60px;
+    opacity: 0.6;
+    transition: 0.3s;
+    padding: 8px 16px 8px 16px;
+    width: auto;
+    font-size: 16px;
+    display: -moz-inline-box;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-box-align: center;
+    align-items: center;
+    vertical-align: bottom;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+  .button:hover {
+    background: #F8F8FA;
+    color: #090C12;
+    border-color: #F8F8FA;
+  }
 
 .address {
     text-align: end;
-    width: 55%;
+    width: 50%;
+    margin: 16px;
 }
 
-.address h2,
-.address p,
-.address a {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 26px;
-    letter-spacing: 0.06em;
-    color: #FFFFFF;
-    text-decoration: none;
+.address h3 {
+    margin: 0rem 0 1.38rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #F8F8FA;
+  }
+
+.address p {
+    font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #F8F8FA;
+  font-size: 16px;
 }
 
-.address p,
+
 .address a {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .social_media {
-    color: #FFFFFF;
+    color: #F8F8FA;
     margin-top: 88px;
 }
 
@@ -95,20 +104,20 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: #FFFFFF;
+    color: #F8F8FA;
 }
 
 .footer_brd {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #F8F8FA;
     width: 92%;
     margin: auto;
     padding-top: 30px;
 }
 
 .term_condition {
-    margin: 1vw 0 0;
-    text-align: left;
-    border-top: 1px solid white;
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid #F8F8FA;
 }
 
 .fa-brands {

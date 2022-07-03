@@ -10,13 +10,13 @@ export const Footer = () => {
       <div className={styles.footer_items}>
         <div className={styles.footer_info}>
           <JustaddmetaLogo/>
-          <br></br>
+
           <p>
             We enable your brand to <br></br>
             make a sustainable contribution <br></br>
             to the metaverse.
           </p>
-          <button className={styles.footer_btn}>ENTER SAFE HOUSE</button>
+          <button className={styles.button}>ENTER SAFE HOUSE</button>
           <div className={styles.social_media}>
             <i className="fa-brands fa-instagram"></i>
             <i className="fa-brands fa-tiktok"></i>
