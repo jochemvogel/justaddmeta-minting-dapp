@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/mintingInterface.module.css";
+import styles from "../styles/summerjamcard.module.css";
 
-export const mintingInterface = () => {
+export const MintingInterface = () => {
   return (
     <section className={styles.sectionMintingInterface}>
     <div className={styles.container}>

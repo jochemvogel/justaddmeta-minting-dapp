@@ -22,7 +22,7 @@ import {
 import { Car } from "grommet-icons";
 import JustaddmetaLogo from "../components/JustaddmetaLogo";
 import { HeroBanner } from "../components/HeroBanner";
-import { SummerJamCard } from "../components/SummerJamCard";
+import { SummerJamCard } from "../components/mintingInterface";
 import { Header } from "../components/Header";
 import {Wrapper} from "../components/Wrapper";
 // import { TransactionFunnel } from "../components/TransactionFunnel";
