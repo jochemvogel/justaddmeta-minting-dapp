@@ -2,7 +2,8 @@ import styles from "../styles/herobanner.module.css";
 
 export const HeroBanner = () => {
   return (
-    <div className={styles.heroBanner}>
+    <section className={styles.heroBanner}>
+      <div className={styles.heroWrapper}>
       <div className={styles.heroContent}>
         <label>LOREM IPSUM</label>
         <h1>Lorem ipsum amet consectetur adipiscing elit.</h1>
@@ -12,6 +13,7 @@ export const HeroBanner = () => {
           from the authorities.
         </p>
       </div>
-    </div>
+      </div>
+    </section>
   );
 };

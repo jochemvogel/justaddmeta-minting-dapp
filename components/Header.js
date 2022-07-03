@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "../styles/header.module.css";
+import JustaddmetaLogo from "./JustaddmetaLogo";
 
 export const Header = () => {
     return (
-        <section>
+        <section className={styles.sectionHeader}>
         <div className={styles.header}>
-            <h3 className={styles.brand}>JUSTADDMETA</h3>
-            <button className={styles.nav_btn}>Wallet Status</button>
+            <div className={styles.branding}>
+            <span className={styles.brand}>
+            <JustaddmetaLogo/>
+            </span>
+            </div>
+            <div className={styles.navitems}>
+            <button className={styles.button}>Wallet Status</button>
+            </div>
         </div>
     </section>
     );

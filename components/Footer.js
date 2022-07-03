@@ -24,7 +24,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className={styles.address}>
-          <h2>Office Hamburg </h2>
+          <h3>Office Hamburg </h3>
           <p>
             Justaddsugar GmbH <br></br>
             Rothenbaumchaussee 91 <br></br>
