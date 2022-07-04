@@ -39,7 +39,8 @@
 
 .cardContainer {
     display: block;
-    padding: 32px 148px;
+    padding: 32px 64px;
+    transition: 0.3s;
 }
 
 .itemRow {
@@ -50,20 +51,27 @@
     grid-gap: 16px;
     grid-column-gap: 16px;
     grid-row-gap: 16px;
+    transition: 0.3s;
 
 }
 
 .cardCol1 {
     grid-column-start: span 0;
     grid-column-end: span 3;
+    transition: 0.3s;
 }
 
-.cardCol2 {}
+.cardCol2 {
+    transition: 0.3s;
+}
 
-.cardCol3 {}
+.cardCol3 {
+    transition: 0.3s;
+}
 
 .cardCol4 {
     grid-column-end: span 3;
+    transition: 0.3s;
 }
 
 
@@ -208,16 +216,19 @@
     }
 }
 
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 600px) {
     .cardsPhases {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0px 16px;
     }
 
     .cardContainer {
+        width: 100%;
+    }
+
+    .button {
         width: 100%;
     }
 

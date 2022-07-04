@@ -10,7 +10,7 @@
 .footer_items {
     display: flex;
     justify-content: space-between;
-    padding: 16px 148px;
+    padding: 16px 64px;
     gap: 16px;
 }
 
