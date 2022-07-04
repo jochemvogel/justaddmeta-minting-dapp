@@ -17,9 +17,9 @@ export const Footer = () => {
           </p>
           <button className={styles.button}>Enter Safe House</button>
           <div className={styles.social_media}>
-            <i className="fa-brands fa-instagram"></i>
-            <i className="fa-brands fa-tiktok"></i>
-            <i className="fa-brands fa-discord"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-discord"></i>
           </div>
         </div>
         <div className={styles.address}>
@@ -33,9 +33,17 @@ export const Footer = () => {
           <a href="mailto:hello@justaddmeta.com">hello@justaddmeta.com</a>
         </div>
       </div>
+      <div className={styles.termWrapper}>
       <div className={styles.term_condition}>
-        <p>2022 © Justaddsugar - All rights reserved.</p>
+        <p>2022 © Justaddsugar - All rights reserved</p>
       </div>
+      <div className={styles.footerNav}>
+      <a href="/impressum" class="footer-legallink">Imprint</a>
+      <a href="/privacy-policy" class="footer-legallink">Privacy Policy</a>
+      </div>
+      </div>
+
+
     </footer>
 
 
