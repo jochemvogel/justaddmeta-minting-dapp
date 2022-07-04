@@ -8,7 +8,7 @@ export const Card =() => {
             <div className={styles.cardContainer}>
 
                 <div className={styles.itemRow}>
-                    <div className={styles.cardCol}>
+                    <div className={styles.cardCol1}>
                         <div className={styles.card}>
                             <div className={styles.cardImage}>
                             </div>
@@ -24,7 +24,7 @@ export const Card =() => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.cardCol}>
+                    <div className={styles.cardCol2}>
                         <div className={styles.card}>
                             <div className={styles.cardImage}>
                             </div>
@@ -40,7 +40,7 @@ export const Card =() => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.cardCol}>
+                    <div className={styles.cardCol3}>
                         <div className={styles.card}>
                             <div className={styles.cardImage}>
                             </div>
@@ -56,7 +56,7 @@ export const Card =() => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.cardCol}>
+                    <div className={styles.cardCol4}>
                         <div className={styles.card}>
                             <div className={styles.cardImage}>
                             </div>
