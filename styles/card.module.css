@@ -45,7 +45,7 @@
 .itemRow {
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     grid-gap: 16px;
     grid-column-gap: 16px;
@@ -55,7 +55,7 @@
 
 .cardCol1 {
     grid-column-start: span 0;
-    grid-column-end: span 2;
+    grid-column-end: span 3;
 }
 
 .cardCol2 {}
@@ -63,7 +63,7 @@
 .cardCol3 {}
 
 .cardCol4 {
-    grid-column-end: span 2;
+    grid-column-end: span 3;
 }
 
 
@@ -162,11 +162,50 @@
 }
 
 @media only screen and (max-width: 1024px) {
+
+    .cardContainer {
+        display: block;
+        padding: 32px 32px;
+    }
     .itemRow {
         justify-content: center;
     }
 
-    .cardCol {}
+    .cardCol1 {
+        grid-column-end: span 2;
+    }
+    
+    .cardCol2 {
+        grid-column-end: span 2;
+    }
+    
+    .cardCol3 {
+        grid-column-end: span 2;
+    }
+    
+    .cardCol4 {
+        grid-column-end: span 2;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+ 
+
+    .cardCol1 {
+        grid-column-end: span 4;
+    }
+    
+    .cardCol2 {
+        grid-column-end: span 4;
+    }
+    
+    .cardCol3 {
+        grid-column-end: span 4;
+    }
+    
+    .cardCol4 {
+        grid-column-end: span 4;
+    }
 }
 
 @media only screen and (max-width: 428px) {
@@ -182,7 +221,4 @@
         width: 100%;
     }
 
-    .cardCol {
-        width: 100%;
-    }
 }
