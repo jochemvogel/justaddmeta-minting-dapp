@@ -222,7 +222,7 @@
     }
 
     .footer_items {
-        padding: 38px 46px 0;
+        padding: 16px 32px;
     }
 
     .footer_btn {
@@ -232,6 +232,24 @@
 
     .footer_brd {
         padding-top: 30px;
+    }
+
+    .termWrapper {
+
+        flex-direction: column;
+
+    padding: 16px 32px;
+
+    }
+
+    .footerNav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .termCondition {
+        width: 100%;
+    border-top: solid 1px white;
     }
 }
 
@@ -249,11 +267,5 @@
     }
 
     .address p {
-        margin-top: 0px;
-    }
-    
-    .footer_info {
-        border-top: 1px solid white;
-
-    }
+        margin-top: 0px;  }
 }
