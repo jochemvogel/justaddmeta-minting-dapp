@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/authcard.module.css";
 
-export default function Authcard() {
+export  const AuthCard = ()=> {
   return (
     <section className={styles.sectionCard}>
     <div className={styles.container}>
