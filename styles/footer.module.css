@@ -126,15 +126,47 @@
     padding-top: 30px;
 }
 
+.termWrapper {
+    padding: 8px 64px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
 .term_condition {
     text-align: center;
-    border-top: 1px solid #F8F8FA;
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
+
 }
+
+.footerNav {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.footerNav a {
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 0.8rem;
+    color: #F8F8FA;
+    transition: 0.3s;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.footerNav a:hover {
+    color: #e83317;
+}
+
 
 .fa-brands {
     font-size: 28px;
