@@ -16,9 +16,11 @@ export const Card = () => {
     <>
     {enterPhaseOne? (<AuthCard/>): (
      <section className={styles.cardsPhases}>
+    
       <div className={styles.cardContainer}>
         <div className={styles.itemRow}>
           <div className={styles.cardCol1}>
+          <a href="">
             <div className={styles.card}>
               <div className={styles.cardImage}></div>
               <div className={styles.cardBody}>
@@ -29,6 +31,7 @@ export const Card = () => {
                 </div>
               </div>
             </div>
+            </a>
           </div>
           <div className={styles.cardCol2}>
             <div className={styles.card}>
@@ -66,11 +69,6 @@ export const Card = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.itemRowButton}>
-          <button className={styles.button} onClick={handleClick}>
-            Enter Phase 1
-          </button>
         </div>
       </div>
     </section>
