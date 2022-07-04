@@ -23,7 +23,7 @@ export const MintingInterface = () => {
             <p>
               Remarkable virtual craftsmanship meets ostentatious yet familiar
               design. Ingredients from a different dimension and extravagant
-              hints of fruits suiting everyone's palate. <br></br>
+              hints of fruits suiting everyone{"'"}s palate. <br></br>
               <br></br> <strong>Exclusive edition of XX limited edition summer jams in
               three delightful varieties.</strong>
             </p>
