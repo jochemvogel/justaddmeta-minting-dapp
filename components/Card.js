@@ -20,7 +20,7 @@ export const Card = () => {
       <div className={styles.cardContainer}>
         <div className={styles.itemRow}>
           <div className={styles.cardCol1}>
-          <a href="">
+          <a onClick={() => handleClick()} >
             <div className={styles.card}>
               <div className={styles.cardImage}></div>
               <div className={styles.cardBody}>
