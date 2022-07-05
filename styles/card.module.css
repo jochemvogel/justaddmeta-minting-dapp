@@ -214,6 +214,11 @@
     .cardCol4 {
         grid-column-end: span 4;
     }
+
+    .cardContainer {
+        display: block;
+        padding: 16px 16px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
