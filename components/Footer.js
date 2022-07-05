@@ -22,7 +22,7 @@ export const Footer = () => {
               <i class="socialIcon"><discordOutline /></i>
             </div>
           </div>
-          <div className={styles.colRight}>
+          <div className={styles.colRightContent}>
             <h3>Office Hamburg </h3>
             <p>
               Justaddsugar GmbH <br></br>

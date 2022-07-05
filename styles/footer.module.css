@@ -36,13 +36,57 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    width: auto;
+    align-items: flex-start;
 }
 
 .branding {
     display: inline-block;
     width: 235px;
 }
+
+.colRightContent {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.colRightContent h3 {
+    font-size: 1.953rem;
+    color: #F8F8FA;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 0px;
+    line-height: 32px;
+}
+
+.colRightContent p {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.75;
+    color: #F8F8FA;
+    font-size: 1rem;
+}
+
+.colRightContent a {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.75;
+    transition: 0.3s;
+    color: #F8F8FA;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.colRightContent a:hover {
+    color: #dc251f;
+  }
+
 
 .colLeft p {
     font-family: 'Roboto', sans-serif;
@@ -54,16 +98,19 @@
     font-size: 1rem;
 }
 
-.colRight a {
-    background: none;
-    color: #F8F8FA;
-    border: solid 1px #F8F8FA;
 
-    border-radius: 60px;
-    transition: 0.3s;
-    padding: 8px 16px 8px 16px;
+.colRightLegal a {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.75;
+    color: #F8F8FA;
+    font-size: 0.8rem;
+    text-decoration: none;
 
 }
+
 
 .button {
     display: inline;
@@ -97,18 +144,19 @@
 }
 
 
-.colRight {
+.colRightLegal {
+
     display: flex;
     align-items: flex-end;
-    flex-direction: column;
-    width: auto;
+    flex-direction: row;
+    gap: 16px;
+
 }
 
 .colRightLegal {
     display: flex;
     align-items: flex-end;
     flex-direction: row;
-    gap: 16px;
     align-items: center;
 }
 
@@ -129,7 +177,7 @@
   color: #dc251f;
 }
 
-.colRight h3 {
+.colRightLegal h3 {
     font-size: 1.953rem;
     color: #F8F8FA;
     font-family: 'Roboto', sans-serif;
@@ -138,7 +186,7 @@
     line-height: 32px;
 }
 
-.colRight p {
+.colRightLegal p {
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     font-weight: 300;
@@ -176,6 +224,11 @@
 
 @media only screen and (max-width: 720px) {
 
+    .colRightContent {
+        align-items: flex-start;
+        text-align: left;
+    }
+
     .colRight {
         align-items: flex-start;
         flex-direction: column;
@@ -206,12 +259,14 @@
 
     .wrapperContent {
         flex-direction: column;
+        gap: 64px;
         
     }
 
     .wrapperRights {
         flex-direction: column;
         flex-direction: column-reverse;
+        padding: 8px;
     }
 
     .colLeftRights p {
