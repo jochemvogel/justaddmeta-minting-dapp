@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/mintingInterface.module.css";
 
-export const MintingInterface = () => {
+export const MintingInterface = ({ amountMinted }) => {
   return (
     <section className={styles.sectionMintingInterface}>
     <div className={styles.container}>
@@ -28,7 +28,7 @@ export const MintingInterface = () => {
               three delightful varieties.</strong>
             </p>
             <div className={styles.buttonWrapper}>
-            <button className={styles.amountTracker}>0/100</button>
+            <button className={styles.amountTracker}>{amountMinted}/100</button>
 
 
             
