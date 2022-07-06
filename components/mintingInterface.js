@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/mintinginterface.module.css";
+import styles from "../styles/mintingInterface.module.css";
 
 export const MintingInterface = ({ amountMinted }) => {
   return (
