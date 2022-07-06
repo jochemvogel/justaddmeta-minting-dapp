@@ -27,7 +27,7 @@ const activeChainId = ChainId.Rinkeby;
 //   }
 // }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, navBar, pageProps }) {
   return (
 
 
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>SUMMERJAM</title>
         </Head>
-        
+        <navBar></navBar>
         <Component {...pageProps} />
     </ThirdwebProvider>
 
