@@ -11,7 +11,7 @@ function JustaddmetaLogo(props) {
       {...props}
     >
       <defs>
-        <style>{".a{fill:#fff}"}</style>
+        <style>{".a{fill:#F8F8FA}"}</style>
       </defs>
       <path
         className="a"

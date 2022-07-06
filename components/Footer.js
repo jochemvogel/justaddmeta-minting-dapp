@@ -1,5 +1,7 @@
 import React from "react";
-import emailOutline from "./icons/emailOutline.svg";
+import Icon from '@mdi/react'
+import { mdiInstagram } from '@mdi/js';
+
 import JustaddmetaLogo from "./JustaddmetaLogo";
 import Link from "next/link";
 
@@ -18,7 +20,10 @@ export const Footer = () => {
             </p>
             <button className={styles.button}>Enter Safe House</button>
             <div className={styles.socialWrapper}>
-              <i className={styles.socialIcon}><instagramOutline /></i>
+            
+            <a href="https://justaddmeta.com/">
+            <Icon path={mdiInstagram} title="User Profile" width="24px" height="24px" color="#F8F8FA"/>
+            </a>
               <i className={styles.socialIcon}><tiktokOutline /></i>
               <i className={styles.socialIcon}><discordOutline /></i>
             </div>
