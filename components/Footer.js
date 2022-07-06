@@ -1,6 +1,9 @@
 import React from "react";
 import Icon from '@mdi/react'
 import { mdiInstagram } from '@mdi/js';
+import { mdiCellphone } from '@mdi/js';
+import { mdiDiscord } from '@mdi/js';
+import { mdiTiktok } from '@mdi/js';
 
 import JustaddmetaLogo from "./JustaddmetaLogo";
 import Link from "next/link";
@@ -21,11 +24,12 @@ export const Footer = () => {
             <button className={styles.button}>Enter Safe House</button>
             <div className={styles.socialWrapper}>
             
-            <a href="https://justaddmeta.com/">
-            <Icon path={mdiInstagram} title="User Profile" width="24px" height="24px" color="#F8F8FA"/>
+            <a href="https://www.instagram.com/justaddmeta.agency">
+            <Icon className={styles.icon} path={mdiInstagram} title="Instagram" width="24px" height="24px"/>
             </a>
-              <i className={styles.socialIcon}><tiktokOutline /></i>
-              <i className={styles.socialIcon}><discordOutline /></i>
+            <a href="https://discord.gg/vnp4ccXvRD">
+            <Icon className={styles.icon} path={mdiDiscord} title="Discord" width="24px" height="24px"/>
+            </a>
             </div>
           </div>
           <div className={styles.colRightContent}>
@@ -36,11 +40,10 @@ export const Footer = () => {
               20148 Hamburg, Germany
             </p>
             <a href="tel:+4917634990063">
-              <i className="iconPhone"><phoneOutine /></i>
               <span className="buttonInner">+49 (0) 17634990063</span>
             </a>
             <a href="mailto:hello@justaddmeta.com">
-              <i className={styles.iconPhone}><emailOutline /></i>
+
               <span className={styles.buttonInner}>hello@justaddmeta.com</span>
             </a>
           </div>
