@@ -30,9 +30,7 @@ export const MintingInterface = ({ amountMinted }) => {
             </p>
             <div className={styles.buttonWrapper}>
             <button className={styles.amountTracker}>{amountMinted}/100</button>
-
-
-            
+  
             <button className={styles.button}>Mint</button>
             </div>
             </div>
