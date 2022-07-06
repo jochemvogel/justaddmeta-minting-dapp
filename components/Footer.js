@@ -1,6 +1,7 @@
 import React from "react";
 import emailOutline from "./icons/emailOutline.svg";
 import JustaddmetaLogo from "./JustaddmetaLogo";
+import Link from "next/link";
 
 import styles from "../styles/footer.module.css";
 export const Footer = () => {
@@ -17,9 +18,9 @@ export const Footer = () => {
             </p>
             <button className={styles.button}>Enter Safe House</button>
             <div className={styles.socialWrapper}>
-              <i class="socialIcon"><instagramOutline /></i>
-              <i class="socialIcon"><tiktokOutline /></i>
-              <i class="socialIcon"><discordOutline /></i>
+              <i className={styles.socialIcon}><instagramOutline /></i>
+              <i className={styles.socialIcon}><tiktokOutline /></i>
+              <i className={styles.socialIcon}><discordOutline /></i>
             </div>
           </div>
           <div className={styles.colRightContent}>
@@ -30,12 +31,12 @@ export const Footer = () => {
               20148 Hamburg, Germany
             </p>
             <a href="tel:+4917634990063">
-              <i class="iconPhone"><phoneOutine /></i>
-              <span class="buttonInner">+49 (0) 17634990063</span>
+              <i className="iconPhone"><phoneOutine /></i>
+              <span className="buttonInner">+49 (0) 17634990063</span>
             </a>
             <a href="mailto:hello@justaddmeta.com">
-              <i class="iconPhone"><emailOutline /></i>
-              <span class="buttonInner">hello@justaddmeta.com</span>
+              <i className={styles.iconPhone}><emailOutline /></i>
+              <span className={styles.buttonInner}>hello@justaddmeta.com</span>
             </a>
           </div>
         </div>
@@ -46,8 +47,8 @@ export const Footer = () => {
             <p>2022 © Justaddsugar - All rights reserved</p>
           </div>
           <div className={styles.colRightLegal}>
-            <a href="/impressum">Imprint</a>
-            <a href="/privacy-policy">Privacy Policy</a>
+            <Link href="/">Imprint</Link>
+            <Link href="/">Privacy Policy</Link>
           </div>
         </div>
       </div>
