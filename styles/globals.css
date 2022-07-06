@@ -38,12 +38,12 @@ body {
 
 .html {font-size: 100%;} /*16px*/
 
-.body {
+/* .body {
   display: block;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   line-height: 1.75;
-}
+} */
 
 .p {margin-bottom: 1rem;}
 

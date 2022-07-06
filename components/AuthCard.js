@@ -7,7 +7,7 @@ import {
   useEditionDrop,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
-import { MintingInterface } from "./mintingInterface";
+import { MintingInterface } from "./MintingInterface";
 
 export const AuthCard = () => {
   const connectWallet = useMetamask();
