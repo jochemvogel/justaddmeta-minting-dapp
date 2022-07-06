@@ -7,7 +7,6 @@ import {
   useEditionDrop,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
-import { Login } from "grommet-icons";
 import { MintingInterface } from "./mintingInterface";
 
 export const AuthCard = () => {
@@ -41,7 +40,8 @@ export const AuthCard = () => {
 
   useEffect(() => {
     // fetch number of minted tokens so far..
-    // if all minted for that id, get another random number.
+    // if all minted for that id, check another token via calling the function with a new random id
+    // REFACTOR: use memoization (keep track of tried/failed tokens so far, not call it
     const fetchData = async (randomTokenId) => {
       const currentAmount = await getCurrentAmount(randomTokenId);
       if (currentAmount < totalSupply) {
