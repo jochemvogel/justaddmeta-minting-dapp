@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/mintingInterface.module.css";
+import styles from "../styles/mintinginterface.module.css";
 
 export const MintingInterface = ({ amountMinted }) => {
   return (
@@ -8,7 +8,8 @@ export const MintingInterface = ({ amountMinted }) => {
       
         <div className={styles.cardContentWrapper}>
           <div className={styles.cardImageWrapper}>
-          <div className={styles.cardImage}></div>
+          <div className={styles.cardImage}>
+          </div>
           </div>
           <div className={styles.cardContent}>
             <label className={styles.label}>

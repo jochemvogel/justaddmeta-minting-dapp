@@ -1,6 +1,11 @@
 import styles from "../styles/authcard.module.css";
 
-import { useAddress, useMetamask, useDisconnect, useEditionDrop } from "@thirdweb-dev/react";
+import {
+  useAddress,
+  useMetamask,
+  useDisconnect,
+  useEditionDrop,
+} from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
 import { Login } from "grommet-icons";
 import { MintingInterface } from "./mintingInterface";
@@ -8,6 +13,7 @@ import { MintingInterface } from "./mintingInterface";
 export const AuthCard = () => {
   const connectWallet = useMetamask();
   const disconnectWallet = useDisconnect();
+  const totalSupply = 110;
 
   // Grab the currently connected wallet's address
   const address = useAddress();
@@ -16,16 +22,35 @@ export const AuthCard = () => {
     "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
   );
 
-  const [loggedIn, setLoggedIn] = useState(false);
   const [totalMinted, setTotalMinted] = useState(0);
 
+  // generate a random token id (among 3 tokens)
+  const getRandomNumber = () => {
+    return Math.floor(Math.random() * 3);
+  };
+
+  const getCurrentAmount = async (tokenId) => {
+    try {
+      const x = await editionDrop.get(tokenId);
+      const total = x.supply; //
+      return total;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const x = await editionDrop.get(1);
-      const total = x.supply; // number of minted tokens so far.
-      return total.toNumber();
+    // fetch number of minted tokens so far..
+    // if all minted for that id, get another random number.
+    const fetchData = async (randomTokenId) => {
+      const currentAmount = await getCurrentAmount(randomTokenId);
+      if (currentAmount < totalSupply) {
+        return currentAmount.toNumber();
+      } else {
+        return fetchData(getRandomNumber());
+      }
     };
-    fetchData()
+    fetchData(getRandomNumber())
       .then((total) => setTotalMinted(total))
       .catch(console.error);
   }, []);
@@ -45,43 +70,52 @@ export const AuthCard = () => {
 
               <div className={styles.buttonWrapper}>
                 <button
-                  onClick={()=> disconnectWallet()}
+                  onClick={() => disconnectWallet()}
                   className={styles.button}
                 >
                   Wallet Connected
                 </button>
 
-                <button onClick={()=> setMintingStarted(true)} className={styles.button}>Launch</button>
+                <button
+                  onClick={() => setMintingStarted(true)}
+                  className={styles.button}
+                >
+                  Launch
+                </button>
               </div>
             </div>
           </div>
         </section>
-      ) : <></>}
+      ) : (
+        <></>
+      )}
 
-      {!address&& !mintingStarted ? (
+      {!address && !mintingStarted ? (
         <section className={styles.sectionCard}>
-        <div className={styles.container}>
-          <div className={styles.authorized}>
-            <div className={styles.authorized_content}>
-              <h3>AUTHORIZED ACCESS ONLY </h3>
-              <p>Connect your wallet to participate in the Alpha Drop</p>
-            </div>
-            <div className={styles.buttonWrapper}>
-              <button
-                className={styles.button}
-                onClick={() => connectWallet()}
-              >
-                Connect Wallet
-              </button>
+          <div className={styles.container}>
+            <div className={styles.authorized}>
+              <div className={styles.authorized_content}>
+                <h3>AUTHORIZED ACCESS ONLY </h3>
+                <p>Connect your wallet to participate in the Alpha Drop</p>
+              </div>
+              <div className={styles.buttonWrapper}>
+                <button
+                  className={styles.button}
+                  onClick={() => connectWallet()}
+                >
+                  Connect Wallet
+                </button>
 
-              <button disabled className={styles.button}>Launch</button>
+                <button disabled className={styles.button}>
+                  Launch
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      ): null}
+        </section>
+      ) : null}
 
-      {mintingStarted ? <MintingInterface total={totalMinted} /> : null}
+      {mintingStarted ? <MintingInterface amountMinted={totalMinted} /> : null}
     </>
   );
 };

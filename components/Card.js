@@ -10,14 +10,14 @@ export const Card = () => {
 
   return (
     <>
-      {enteringPhaseOne ? (
+      {enteringPhaseOne ? ( // if entering phase one, we'd render an Auth challenge (wallet connection) 
         <AuthCard />
       ) : (
         <section className={styles.cardsPhases}>
           <div className={styles.cardContainer}>
             <div className={styles.itemRow}>
               <div className={styles.cardCol1}>
-                <a onClick={() => enterPhaseOne()}>
+                <a onClick={() => enterPhaseOne()}> 
                   <div className={styles.card}>
                     <div className={styles.cardImage}></div>
                     <div className={styles.cardBody}>
