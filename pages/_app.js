@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>SUMMERJAM</title>
         </Head>
-      
+        
         <Component {...pageProps} />
     </ThirdwebProvider>
 

@@ -8,8 +8,8 @@ import React, { useState, useEffect } from "react";
 import { Footer } from "../components/Footer";
 
 
-import { Header } from "../components/Header";
-import {Wrapper} from "../components/Wrapper";
+import { navBar } from "../components/navBar";
+import { Wrapper} from "../components/Wrapper";
 
 export default function Home() {
   // Grab the currently connected wallet's address
@@ -22,8 +22,8 @@ export default function Home() {
   
   return (
     <div>
-      <Header />
-      <Wrapper/>
+      <navBar></navBar>
+      <Wrapper />
       <Footer />
     </div>
   );
