@@ -23,9 +23,8 @@ export const Header = () => {
         {address ? (
           <div className={styles.navitems}>
             <button className={styles.button}>
-           <walletOutline />
-              Wallet Connected
-
+           <span className={icon}><walletOutline /></span>
+           <span className={buttonInner}>Wallet Connected</span>
             </button>
 
           </div>
