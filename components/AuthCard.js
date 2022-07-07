@@ -76,14 +76,14 @@ export const AuthCard = () => {
               <div className={styles.buttonWrapper}>
                 <button
                   onClick={() => disconnectWallet()}
-                  className={styles.button}
+                  className={styles.buttonWallet}
                 >
                   {address.slice(0, 4).concat("...").concat(address.slice(-3))}
                 </button>
 
                 <button
                   onClick={() => setMintingStarted(true)}
-                  className={styles.button}
+                  className={styles.buttonConnect}
                 >
                   Launch
                 </button>
@@ -105,13 +105,13 @@ export const AuthCard = () => {
               </div>
               <div className={styles.buttonWrapper}>
                 <button
-                  className={styles.button}
+                  className={styles.buttonConnect}
                   onClick={() => connectWallet()}
                 >
                   Connect Wallet
                 </button>
 
-                <button disabled className={styles.button}>
+                <button disabled className={styles.buttonLaunch}>
                   Launch
                 </button>
               </div>
