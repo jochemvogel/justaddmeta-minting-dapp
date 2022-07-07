@@ -50,6 +50,15 @@ border-color: #F8F8FA;
 opacity: 1;
 }
 
+.icon {
+  color: #090C12;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  color: #dc251f;
+}
+
 /* Inside auto layout */
 .branding {
 display: flex;
