@@ -10,7 +10,7 @@ export const MintingInterface = ({ amountMinted }) => {
         <div className={styles.cardContentWrapper}>
           <div className={styles.cardImageWrapper}>
           <div className={styles.cardImage}>
-            <img className={styles.image} src="../public/img/gläserPromo.png" alt=""></img>
+            <img className={styles.image} src="img/gläserPromo.png" alt="SUMMERJAM NFTs"></img>
           </div>
           </div>
           <div className={styles.cardContent}>

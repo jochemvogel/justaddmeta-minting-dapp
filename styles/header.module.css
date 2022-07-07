@@ -20,16 +20,17 @@ background: #090C12;
 }
 
 .icon {
-  height: 32px;
-  width: 32px;
+  height: 16px;
+  width: 16px;
+  color: #F8F8FA;
 }
 
-.button {
+.buttonConnect {
 display: flex;
 gap: 8px;
-background: none;
-color: #F8F8FA;;
-border: solid 1px #F8F8FA;
+background: #dc251f35;
+color: #F8F8FA;
+border: none;
 margin: 0;
 border-radius: 60px;
 transition: 0.3s;
@@ -50,21 +51,40 @@ overflow: hidden;
 position: relative;
 }
 
-.button:hover {
-background: #F8F8FA;
-color: #090C12;
-border-color: #F8F8FA;
-opacity: 1;
+.buttonConnect:hover {
+background: #dc251f6d;
 }
 
-.icon {
-  color: #090C12;
+.buttonConnected {
+  display: flex;
+  gap: 8px;
+  background: #25db1b35;
+  color: #F8F8FA;
+  border: none;
+  margin: 0;
+  border-radius: 60px;
   transition: 0.3s;
-}
+  padding: 8px 16px 8px 16px;
+  font-size: 16px;
+  display: -moz-inline-box;
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -moz-box-align: center;
+  align-items: center;
+  vertical-align: bottom;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  }
+  
+  .buttonConnected:hover {
+    background: #25db1b63;
+  }
 
-.icon:hover {
-  color: #dc251f;
-}
 
 /* Inside auto layout */
 .branding {
