@@ -1,5 +1,4 @@
 import * as React from "react"
-
 //This SVG, as a React component, made with: https://transform.tools/
 // here is full guide with other methods: https://frontend-digest.com/how-to-import-svgs-into-nextjs-8ec6100e613f
 function walletOutline(props) {

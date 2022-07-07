@@ -1,7 +1,7 @@
 import { useAddress, useMetamask, useEditionDrop } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
 import TransactionFunnel from "./TransactionFunnel";
-import { Box, Button, Text, Heading, Paragraph } from "grommet";
+// import { Box, Button, Text, Heading, Paragraph } from "grommet";
 
 export default function AuthOnly() {
   const connectWithMetamask = useMetamask();

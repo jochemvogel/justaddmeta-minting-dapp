@@ -5,7 +5,8 @@ import { mdiCellphone } from '@mdi/js';
 import { mdiDiscord } from '@mdi/js';
 import { mdiTiktok } from '@mdi/js';
 
-import JustaddmetaLogo from "./JustaddmetaLogo";
+
+import JustaddmetaLogo from "./icons/JustaddmetaLogo";
 import Link from "next/link";
 
 import styles from "../styles/footer.module.css";

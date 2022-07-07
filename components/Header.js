@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "../styles/header.module.css";
-import JustaddmetaLogo from "./JustaddmetaLogo";
-import walletOutline from "./walletOutline";
+import JustaddmetaLogo from "./icons/JustaddmetaLogo";
+import walletOutline from "./icons/walletOutline";
+import walletPlusOutline from "./icons/walletPlusOutline";
+
+
 
 import {
   useAddress
@@ -23,8 +26,8 @@ export const Header = () => {
         {address ? (
           <div className={styles.navitems}>
             <button className={styles.button}>
-           <span className={icon}><walletOutline /></span>
-           <span className={buttonInner}>Wallet Connected</span>
+              <walletOutline />
+              <span>Wallet Connected</span>
             </button>
 
           </div>
@@ -33,6 +36,7 @@ export const Header = () => {
 
           <div className={styles.navitems}>
             <button className={styles.button}>
+            <walletPlusOutline />
               <span>Connect Wallet</span>
             </button>
           </div>
