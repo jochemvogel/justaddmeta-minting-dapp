@@ -5,10 +5,10 @@ import {
   useNetworkMismatch,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
+
+import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-
-import { navBar } from "../components/navBar";
 import { Wrapper} from "../components/Wrapper";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
   
   return (
     <div>
-      <navBar></navBar>
+      <Header />
       <Wrapper />
       <Footer />
     </div>

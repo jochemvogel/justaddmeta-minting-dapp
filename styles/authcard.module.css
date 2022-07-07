@@ -1,11 +1,17 @@
+.sectionCard {
+ height: 100vw;
+ transition: 0.3s;
+}
+
 .container {
 
     width: 100%;
-    height: 734px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 0px;
+    transition: 0.3s;
 
 }
 
@@ -23,29 +29,35 @@ color-a695d99: #03020200;
 
 .authorized {
 
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    text-align: center;
-    padding: 32px;
-    margin: auto;
-    width: 332px;
+    height: auto;
+    width: 320px;
+    padding: 32px 16px;
+    transition: 0.3s;
     border-width: 1px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgb(0 31 237 / 19%), 0 6px 6px rgb(226 30 30 / 8%);
     border-style: solid;
+    -o-border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
     border-image: linear-gradient(to right, transparent, #090c12b1, #f8f8fa94) 1;
     /* height: 308px; */
     background: linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+
 }
 
 .authorized_content h3 {
-    margin: 3rem 0 1.38rem;
+    margin: 0rem 0 1.38rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     line-height: 1.3;
     font-size: 1.953rem;
     color: #F8F8FA;
+    text-align: center;
 }
 
 .authorized_content p {
@@ -63,21 +75,22 @@ color-a695d99: #03020200;
 }
 
 .buttonWrapper {
-    gap: 8px;
+    gap: 16px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 
 
 .button {
+
     display: inline;
     background: none;
     color: #F8F8FA;;
-    border-color: #F8F8FA;;
+    border-color: #F8F8FA;
     margin: 0;
     border-radius: 60px;
-    opacity: 0.6;
     transition: 0.3s;
     padding: 8px 16px 8px 16px;
     width: 100%;
@@ -107,7 +120,7 @@ color-a695d99: #03020200;
     border: 1px solid rgba(9, 12, 18, 0.64);
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
     
     .container
     {
@@ -115,12 +128,11 @@ color-a695d99: #03020200;
     }
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 720px) {
 
     .container {
 
-        margin-top: 30px;
-        height: auto;
+        padding: 0px 16px;
 
     }
 
