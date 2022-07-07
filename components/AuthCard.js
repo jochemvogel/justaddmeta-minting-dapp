@@ -17,13 +17,15 @@ export const AuthCard = () => {
   // Grab the currently connected wallet's address
   const address = useAddress();
   const [mintingStarted, setMintingStarted] = useState(false);
+  const [tokenToMint, setTokenToMint] = useState(null);
   const editionDrop = useEditionDrop(
     "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
   );
 
   const [totalMinted, setTotalMinted] = useState(0);
 
-  // generate a random token id (among 3 tokens)
+  // generate a random token id;
+  // among three tokens, ids as 0, 1 or 2.
   const getRandomNumber = () => {
     return Math.floor(Math.random() * 3);
   };
@@ -32,6 +34,7 @@ export const AuthCard = () => {
     try {
       const x = await editionDrop.get(tokenId);
       const total = x.supply; //
+      console.log(`tokenId: ${tokenId} total minted ${total}`)
       return total;
     } catch (error) {
       console.log(error);
@@ -39,17 +42,21 @@ export const AuthCard = () => {
   };
 
   useEffect(() => {
-    // fetch number of minted tokens so far..
+    // fetch number of minted tokens so far.
     // if all minted for that id, check another token via calling the function with a new random id
     // REFACTOR: use memoization (keep track of tried/failed tokens so far, not call it
     const fetchData = async (randomTokenId) => {
       const currentAmount = await getCurrentAmount(randomTokenId);
       if (currentAmount < totalSupply) {
+        console.log(`setting token to mint: ${randomTokenId}`);
+        setTokenToMint(randomTokenId);
         return currentAmount.toNumber();
       } else {
         return fetchData(getRandomNumber());
       }
     };
+
+    // call the recursive function defined above.
     fetchData(getRandomNumber())
       .then((total) => setTotalMinted(total))
       .catch(console.error);
@@ -95,8 +102,8 @@ export const AuthCard = () => {
           <div className={styles.container}>
             <div className={styles.authorized}>
               <div className={styles.authorized_content}>
-                <h3>AUTHORIZED<br></br> ACCESS ONLY </h3>
-                <p>Connect your wallet to participate.</p>
+                <h3>AUTHORIZED ACCESS ONLY </h3>
+                <p>Connect your wallet to participate in the Alpha Drop</p>
               </div>
               <div className={styles.buttonWrapper}>
                 <button
@@ -115,7 +122,7 @@ export const AuthCard = () => {
         </section>
       ) : null}
 
-      {mintingStarted ? <MintingInterface amountMinted={totalMinted} /> : null}
+      {mintingStarted ? <MintingInterface amountMinted={totalMinted} tokenId={tokenToMint} /> : null}
     </>
   );
 };
