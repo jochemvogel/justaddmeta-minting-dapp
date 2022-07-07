@@ -18,9 +18,7 @@ export const Header = () => {
     <navigation className={styles.sectionHeader}>
       <div className={styles.headerWrapper}>
         <div className={styles.branding}>
-          <span className={styles.brand}>
-            <JustaddmetaLogo />
-          </span>
+            <JustaddmetaLogo className={styles.brand}/>
         </div>
 
         {/* depending on an existence of a connected wallet address, it shows first or second */}

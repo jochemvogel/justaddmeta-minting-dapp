@@ -172,8 +172,22 @@
     }
 
     .cardContentWrapper {
-
+        width: 100%;
         flex-direction: column;
+    }
+
+    .cardContent {
+        width: 100%;
+    }
+
+    .cardImageWrapper {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .cardContent {
+        padding: 0px;
+
     }
 
 
