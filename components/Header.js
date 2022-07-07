@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/header.module.css";
 import JustaddmetaLogo from "./JustaddmetaLogo";
-import { mdiWalletPlusOutline } from '@mdi/js';
+import walletOutline from "./walletOutline";
 
 import {
   useAddress
@@ -23,20 +23,24 @@ export const Header = () => {
         {address ? (
           <div className={styles.navitems}>
             <button className={styles.button}>
-              <i className={styles.icon} path={mdiInstagram} title="Instagram" width="24px" height="24px"></i>
+           <walletOutline />
               Wallet Connected
+
             </button>
 
           </div>
+
         ) : (
+
           <div className={styles.navitems}>
-                        <button className={styles.button}>
-              <i class="x"></i>
-              Connect Wallet
+            <button className={styles.button}>
+              <span>Connect Wallet</span>
             </button>
           </div>
         )}
+
       </div>
     </navigation>
+
   );
 };
