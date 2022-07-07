@@ -1,6 +1,7 @@
 .sectionCard {
- height: 100vw;
- transition: 0.3s;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
 }
 
 .container {
@@ -31,7 +32,7 @@ color-a695d99: #03020200;
 
     height: auto;
     width: 320px;
-    padding: 32px 16px;
+    padding: 32px 32px;
     transition: 0.3s;
     border-width: 1px;
     box-shadow: 0 10px 20px rgb(0 31 237 / 19%), 0 6px 6px rgb(226 30 30 / 8%);
