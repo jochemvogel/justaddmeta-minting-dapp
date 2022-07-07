@@ -4,7 +4,7 @@
   flex-direction: row;
   width: 100%;
   box-shadow: 0 10px 20px rgb(0 31 237 / 19%), 0 6px 6px rgb(226 30 30 / 8%);
-  /* z-index: 2; */
+  z-index: 2; 
 }
 
 .headerWrapper {
