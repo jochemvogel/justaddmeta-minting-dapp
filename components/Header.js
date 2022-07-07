@@ -23,15 +23,16 @@ export const Header = () => {
         {address ? (
           <div className={styles.navitems}>
             <button className={styles.button}>
-              <Icon className={styles.icon} path={mdiWalletPlusOutline} title="Wallet" width="24px" height="24px" />
-              <span>connected</span>
+              <i className={styles.icon} path={mdiInstagram} title="Instagram" width="24px" height="24px"></i>
+              Wallet Connected
             </button>
+
           </div>
         ) : (
           <div className={styles.navitems}>
-            <button className={styles.button}>
-              <Icon className={styles.icon} path={mdiWalletPlusOutline} title="Wallet" width="24px" height="24px" />
-              <span>not connected</span>
+                        <button className={styles.button}>
+              <i class="x"></i>
+              Connect Wallet
             </button>
           </div>
         )}
