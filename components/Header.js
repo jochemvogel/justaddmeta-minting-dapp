@@ -6,6 +6,7 @@ import walletPlusOutline from "./icons/walletPlusOutline";
 
 
 
+
 import {
   useAddress
 } from "@thirdweb-dev/react";
@@ -26,7 +27,7 @@ export const Header = () => {
         {address ? (
           <div className={styles.navitems}>
             <button className={styles.button}>
-              <walletOutline />
+              <walletOutline className={styles.icon} />
               <span>Wallet Connected</span>
             </button>
 
@@ -36,7 +37,7 @@ export const Header = () => {
 
           <div className={styles.navitems}>
             <button className={styles.button}>
-            <walletPlusOutline />
+            <walletPlusOutline className={styles.icon} />
               <span>Connect Wallet</span>
             </button>
           </div>

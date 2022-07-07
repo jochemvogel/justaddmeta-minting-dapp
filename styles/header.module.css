@@ -19,7 +19,14 @@ padding: 0px 64px;
 background: #090C12;
 }
 
+.icon {
+  height: 32px;
+  width: 32px;
+}
+
 .button {
+display: flex;
+gap: 8px;
 background: none;
 color: #F8F8FA;;
 border: solid 1px #F8F8FA;
@@ -72,7 +79,7 @@ flex-direction: row;
 
 .brand {
 color: #F8F8FA;
-font-family: Roboto; }
+width: 200px; }
 
 .navitems {
 display: flex;
@@ -82,23 +89,19 @@ width: 50%;
   align-items: center;
   flex-direction: row; }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 1024px) {
 
-.brand {
-  font-size: 15px;
-  margin: 30px;
-  color: #FFFFFF;
+  .headerWrapper {
+    padding: 0px 32px;
+    }
+  
 }
-.nav_btn
-{
-  width: 100px;
-  margin-right: 70px;
-  color: black;
-}
-.header
-{
-  width: 100%;
-}
+
+@media only screen and (max-width: 720px) {
+  .headerWrapper {
+    padding: 0px 16px;
+    }
+
 }
 
 

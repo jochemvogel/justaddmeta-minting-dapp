@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/mintingInterface.module.css";
+import gläserPromo from "../public/img/gläserPromo.png"
 
 export const MintingInterface = ({ amountMinted }) => {
   return (
@@ -9,6 +10,7 @@ export const MintingInterface = ({ amountMinted }) => {
         <div className={styles.cardContentWrapper}>
           <div className={styles.cardImageWrapper}>
           <div className={styles.cardImage}>
+            <img class="image" src="../public/img/gläserPromo.png" alt=""></img>
           </div>
           </div>
           <div className={styles.cardContent}>

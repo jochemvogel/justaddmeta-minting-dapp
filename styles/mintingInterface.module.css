@@ -41,10 +41,9 @@
     padding: 16px;
 }
 
-.cardImage {
+.cardImage image {
     height: 100%;
     width: 100%;
-    background: green;
 }
 
 .cardContent {
