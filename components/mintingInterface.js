@@ -12,15 +12,7 @@ export const MintingInterface = ({ amountMinted }) => {
           </div>
           </div>
           <div className={styles.cardContent}>
-            <label className={styles.label}>
-            <div className={styles.cardIcon}>
-              
-            </div>
-            <div className={styles.cardContent}>SUMMERJAM</div>
-         
-            </label>
-        
-            <h1>Metaverse has never been this delightful</h1>
+            <h3>Metaverse has never been this delightful</h3>
             <p>
               Remarkable virtual craftsmanship meets ostentatious yet familiar
               design. Ingredients from a different dimension and extravagant
