@@ -70,9 +70,7 @@ export const AuthCard = () => {
             <div className={styles.authorized}>
               <div className={styles.authorized_content}>
                 <h3>AUTHORIZED SUCCESSFULLY </h3>
-                <p>
-                  {address.slice(0, 4).concat("...").concat(address.slice(-3))}
-                </p>
+    
               </div>
 
               <div className={styles.buttonWrapper}>
@@ -80,7 +78,7 @@ export const AuthCard = () => {
                   onClick={() => disconnectWallet()}
                   className={styles.button}
                 >
-                  Wallet Connected
+                  {address.slice(0, 4).concat("...").concat(address.slice(-3))}
                 </button>
 
                 <button
