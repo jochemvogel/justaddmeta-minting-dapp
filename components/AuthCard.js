@@ -101,7 +101,7 @@ export const AuthCard = () => {
             <div className={styles.authorized}>
               <div className={styles.authorized_content}>
                 <h3>AUTHORIZED<br></br> ACCESS ONLY </h3>
-                <p>Connect your wallet to participate in the Alpha Drop</p>
+                <p>Connect your wallet to participate.</p>
               </div>
               <div className={styles.buttonWrapper}>
                 <button
