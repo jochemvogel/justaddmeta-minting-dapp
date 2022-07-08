@@ -1,4 +1,4 @@
-import React, { useState, useReducer, createContext } from "react";
+import React, { useState } from "react";
 import {About} from "./About";
 import {Card} from "./Card";
 import styles from "../styles/wrapper.module.css";

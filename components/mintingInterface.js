@@ -3,14 +3,13 @@ import { React, useState } from "react";
 import {
   useAddress,
   useNetwork,
-  useMetamask,
   useNetworkMismatch,
   useEditionDrop,
   ChainId,
 } from "@thirdweb-dev/react";
 import styles from "../styles/mintingInterface.module.css";
 
-import gläserPromo from "../public/img/gläserPromo.png";
+// import gläserPromo from "../public/img/gläserPromo.png";
 
 export const MintingInterface = ({ amountMinted, tokenId }) => {
   const address = useAddress();
