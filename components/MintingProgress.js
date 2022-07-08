@@ -15,7 +15,7 @@ export const MintingProgress = ({ tokenId, progress }) => {
   console.log(`progress.txHash: ${progress.txHash}`);
 
   // TODO:// extract TxStatus as a component maybe and import both here and @ mintingInterface
-  
+  // TODO:// call checkout here. 
   return (
     <>
       <section className={styles.sectionCard}>
