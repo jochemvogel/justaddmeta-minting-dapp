@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styles from 'styles/authcard.module.css';
 
 import {
   useAddress,
@@ -9,6 +8,8 @@ import {
 } from '@thirdweb-dev/react';
 
 import MintingInterface from 'components/MintingInterface';
+
+import styles from 'styles/authcard.module.css';
 
 export default function AuthCard() {
   const connectWallet = useMetamask();

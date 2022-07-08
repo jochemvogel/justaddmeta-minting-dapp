@@ -7,10 +7,11 @@ import {
   useEditionDrop,
   ChainId
 } from '@thirdweb-dev/react';
-import styles from 'styles/mintingInterface.module.css';
-import MintingProgress from 'components/MintingProgress';
 
+import MintingProgress from 'components/MintingProgress';
 // import gläserPromo from "../public/img/gläserPromo.png";
+
+import styles from 'styles/mintingInterface.module.css';
 
 export default function MintingInterface({ amountMinted, tokenId }) {
   const address = useAddress();

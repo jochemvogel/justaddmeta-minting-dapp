@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styles from 'styles/wrapper.module.css';
 
 import About from 'components/About';
 import HeroBanner from 'components/HeroBanner';
 import Card from 'components/Card';
+
+import styles from 'styles/wrapper.module.css';
 
 export default function Wrapper() {
   // this component will act as a dispatcher of state variables.

@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from 'styles/authcard.module.css';
 
 import { Button } from 'grommet';
+
+import styles from 'styles/authcard.module.css';
 
 export default function MintingProgress({ tokenId, progress }) {
   // until the transactions on metamask complete, we'll display a spinner,
