@@ -119,7 +119,6 @@ export const AuthCard = () => {
           </div>
         </section>
       ) : null}
-
       {mintingStarted ? <MintingInterface amountMinted={totalMinted} tokenId={tokenToMint} /> : null}
     </>
   );

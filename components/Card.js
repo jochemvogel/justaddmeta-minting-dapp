@@ -2,10 +2,11 @@ import { React, useState } from "react";
 import styles from "../styles/card.module.css";
 import { AuthCard } from "./AuthCard";
 
-export const Card = () => {
+export const Card = (props) => {
   const [enteringPhaseOne, setEnteringPhaseOne] = useState(false);
   const enterPhaseOne = (event) => {
     setEnteringPhaseOne(true);
+    props.displayAboveSections(false);
   };
 
   return (
