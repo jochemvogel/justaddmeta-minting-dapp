@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import styles from "../styles/header.module.css";
-import JustaddmetaLogo from "./icons/JustaddmetaLogo";
+import React from 'react';
+import Link from 'next/link';
+import styles from 'styles/header.module.css';
+import JustaddmetaLogo from 'components/icons/JustaddmetaLogo';
 // import walletOutline from "./icons/walletOutline";
 
 import {
@@ -9,9 +9,9 @@ import {
   useNetwork,
   useMetamask,
   useNetworkMismatch,
-  ChainId,
-} from "@thirdweb-dev/react";
-export const Header = () => {
+  ChainId
+} from '@thirdweb-dev/react';
+export default function Header() {
   const connectWallet = useMetamask();
   const isOnWrongNetwork = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
@@ -28,11 +28,11 @@ export const Header = () => {
   }
 
   return (
-    <navigation className={styles.sectionHeader}>
-      <div className={styles.headerWrapper}>
+    <header className={styles.sectionHeader}>
+      <nav className={styles.headerWrapper}>
         <div className={styles.branding}>
           <Link href="/">
-              <JustaddmetaLogo className={styles.brand} />
+            <JustaddmetaLogo className={styles.brand} />
           </Link>
         </div>
 
@@ -65,7 +65,7 @@ export const Header = () => {
             </button>
           </div>
         )}
-      </div>
-    </navigation>
+      </nav>
+    </header>
   );
-};
+}

@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Card,
-  Heading,
-  Text,
-  Button,
-  Spinner,
-  Image,
-  CardBody,
-  CardHeader,
-} from "grommet";
+import React, { useState } from 'react';
+import { Box, Heading, Text, Button, Spinner, Image } from 'grommet';
 import {
   useAddress,
   useNetwork,
   useMetamask,
   useNetworkMismatch,
   useEditionDrop,
-  ChainId,
-} from "@thirdweb-dev/react";
+  ChainId
+} from '@thirdweb-dev/react';
 
-import { Checkmark, Validate } from "grommet-icons";
-import CheckItOut from "./Checkout";
+import { Checkmark, Validate } from 'grommet-icons';
+import Checkout from 'comopnents/Checkout';
 
 // TODO:// rename TransactionFunnel
 export default function TransactionFunnel({ total }) {
@@ -33,7 +23,7 @@ export default function TransactionFunnel({ total }) {
   const [, switchNetwork] = useNetwork();
 
   const editionDrop = useEditionDrop(
-    "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
+    '0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca'
   );
   const [isClaiming, setIsClaiming] = useState(false);
   const [justClaimed, setJustClaimed] = useState(false); // so we can show -mint another- instead -mint- text on button.
@@ -42,7 +32,7 @@ export default function TransactionFunnel({ total }) {
   const [claimFailed, setClaimFailed] = useState(false);
   const [tokenToMint, setTokenToMint] = useState(null);
   const [mintingComplete, setMintingComplete] = useState(false);
-  const [txHash, setTxHash] = useState("");
+  const [txHash, setTxHash] = useState('');
   const configClaimPhases = async () => {
     const saleStartTime = new Date();
 
@@ -53,11 +43,11 @@ export default function TransactionFunnel({ total }) {
         maxQuantity: 1000, // limit how many mints for this test minting. for now it's 250 @ rinkeby.
         price: 0, // sale price
         snapshot: [
-          "0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302",
-          "0xfac0475b677b54f72682E0EA633Ffa1088110dcf",
-          "0xeA718966A209c5244D8Ad686560a97F29381a84F",
-        ], // limit minting to only certain addresses
-      },
+          '0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302',
+          '0xfac0475b677b54f72682E0EA633Ffa1088110dcf',
+          '0xeA718966A209c5244D8Ad686560a97F29381a84F'
+        ] // limit minting to only certain addresses
+      }
     ];
 
     tokenId = 0; // the id of the NFT to set claim conditions on
@@ -69,12 +59,12 @@ export default function TransactionFunnel({ total }) {
         maxQuantity: 1000, // limit how many mints for this test minting. for now it's 250 @ rinkeby.
         price: 0, // sale price
         snapshot: [
-          "0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302",
-          "0xfac0475b677b54f72682E0EA633Ffa1088110dcf",
-          "0xeA718966A209c5244D8Ad686560a97F29381a84F",
-          "0x240d0a6aEFbFb5e188BdC2Ab4Bf685a9a5aA5EDD",
-        ], // limit minting to only certain addresses
-      },
+          '0xF2Bb8DCD9c246c03a42b029942DDD92Dd0Ea2302',
+          '0xfac0475b677b54f72682E0EA633Ffa1088110dcf',
+          '0xeA718966A209c5244D8Ad686560a97F29381a84F',
+          '0x240d0a6aEFbFb5e188BdC2Ab4Bf685a9a5aA5EDD'
+        ] // limit minting to only certain addresses
+      }
     ];
 
     tokenId = 1;
@@ -129,7 +119,7 @@ export default function TransactionFunnel({ total }) {
   async function claimNFT() {
     // Ensure wallet connected
     if (!address) {
-      alert("Please reconnect your wallet to continue.");
+      alert('Please reconnect your wallet to continue.');
       return;
     }
 
@@ -187,8 +177,8 @@ export default function TransactionFunnel({ total }) {
     <Box
       fill="vertical"
       // overflow="auto"
-      width={"980px"}
-      height={"60px"}
+      width={'980px'}
+      height={'60px'}
       align="center"
       flex="grow"
       // pad="medium"
@@ -197,8 +187,8 @@ export default function TransactionFunnel({ total }) {
       // align="stretch"
       gap="xsmall"
       style={{
-        marginTop: "166px",
-        marginBottom: "111px",
+        marginTop: '166px',
+        marginBottom: '111px'
         // background:
         //   "linear-gradient(113.53deg, rgba(255, 255, 255, 0.16) 0.04%, rgba(255, 255, 255, 0) 101.07%)",
         // filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
@@ -207,28 +197,28 @@ export default function TransactionFunnel({ total }) {
       {address && !isClaiming && !justClaimed ? (
         <Box direction="row">
           <Box
-            width={"50%"}
+            width={'50%'}
             // background="black"
             justify="center"
             align="start"
-            pad={"32px"}
+            pad={'32px'}
           >
             <Image
               src="https://i.imgur.com/mSBSyOz.png"
-              width={"342px"}
-              height={"479px"}
+              width={'342px'}
+              height={'479px'}
             />
           </Box>
 
           <Box
-            width={"50%"}
+            width={'50%'}
             // background="black"
             justify="stretch"
             align="end"
             // pad={"32px"}
             // gap="small"
           >
-            <Box direction="row" gap="small" alignSelf="start" pad={"small"}>
+            <Box direction="row" gap="small" alignSelf="start" pad={'small'}>
               <Text alignSelf="start" size="large">
                 SUMMERJAM
               </Text>
@@ -250,15 +240,15 @@ export default function TransactionFunnel({ total }) {
 
             <Text
               style={{
-                border: "1px solid #FFFFFF",
-                paddingBottom: "2px",
-                paddingTop: "2px",
-                width: "100%",
-                height: "62px",
-                alignItems: "center",
-                flexDirection: "row",
-                boxSizing: "border-box",
-                justifyContent: "center",
+                border: '1px solid #FFFFFF',
+                paddingBottom: '2px',
+                paddingTop: '2px',
+                width: '100%',
+                height: '62px',
+                alignItems: 'center',
+                flexDirection: 'row',
+                boxSizing: 'border-box',
+                justifyContent: 'center'
               }}
               // alignSelf="center"
               // textAlign="center"
@@ -270,13 +260,13 @@ export default function TransactionFunnel({ total }) {
               {totalMinted}/100 minted
             </Text>
 
-            <Box size="small" margin={"small"} alignSelf="center">
+            <Box size="small" margin={'small'} alignSelf="center">
               <Button
                 alignSelf="center"
                 style={{
-                  fontStyle: "italic",
-                  width: "342px",
-                  height: "40px",
+                  fontStyle: 'italic',
+                  width: '342px',
+                  height: '40px'
                 }}
                 primary
                 color="white"
@@ -294,17 +284,17 @@ export default function TransactionFunnel({ total }) {
         <Box
           direction="column"
           gap="large"
-          pad={"medium"}
-          style={{ height: "218px", width: "352px" }}
+          pad={'medium'}
+          style={{ height: '218px', width: '352px' }}
         >
-          <Box height={"186px"} width="320px" color="black">
+          <Box height={'186px'} width="320px" color="black">
             <Text
               style={{
-                fontSize: "32px",
-                color: "#FFFFFF",
-                weight: "700",
-                lineHeight: "38px",
-                textAlign: "start",
+                fontSize: '32px',
+                color: '#FFFFFF',
+                weight: '700',
+                lineHeight: '38px',
+                textAlign: 'start'
               }}
             >
               Follow steps
@@ -313,36 +303,36 @@ export default function TransactionFunnel({ total }) {
 
           <Box direction="row" gap="small" alignSelf="start">
             <Spinner
-              style={{ width: "16px", height: "16px" }}
+              style={{ width: '16px', height: '16px' }}
               color="#DCDCDC"
               alignSelf="center"
             />
             <Text
               alignSelf="center"
-              weight={"bold"}
+              weight={'bold'}
               style={{
-                size: "12px",
-                letterSpacing: "0.2em",
-                fontFamily: "Inter",
-                lineHeight: "15px",
-                fontWeight: "700",
+                size: '12px',
+                letterSpacing: '0.2em',
+                fontFamily: 'Inter',
+                lineHeight: '15px',
+                fontWeight: '700'
               }}
             >
-              {" "}
+              {' '}
               sign transaction
             </Text>
           </Box>
           <Box alignSelf="start">
             <Button
               style={{
-                paddingTop: "8px",
-                paddingBottom: "8px",
-                paddingLeft: "64px",
-                paddingRight: "64px",
-                fontStyle: "italic",
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                paddingLeft: '64px',
+                paddingRight: '64px',
+                fontStyle: 'italic'
               }}
               width="80%"
-              color={"white"}
+              color={'white'}
               size="xlarge"
               primary
               disabled
@@ -365,22 +355,22 @@ export default function TransactionFunnel({ total }) {
           </Box> */}
 
           <Box direction="column">
-            <Box direction="row" gap="small" size="large" margin={"small"}>
+            <Box direction="row" gap="small" size="large" margin={'small'}>
               <Checkmark
-                style={{ width: "24px", height: "24px" }}
+                style={{ width: '24px', height: '24px' }}
                 alignSelf="center"
               />
-              <Text style={{ size: "12px", fontWeight: "700" }}>
-                {" "}
-                sign transaction{" "}
+              <Text style={{ size: '12px', fontWeight: '700' }}>
+                {' '}
+                sign transaction{' '}
               </Text>
             </Box>
-            <Box margin={"small"} width="small" alignSelf="center">
+            <Box margin={'small'} width="small" alignSelf="center">
               <Button
-                style={{ fontStyle: "italic", width: "320px", height: "40px" }}
+                style={{ fontStyle: 'italic', width: '320px', height: '40px' }}
                 size="large"
                 primary
-                color={"white"}
+                color={'white'}
                 onClick={() => setMintingComplete(true)}
               >
                 Continue
@@ -390,7 +380,7 @@ export default function TransactionFunnel({ total }) {
         </>
       ) : null}
       {mintingComplete ? (
-        <CheckItOut txHash={txHash.toString()} tokenId={tokenToMint} />
+        <Checkout txHash={txHash.toString()} tokenId={tokenToMint} />
       ) : null}
     </Box>
   );

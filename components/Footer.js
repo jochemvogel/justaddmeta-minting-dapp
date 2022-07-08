@@ -1,22 +1,23 @@
-import React from "react";
-import Icon from '@mdi/react'
+import React from 'react';
+import Icon from '@mdi/react';
 import { mdiInstagram } from '@mdi/js';
 import { mdiCellphone } from '@mdi/js';
 import { mdiDiscord } from '@mdi/js';
 import { mdiTiktok } from '@mdi/js';
 
+import JustaddmetaLogo from 'components/icons/JustaddmetaLogo';
+import Link from 'next/link';
 
-import JustaddmetaLogo from "./icons/JustaddmetaLogo";
-import Link from "next/link";
-
-import styles from "../styles/footer.module.css";
-export const Footer = () => {
+import styles from 'styles/footer.module.css';
+export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.containerBranding}>
         <div className={styles.wrapperContent}>
           <div className={styles.colLeft}>
-            <div className={styles.branding}><JustaddmetaLogo /></div>
+            <div className={styles.branding}>
+              <JustaddmetaLogo />
+            </div>
             <p>
               We enable your brand to <br></br>
               make a sustainable contribution <br></br>
@@ -24,13 +25,24 @@ export const Footer = () => {
             </p>
             <button className={styles.button}>Enter Safe House</button>
             <div className={styles.socialWrapper}>
-            
-            <a href="https://www.instagram.com/justaddmeta.agency">
-            <Icon className={styles.icon} path={mdiInstagram} title="Instagram" width="24px" height="24px"/>
-            </a>
-            <a href="https://discord.gg/vnp4ccXvRD">
-            <Icon className={styles.icon} path={mdiDiscord} title="Discord" width="24px" height="24px"/>
-            </a>
+              <a href="https://www.instagram.com/justaddmeta.agency">
+                <Icon
+                  className={styles.icon}
+                  path={mdiInstagram}
+                  title="Instagram"
+                  width="24px"
+                  height="24px"
+                />
+              </a>
+              <a href="https://discord.gg/vnp4ccXvRD">
+                <Icon
+                  className={styles.icon}
+                  path={mdiDiscord}
+                  title="Discord"
+                  width="24px"
+                  height="24px"
+                />
+              </a>
             </div>
           </div>
           <div className={styles.colRightContent}>
@@ -44,7 +56,6 @@ export const Footer = () => {
               <span className="buttonInner">+49 (0) 17634990063</span>
             </a>
             <a href="mailto:hello@justaddmeta.com">
-
               <span className={styles.buttonInner}>hello@justaddmeta.com</span>
             </a>
           </div>
@@ -61,12 +72,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
-
     </footer>
-
-
-
-
   );
-};
+}

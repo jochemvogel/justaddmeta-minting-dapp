@@ -1,10 +1,9 @@
-import styles from "../styles/authcard.module.css";
+import React from 'react';
+import styles from 'styles/authcard.module.css';
 
-import React, { useState, useEffect } from "react";
-import CheckItOut from "./Checkout";
-import { Button } from "grommet";
+import { Button } from 'grommet';
 
-export const MintingProgress = ({ tokenId, progress }) => {
+export default function MintingProgress({ tokenId, progress }) {
   // until the transactions on metamask complete, we'll display a spinner,
   // depending on the process, display minting success/fail
   // it will display in case of success or fail of a mint.
@@ -24,24 +23,20 @@ export const MintingProgress = ({ tokenId, progress }) => {
               <h3>follow steps </h3>
             </div>
             <div className={styles.buttonWrapper}>
-              {progress.txStatus === "IN_PROGRESS" ? (
+              {progress.txStatus === 'IN_PROGRESS' ? (
                 <>
                   <h1>in progress..</h1>
                 </>
               ) : null}
 
-              {progress.txStatus === "SUCCESS" ? (
+              {progress.txStatus === 'SUCCESS' ? (
                 <>
                   <h1>success</h1>
-                  <button
-                    className={styles.buttonConnect}
-                  >
-                    Continue
-                  </button>
+                  <button className={styles.buttonConnect}>Continue</button>
                 </>
               ) : null}
 
-              {progress.txStatus === "FAIL" ? (
+              {progress.txStatus === 'FAIL' ? (
                 <>
                   <h1>fail</h1>
                 </>
@@ -52,4 +47,4 @@ export const MintingProgress = ({ tokenId, progress }) => {
       </section>
     </>
   );
-};
+}

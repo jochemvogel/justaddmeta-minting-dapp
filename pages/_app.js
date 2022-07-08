@@ -1,7 +1,7 @@
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
-import Head from "next/head";
-import "../styles/globals.css";
+import Head from 'next/head';
+import '../styles/globals.css';
 const activeChainId = ChainId.Rinkeby;
 
 function MyApp({ Component, pageProps }) {
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           content="We equip your brand with the right opportunity, creativity, technology, and knowledge to ensure that your transition into the metaverse is as seamless as possible."
         ></meta>
       </Head>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
     </ThirdwebProvider>
   );
 }

@@ -1,15 +1,16 @@
-import styles from "../styles/authcard.module.css";
+import React, { useState, useEffect } from 'react';
+import styles from 'styles/authcard.module.css';
 
 import {
   useAddress,
   useMetamask,
   useDisconnect,
-  useEditionDrop,
-} from "@thirdweb-dev/react";
-import React, { useState, useEffect } from "react";
-import { MintingInterface } from "./mintingInterface";
+  useEditionDrop
+} from '@thirdweb-dev/react';
 
-export const AuthCard = () => {
+import MintingInterface from 'components/MintingInterface';
+
+export default function AuthCard() {
   const connectWallet = useMetamask();
   const disconnectWallet = useDisconnect();
   const totalSupply = 110;
@@ -19,7 +20,7 @@ export const AuthCard = () => {
   const [mintingStarted, setMintingStarted] = useState(false);
   const [tokenToMint, setTokenToMint] = useState(null);
   const editionDrop = useEditionDrop(
-    "0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca"
+    '0xB4B8f15C9FF18B01D6894713c2e7712fBE2871Ca'
   );
 
   const [totalMinted, setTotalMinted] = useState(0);
@@ -34,7 +35,7 @@ export const AuthCard = () => {
     try {
       const x = await editionDrop.get(tokenId);
       const total = x.supply; //
-      console.log(`tokenId: ${tokenId} total minted ${total}`)
+      console.log(`tokenId: ${tokenId} total minted ${total}`);
       return total;
     } catch (error) {
       console.log(error);
@@ -70,7 +71,6 @@ export const AuthCard = () => {
             <div className={styles.authorized}>
               <div className={styles.authorized_content}>
                 <h3>AUTHORIZED SUCCESSFULLY </h3>
-    
               </div>
 
               <div className={styles.buttonWrapper}>
@@ -78,7 +78,7 @@ export const AuthCard = () => {
                   onClick={() => disconnectWallet()}
                   className={styles.buttonWallet}
                 >
-                  {address.slice(0, 4).concat("...").concat(address.slice(-3))}
+                  {address.slice(0, 4).concat('...').concat(address.slice(-3))}
                 </button>
 
                 <button
@@ -100,7 +100,9 @@ export const AuthCard = () => {
           <div className={styles.container}>
             <div className={styles.authorized}>
               <div className={styles.authorized_content}>
-                <h3>AUTHORIZED<br></br> ACCESS ONLY </h3>
+                <h3>
+                  AUTHORIZED<br></br> ACCESS ONLY{' '}
+                </h3>
                 <p>Connect your wallet to participate.</p>
               </div>
               <div className={styles.buttonWrapper}>
@@ -119,7 +121,9 @@ export const AuthCard = () => {
           </div>
         </section>
       ) : null}
-      {mintingStarted ? <MintingInterface amountMinted={totalMinted} tokenId={tokenToMint} /> : null}
+      {mintingStarted ? (
+        <MintingInterface amountMinted={totalMinted} tokenId={tokenToMint} />
+      ) : null}
     </>
   );
-};
+}
