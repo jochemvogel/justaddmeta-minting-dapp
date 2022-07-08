@@ -31,10 +31,8 @@ export const Header = () => {
     <navigation className={styles.sectionHeader}>
       <div className={styles.headerWrapper}>
         <div className={styles.branding}>
-          <Link href="/about">
-            <a href="/">
+          <Link href="/">
               <JustaddmetaLogo className={styles.brand} />
-            </a>
           </Link>
         </div>
 

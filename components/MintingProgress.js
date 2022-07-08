@@ -14,8 +14,7 @@ export const MintingProgress = ({ tokenId, progress }) => {
   console.log(`progress.txHash: ${progress.txHash}`);
   console.log(`progress.txHash: ${progress.txHash}`);
 
-  // TODO:// extract TxStatus as a component maybe and import both here and @ mintingInterface
-  // TODO:// call checkout here. 
+  // TODO:// call checkout here with an onClick function for the <continue> button.
   return (
     <>
       <section className={styles.sectionCard}>
@@ -36,7 +35,6 @@ export const MintingProgress = ({ tokenId, progress }) => {
                   <h1>success</h1>
                   <button
                     className={styles.buttonConnect}
-                    // onClick={() => connectWallet()}
                   >
                     Continue
                   </button>
