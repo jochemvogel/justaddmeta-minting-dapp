@@ -8,7 +8,7 @@ import { mdiTiktok } from '@mdi/js';
 import JustaddmetaLogo from 'components/icons/JustaddmetaLogo';
 import Link from 'next/link';
 
-import styles from 'styles/footer.module.css';
+import styles from 'styles/modules/footer.module.css';
 
 export default function Footer() {
   <footer className={styles.footer}>

@@ -1,4 +1,4 @@
-import styles from 'styles/form.module.css';
+import styles from 'styles/modules/form.module.css';
 
 export default function Form() {
   return (

@@ -10,7 +10,7 @@ import {
 } from '@thirdweb-dev/react';
 
 import { Checkmark, Validate } from 'grommet-icons';
-import Checkout from 'comopnents/Checkout';
+import Checkout from 'components/Checkout';
 
 // TODO:// rename TransactionFunnel
 export default function TransactionFunnel({ total }) {

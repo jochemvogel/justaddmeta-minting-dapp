@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400%7CRoboto:700%27');
+@import url('./globals/fonts.css');
+@import url('./globals/variables.css');
+
+.root {
+  --color-white: hsl(240, 17%, 98%);
+  --color-black: hsl(220, 33%, 5%);
+  --color-red: hsl(2, 75%, 49%);
+
+  --color-bg-accent: hsl(223, 14%, 20%);
+
+  --nav-size: 60px;
+  --border: 1px solid #f8f8fa;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
 
 /* Box sizing rules 
 *,
@@ -7,7 +21,6 @@
   box-sizing: border-box;
 }
 */
-
 /* Set core body defaults */
 body {
   /* min-height: 100vh; */
@@ -30,18 +43,6 @@ body {
 .textarea,
 .select {
   font: inherit;
-}
-
-.root {
-  --background-color: #090c12;
-  --white: #f8f8fa;
-  --bg: #090c12;
-  --bg-accent: #2b2f39;
-  --text-color: #f8f8fa;
-  --nav-size: 60px;
-  --border: 1px solid #f8f8fa;
-  --border-radius: 8px;
-  --speed: 500ms;
 }
 
 .html {
@@ -98,8 +99,8 @@ body {
 
 .button {
   background: none;
-  color: #f8f8fa;
-  border-color: #f8f8fa;
+  color: var(--color-white);
+  border-color: var(--color-white);
   margin: 0;
   display: -moz-inline-box;
   display: inline-flex;
@@ -117,7 +118,7 @@ body {
 }
 
 .button:hover {
-  background: #f8f8fa;
-  color: #090c12;
-  border-color: #f8f8fa;
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
 }

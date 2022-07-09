@@ -9,7 +9,7 @@ import {
 
 import MintingInterface from 'components/MintingInterface';
 
-import styles from 'styles/authcard.module.css';
+import styles from 'styles/modules/auth-card.module.css';
 
 export default function AuthCard() {
   const connectWallet = useMetamask();

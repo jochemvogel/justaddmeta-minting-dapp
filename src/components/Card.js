@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 
 import AuthCard from 'components/AuthCard';
 
-import styles from 'styles/card.module.css';
+import styles from 'styles/modules/card.module.css';
 
 export default function Card(props) {
   const [enteringPhaseOne, setEnteringPhaseOne] = useState(false);

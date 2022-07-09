@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from 'styles/header.module.css';
 import JustaddmetaLogo from 'components/icons/JustaddmetaLogo';
 // import walletOutline from "./icons/walletOutline";
 
@@ -11,6 +10,9 @@ import {
   useNetworkMismatch,
   ChainId
 } from '@thirdweb-dev/react';
+
+import styles from 'styles/modules/header.module.css';
+
 export default function Header() {
   const connectWallet = useMetamask();
   const isOnWrongNetwork = useNetworkMismatch();

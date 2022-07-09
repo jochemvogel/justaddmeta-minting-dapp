@@ -16,7 +16,7 @@
   width: 100%;
   height: 76px;
   padding: 0px 64px;
-  background: #090c12;
+  background: var(--color-black);
 }
 
 .icon {

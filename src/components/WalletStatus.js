@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from 'styles/walletstatus.module.css';
+import styles from 'styles/modules/wallet-status.module.css';
 
 export default function WalletStatus() {
   return (

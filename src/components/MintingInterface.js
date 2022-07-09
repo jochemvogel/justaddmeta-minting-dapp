@@ -11,7 +11,7 @@ import {
 import MintingProgress from 'components/MintingProgress';
 // import gläserPromo from "../public/img/gläserPromo.png";
 
-import styles from 'styles/mintingInterface.module.css';
+import styles from 'styles/modules/minting-interface.module.css';
 
 export default function MintingInterface({ amountMinted, tokenId }) {
   const address = useAddress();
